@@ -1,0 +1,15 @@
+<div class="flex flex-col">
+    <label [attr.for]="id" [id]="labelid" class="mb-2 text-black">{{textInput}}</label>
+    <input 
+    [placeholder]="placeholder" 
+    [class]="classes" 
+    [id]="id" 
+    [type]="type"
+    [ngClass]="{
+        'bg-transparent backdrop-blur-lg focus:outline-none text-white pl-2 rounded border-white': variant === 'forms',
+        'bg-white border-black p-2 outline-none': variant === 'createEvent'
+    }"> 
+</div>
+
+
+  
