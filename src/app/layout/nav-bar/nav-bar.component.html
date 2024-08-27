@@ -1,0 +1,99 @@
+<nav class="container hidden md:block mx-auto">
+  <div
+    class="flex justify-between items-center lg:border-b lg:border-opacity-80 lg:border-[#CCCCCC]"
+  >
+    <!-- Logo -->
+    <img src="{{ logoURL }}" alt="logo" class="h-36 w-36 object-contain" />
+
+    <!-- Menu Principal -->
+    <div class="hidden lg:flex">
+      <ul class="list-none flex font-mont gap-8 text-lg">
+        <li
+          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+        >
+          <img src="{{ home }}" alt="home icon" />Accueil
+        </li>
+        <li
+          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+        >
+          <img src="{{ publish }}" alt="" />Publier votre annonce
+        </li>
+        <li
+          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+        >
+          <img src="{{ heart }}" alt="" />Favoris
+        </li>
+        <li
+          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+        >
+          <img src="{{ notif }}" alt="" />Notifications
+        </li>
+      </ul>
+    </div>
+
+    <!-- Bouton Menu Burger -->
+    <div class="lg:hidden">
+      <button id="burgerMenu" class="text-gray-800 focus:outline-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu déroulant Burger (caché par défaut) -->
+  <div id="menuDropdown" class="hidden lg:hidden">
+    <ul
+      class="list-none font-mont text-lg bg-white shadow-custom border-opacity-80 border-[#CCCCCC] rounded-md p-2"
+    >
+      <li
+        class="flex items-center hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 gap-1 py-2"
+      >
+        <img src="{{ home }}" alt="home icon" />Accueil
+      </li>
+      <li
+        class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ publish }}" alt="" />Publier votre annonce
+      </li>
+      <li
+        class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ heart }}" alt="" />Favoris
+      </li>
+      <li
+        class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ notif }}" alt="" />Notifications
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Menu pour mobile -->
+<div class="md:hidden">
+  <nav
+    class="fixed bottom-0 left-0 w-full bg-white border-t border-[#C9C9C9] rounded-full"
+  >
+    <ul class="flex justify-around p-2">
+      <li class="mt-5"><img src="{{ home }}" alt="home icon" /></li>
+      <li class="mt-5"><img src="{{ notif }}" alt="" /></li>
+      <li class="transform -translate-y-8 p-4 bg-primary rounded-full">
+        <img src="{{ publishNav }}" alt="" />
+      </li>
+      <li class="mt-5"><img src="{{ profile }}" alt="" /></li>
+      <li class="mt-5"><img src="{{ heart }}" alt="" /></li>
+    </ul>
+  </nav>
+</div>
