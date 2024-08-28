@@ -1,0 +1,39 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="flex flex-col">
+    <img
+      src="{{ logoURL }}"
+      alt="logo"
+      class="h-36 w-36 object-contain mb-28"
+    />
+    <div class="flex-col flex">
+      <div class="flex-col flex gap-5">
+        <input
+          placeholder="Email"
+          type="email"
+          id="email"
+          class="bg-transparent max-w-56 h-9 backdrop-blur-lg pl-2 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          formControlName="email"
+        />
+        <input
+          placeholder="Mot de passe"
+          type="password"
+          id="password"
+          class="bg-transparent max-w-56 h-9 backdrop-blur-lg pl-2 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          formControlName="password"
+        />
+      </div>
+      <p
+        style="font-size: 10px"
+        class="mb-7 mt-2 text-white font-mont leading-4"
+      >
+        Je n'ai pas de compte,<span class="underline">je créer mon compte</span>
+      </p>
+      <app-button
+        classes="w-56 h-9"
+        type="submit"
+        variant="primary"
+        text="Se connecter"
+      ></app-button>
+    </div>
+  </div>
+</form>

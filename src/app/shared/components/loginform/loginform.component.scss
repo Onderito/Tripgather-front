@@ -1,0 +1,17 @@
+:host ::ng-deep input:-webkit-autofill {
+    background-color: transparent !important; /* Keeps the background transparent */
+    -webkit-text-fill-color: white !important; /* Ensures autofill text is white */
+    border: 1px solid white !important; /* Applies a white border */
+    transition: background-color 5000s ease-in-out 0s; /* Trick to prevent background color change */
+    box-shadow: 0 0 0px 1000px transparent inset !important; /* Ensures the input field background stays transparent */
+  }
+  
+  :host ::ng-deep input::placeholder {
+    color: white !important; /* Ensures placeholder text is white */
+  }
+  
+  :host ::ng-deep input:-webkit-autofill::first-line {
+    -webkit-text-fill-color: white !important; /* Ensures the placeholder text remains white */
+  }
+  
+  
