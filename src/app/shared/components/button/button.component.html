@@ -1,6 +1,11 @@
-<button [type]="type" [ngClass]="{
-    'bg-primary rounded-md border-0': variant === 'primary',
-    'bg-red rounded-xl border-0': variant === 'danger'
-  }" class="font-bold text-white border-none {{ classes }}">
-    {{ text }}
+<button
+  [type]="type"
+  [ngClass]="{
+    'bg-primary': variant === 'primary',
+    'bg-red': variant === 'danger',
+    'bg-transparent border-2 border-white': variant === 'secondary'
+  }"
+  class="font-bold rounded-xl {{ classes }}"
+>
+  {{ text }}
 </button>
