@@ -12,4 +12,5 @@ import { LoginformComponent } from '../../shared/components/loginform/loginform.
 export class LoginPageComponent {
   imgMobile = '/assets/imgs/homeImgMobile.png';
   tripLogoWhite = 'assets/icons/tripWhite.svg';
+  imgTablette = '/assets/imgs/homeImgTablette.png';
 }

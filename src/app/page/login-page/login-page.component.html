@@ -9,11 +9,16 @@
         src="{{ tripLogoWhite }}"
         alt="tripGather logo"
       />
-      <h2 class="text-white mt-40 font-mono font-semibold text-xl md:text-2xl">
+      <h2 class="text-white mt-28 font-mono font-semibold text-xl md:text-2xl">
         Login
       </h2>
       <app-loginform class="mt-8"></app-loginform>
     </div>
-    <img class="w-full relative z-0" src="{{ imgMobile }}" alt="mobile-img" />
+    <img
+      class="md:hidden w-full h-screen overflow-hidden relative z-0"
+      src="{{ imgMobile }}"
+      alt="mobile-img"
+    />
+    <img src="{{ imgTablette }}" class="hidden md:block w-full h-screen" />
   </div>
 </section>
