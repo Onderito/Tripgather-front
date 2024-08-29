@@ -11,9 +11,16 @@
 @layer reset, primeng;
 
 @layer reset {
-  button {
+  button, 
+  input, 
+  select, 
+  textarea, 
+  .p-dropdown, 
+  .p-dropdown-label, 
+  .p-dropdown-trigger {
     &:focus {
-      box-shadow: none;
+      box-shadow: none !important;
     }
+    box-shadow: none !important; /* Supprimer box-shadow même en dehors du focus */
   }
 }

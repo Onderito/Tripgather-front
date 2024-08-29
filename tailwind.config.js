@@ -21,6 +21,9 @@ module.exports = {
       custom:
         "0 1px 3px 0 rgba(47, 43, 67, .1), inset 0 -1px 0 0 rgba(47, 43, 67, .1)",
     },
+    backgroundImage: {
+      blurImage: "url('/assets/imgs/homeImgBlur.png')",
+    },
   },
   fontSize: {
     // Tailles de police personnalisées

@@ -6,6 +6,10 @@ import { TagModule } from 'primeng/tag';
 import { MenubarModule } from 'primeng/menubar';
 import { TableModule } from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+
+
 
 export const PRIMENG = [
   ButtonModule,
@@ -16,4 +20,6 @@ export const PRIMENG = [
   MenubarModule,
   TableModule,
   InputNumberModule,
+  DropdownModule,
+  CalendarModule
 ];

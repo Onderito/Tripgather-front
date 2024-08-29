@@ -10,7 +10,9 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 })
 export class HomePageComponent {
   homeImg = '/assets/imgs/homeImg.png';
-  homeImgBlur = '/assets/imgs/homeImgBlur.png';
   homeImgMobile = '/assets/imgs/homeImgMobile.png';
+  desktopImg = '/assets/imgs/homeImgTablette.png';
   tripWhite = '/assets/icons/tripWhite.svg';
+  background = '/assets/imgs/background.svg';
+  whiteIcon = '/assets/icons/whiteIcon.svg';
 }

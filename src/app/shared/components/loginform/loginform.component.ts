@@ -16,7 +16,7 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class LoginformComponent {
   public loginForm!: FormGroup;
-  logoURL = '/assets/imgs/trip.svg';
+  logoURL = '/assets/icons/trip.svg';
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
