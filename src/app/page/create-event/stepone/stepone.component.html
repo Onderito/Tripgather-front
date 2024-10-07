@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="sendData()">
+    <div>
+      <input type="text" formControlName="firstname" placeholder="First Name" />
+    </div>
+    <div>
+      <input type="text" formControlName="lastname" placeholder="Last Name" />
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  
