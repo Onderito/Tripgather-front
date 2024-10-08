@@ -1,10 +1,20 @@
-<form [formGroup]="form" (ngSubmit)="sendData()">
-    <div>
-      <input type="text" formControlName="firstname" placeholder="First Name" />
+<app-nav-bar></app-nav-bar>
+<form class="w-full px-24 pt-14" [formGroup]="form" (ngSubmit)="sendData()">
+  <h2 class="text-3xl font-bold font-mont" >Création de votre annonce</h2>
+  <div class="flex w-3/4">
+    <div class="left-part">
+      <p-floatLabel>
+        <input pInputText id="title" formControlName="title" class="w-[100%] h-[40px] border-2 border-gray-400" style="border-width: 0.5px;"/>
+        <label class="text-base font-bold leading-none text-black" for="title">Titre</label> 
+      </p-floatLabel>    
     </div>
-    <div>
-      <input type="text" formControlName="lastname" placeholder="Last Name" />
+    <div class="right-part">
+      <p-floatLabel>
+        <input pInputText id="title" formControlName="title" class="w-[100%] h-[40px] border-2 border-gray-400" style="border-width: 0.5px;"/>
+        <label class="text-base font-bold leading-none text-black" for="title">Titre</label>
+      </p-floatLabel>    
     </div>
-    <button type="submit">Submit</button>
-  </form>
-  
+  </div>
+<button pButton type="submit" label="Submit" [disabled]="form.invalid"></button>
+</form>
+

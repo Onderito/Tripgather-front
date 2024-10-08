@@ -18,8 +18,12 @@ export class SteptwoComponent implements OnInit {
 
   constructor(private formEvent: FormeventService, private router: Router, private fb: FormBuilder) {
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      mdp: ['', Validators.required] 
+      title : ['', [Validators.required]],
+      start: ['', Validators.required],
+      back: ['', Validators.required],
+      budget: ['', Validators.required],
+      nbMenber : ['', Validators.required],
+      gender : ['', Validators.required],
     });
   }
 
