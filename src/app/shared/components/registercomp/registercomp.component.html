@@ -1,6 +1,5 @@
-<form class="ml-10" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="flex flex-col">
-    <img src="{{ logoURL }}" alt="logo" class="h-36 w-36 object-contain mb-8" />
     <div class="flex-col flex">
       <div class="flex-col flex gap-5">
         <p-dropdown
@@ -15,7 +14,7 @@
             color: 'white',
             'border-radius': '0.25rem',
             height: '36px',
-            width: '223px'
+            width: '288px'
           }"
           [panelStyle]="{
             'background-color': 'transparent',
@@ -27,28 +26,28 @@
           placeholder="Prénom"
           type="text"
           id="firstname"
-          class="bg-transparent max-w-56 h-9 backdrop-blur-lg pl-2 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
           formControlName="firstname"
         />
         <input
           placeholder="Nom"
           type="text"
           id="lastname"
-          class="bg-transparent max-w-56 h-9 backdrop-blur-lg pl-2 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
           formControlName="lastname"
         />
         <input
           placeholder="Email"
           type="email"
           id="email"
-          class="bg-transparent max-w-56 h-9 backdrop-blur-lg pl-2 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
           formControlName="email"
         />
         <input
           placeholder="Mot de passe"
           type="password"
           id="password"
-          class="bg-transparent max-w-56 h-9 backdrop-blur-lg pl-2 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
           formControlName="password"
         />
         <p-dropdown
@@ -63,7 +62,7 @@
             color: 'white',
             'border-radius': '0.25rem',
             height: '36px',
-            width: '223px'
+            width: '288px',
           }"
           [panelStyle]="{
             'background-color': 'transparent',
@@ -71,18 +70,15 @@
             color: 'white'
           }"
         />
-        <div class="max-w-60" >
-            <p-calendar formControlName="birthdate"/>
+        <div class="max-w-72">
+          <p-calendar formControlName="birthdate" />
         </div>
       </div>
-      <p
-        style="font-size: 10px"
-        class="mb-7 mt-2 text-white font-mont leading-4"
-      >
-        Je n'ai pas de compte,<span class="underline">je créer mon compte</span>
+      <p class="mb-7 mt-2 text-white font-mont leading-4 text-xs">
+        j'ai déjà un compte,<span class="underline">je me connecte</span>
       </p>
       <app-button
-        classes="w-56 p-2 text-white font-medium text-base"
+        classes=" w-72 p-2 md:p-3 text-white font-medium text-base"
         type="submit"
         variant="primary"
         text="S'inscrire"

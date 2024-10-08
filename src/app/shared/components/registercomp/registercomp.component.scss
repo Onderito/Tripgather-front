@@ -1,153 +1,148 @@
 :host ::ng-deep input:-webkit-autofill {
-    background-color: transparent !important; 
-    -webkit-text-fill-color: white !important; 
-    border: 1px solid white !important; 
-    transition: background-color 5000s ease-in-out 0s; 
-    box-shadow: 0 0 0px 1000px transparent inset !important; 
-  }
-  
-  :host ::ng-deep input::placeholder {
-    color: white !important;
-  }
-  
-  :host ::ng-deep input:-webkit-autofill::first-line {
-    -webkit-text-fill-color: white !important;
-  }
+  background-color: transparent !important;
+  -webkit-text-fill-color: white !important;
+  border: 1px solid white !important;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+}
 
-  :host ::ng-deep .p-dropdown {
-    padding: 0 !important;
-    border: 1px solid white !important;
-    border-radius: 4px !important;
-    color: white !important;
-    height: 36px !important;
-    display: flex !important;
-    align-items: center !important;
-    font-family: 'Montserrat', sans-serif !important; 
-    font-weight: 400 !important;
-    box-shadow: none !important; 
-  }
-  
-  :host ::ng-deep .p-dropdown-label {
-    padding-left: 10px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    height: 100% !important;
-    color: white !important;
-    font-family: 'Montserrat', sans-serif !important; 
-    font-weight: 400 !important; 
-  }
-  
-  :host ::ng-deep .p-dropdown-trigger {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 36px !important;
-    padding: 0 !important;
-    background-color: transparent !important;
-    color: white !important;
-    font-family: 'Montserrat', sans-serif !important; 
-    font-weight: 400 !important; 
-    box-shadow: none !important;
-  }
-  :host ::ng-deep .p-dropdown-panel .p-dropdown-item {
-    height: 36px !important; /* Fixer la hauteur de chaque élément à 36px */
-    display: flex !important;
-    align-items: center !important; /* Centre verticalement le texte */
-    padding-left: 10px !important; /* Assurez-vous que le texte est aligné à gauche */
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 400 !important;
-    color: black !important; /* Couleur du texte pour correspondre à la liste blanche */
-    box-shadow: none !important; /* Supprimer toute ombre */
-  }
-  
-  :host ::ng-deep .p-dropdown-item.p-highlight {
-    background-color: #e0e0e0 !important; /* Couleur de surbrillance pour l'élément sélectionné */
-    color: black !important; /* Assurez-vous que le texte est lisible */
-  }
-  
-  :host ::ng-deep .p-dropdown-panel {
-    background-color: white !important; /* Fond blanc pour la liste déroulante */
-    border: 1px solid white !important;
-    color: black !important;
-  }
+:host ::ng-deep input::placeholder {
+  color: white !important;
+}
 
-  
-  :host ::ng-deep .p-calendar {
-    background-color: transparent !important; /* Fond transparent */
-    border: 1px solid white !important; /* Bordure blanche */
-    border-radius: 0.25rem !important; /* Bordure arrondie */
-    height: 36px !important; /* Hauteur cohérente */
-    width: 223px !important; /* Largeur fixe */
-    color: white !important;
-    display: flex !important;
-    align-items: center !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 400 !important;
-  }
-  
-  :host ::ng-deep .p-inputtext {
-    background-color: transparent !important; /* Fond transparent */
-    border: none !important;
-    color: white !important;
-    padding-left: 10px !important; /* Alignement à gauche */
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 400 !important;
-    height: 100% !important;
-  }
-  
-  :host ::ng-deep .p-datepicker {
-    width: 223px !important; /* Fixer la largeur à 223px */
-    margin: 0 auto !important; /* Centrer horizontalement le calendrier */
-    background-color: white !important;
-    border: 1px solid #e0e0e0 !important;
-    box-shadow: none !important; /* Supprimer les ombrages */
-  }
-  
-  :host ::ng-deep .p-datepicker-header {
-    display: flex !important;
-    justify-content: center !important; /* Centrer le titre du mois */
-    align-items: center !important;
-    padding: 10px 0 !important; /* Espacement vertical */
-    background-color: transparent !important;
-    color: black !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 600 !important;
-  }
-  
-  :host ::ng-deep .p-datepicker-calendar {
-    width: 100% !important; /* S'assurer que le calendrier utilise toute la largeur disponible */
-    table-layout: fixed !important; /* Fixer la largeur des cellules pour les centrer */
-  }
-  
-  :host ::ng-deep .p-datepicker-calendar td {
-    text-align: center !important;
-    padding: 0 !important; /* Retirer tout padding interne */
-  }
-  
-  :host ::ng-deep .p-datepicker-calendar td span {
-    display: flex !important;
-    justify-content: center !important; /* Centrer les jours */
-    align-items: center !important;
-    width: 36px !important;
-    height: 36px !important;
-    line-height: 36px !important; /* Centrer verticalement le texte */
-  }
-  
-  :host ::ng-deep .p-datepicker-today, 
-  :host ::ng-deep .p-highlight {
-    background-color: #e0e0e0 !important; /* Fond pour le jour sélectionné et aujourd'hui */
-    color: black !important;
-  }
-  
-  :host ::ng-deep .p-datepicker-prev,
-  :host ::ng-deep .p-datepicker-next {
-    display: flex;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0 10px !important; /* Égaliser les marges autour des boutons de navigation */
-  }
-  
-  
-  
-  
+:host ::ng-deep input:-webkit-autofill::first-line {
+  -webkit-text-fill-color: white !important;
+}
+
+:host ::ng-deep .p-dropdown {
+  padding: 0 !important;
+  border: 1px solid white !important;
+  border-radius: 4px !important;
+  color: white !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .p-dropdown-label {
+  padding-left: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  height: 100% !important;
+  color: white !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+:host ::ng-deep .p-dropdown-trigger {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  color: white !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+  box-shadow: none !important;
+}
+:host ::ng-deep .p-dropdown-panel .p-dropdown-item {
+  height: 36px !important; /* Fixer la hauteur de chaque élément à 36px */
+  display: flex !important;
+  align-items: center !important; /* Centre verticalement le texte */
+  padding-left: 10px !important; /* Assurez-vous que le texte est aligné à gauche */
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+  color: black !important; /* Couleur du texte pour correspondre à la liste blanche */
+  box-shadow: none !important; /* Supprimer toute ombre */
+}
+
+:host ::ng-deep .p-dropdown-item.p-highlight {
+  background-color: #e0e0e0 !important; /* Couleur de surbrillance pour l'élément sélectionné */
+  color: black !important; /* Assurez-vous que le texte est lisible */
+}
+
+:host ::ng-deep .p-dropdown-panel {
+  background-color: white !important; /* Fond blanc pour la liste déroulante */
+  border: 1px solid white !important;
+  color: black !important;
+}
+
+:host ::ng-deep .p-calendar {
+  background-color: transparent !important; /* Fond transparent */
+  border: 1px solid white !important; /* Bordure blanche */
+  border-radius: 0.25rem !important; /* Bordure arrondie */
+  height: 50px !important; /* Hauteur cohérente */
+  width: 288px !important; /* Largeur fixe */
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+:host ::ng-deep .p-inputtext {
+  background-color: transparent !important; /* Fond transparent */
+  border: none !important;
+  color: white !important;
+  padding-left: 10px !important; /* Alignement à gauche */
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+  height: 100% !important;
+}
+
+:host ::ng-deep .p-datepicker {
+  width: 223px !important; /* Fixer la largeur à 223px */
+  margin: 0 auto !important; /* Centrer horizontalement le calendrier */
+  background-color: white !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: none !important; /* Supprimer les ombrages */
+}
+
+:host ::ng-deep .p-datepicker-header {
+  display: flex !important;
+  justify-content: center !important; /* Centrer le titre du mois */
+  align-items: center !important;
+  padding: 10px 0 !important; /* Espacement vertical */
+  background-color: transparent !important;
+  color: black !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+:host ::ng-deep .p-datepicker-calendar {
+  width: 100% !important; /* S'assurer que le calendrier utilise toute la largeur disponible */
+  table-layout: fixed !important; /* Fixer la largeur des cellules pour les centrer */
+}
+
+:host ::ng-deep .p-datepicker-calendar td {
+  text-align: center !important;
+  padding: 0 !important; /* Retirer tout padding interne */
+}
+
+:host ::ng-deep .p-datepicker-calendar td span {
+  display: flex !important;
+  justify-content: center !important; /* Centrer les jours */
+  align-items: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important; /* Centrer verticalement le texte */
+}
+
+:host ::ng-deep .p-datepicker-today,
+:host ::ng-deep .p-highlight {
+  background-color: #e0e0e0 !important; /* Fond pour le jour sélectionné et aujourd'hui */
+  color: black !important;
+}
+
+:host ::ng-deep .p-datepicker-prev,
+:host ::ng-deep .p-datepicker-next {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 10px !important; /* Égaliser les marges autour des boutons de navigation */
+}
