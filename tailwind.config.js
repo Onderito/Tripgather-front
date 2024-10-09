@@ -19,7 +19,7 @@ module.exports = {
     },
     boxShadow: {
       custom:
-        "0 1px 3px 0 rgba(47, 43, 67, .1), inset 0 -1px 0 0 rgba(47, 43, 67, .1)",
+        "0 1px 4px 0 rgba(47, 43, 67, .1), inset 0 -1px 0 0 rgba(47, 43, 67, .1)",
     },
     backgroundImage: {
       blurImage: "url('/assets/imgs/homeImgBlur.png')",

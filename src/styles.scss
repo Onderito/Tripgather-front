@@ -11,16 +11,26 @@
 @layer reset, primeng;
 
 @layer reset {
-  button, 
-  input, 
-  select, 
-  textarea, 
-  .p-dropdown, 
-  .p-dropdown-label, 
+  button,
+  input,
+  select,
+  textarea,
+  .p-dropdown,
+  .p-dropdown-label,
   .p-dropdown-trigger {
     &:focus {
       box-shadow: none !important;
     }
     box-shadow: none !important; /* Supprimer box-shadow même en dehors du focus */
   }
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }

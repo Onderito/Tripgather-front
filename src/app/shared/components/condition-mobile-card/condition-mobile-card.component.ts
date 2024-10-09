@@ -21,10 +21,10 @@ export class ConditionMobileCardComponent {
     priceRange: string;
     places: string;
   } = {
-    dateRange: '',
-    travelType: '',
-    priceRange: '',
-    places: '',
+    dateRange: '11/07/2024 au 17/07/2024',
+    travelType: 'voyage entre filles',
+    priceRange: '500€ - 1500€',
+    places: '12 places',
   };
 
   constructor() {}
