@@ -12,4 +12,8 @@ export class CategoryCardComponent {
   book: string = 'assets/imgs/book.svg';
   gamepad: string = 'assets/imgs/gamepad.svg';
   music: string = 'assets/imgs/music-circle.svg';
+  artCulture: string = 'assets/imgs/art-culture.svg';
+  hobbies: string = 'assets/imgs/hobbies.svg';
+  spirituality: string = 'assets/imgs/spirituality.svg';
+  socialActivity: string = 'assets/imgs/social-activity.svg';
 }
