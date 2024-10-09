@@ -1,18 +1,20 @@
 <div>
   <ul class="font-lexend text-slate-400 font-extralight flex flex-col gap-2">
     <li class="flex flex-row gap-1">
-      <img src="{{ conditionData.calendar }}" alt="icon calendar" />11/07/2024
-      au 17/07/2024
+      <img [src]="calendar" alt="icon calendar" />
+      {{ conditionData.dateRange }}
     </li>
     <li class="flex flex-row gap-1">
-      <img src="{{ conditionData.female }}" alt="ionc female" />Voyage entre
-      fille
+      <img [src]="female" alt="icon female" />
+      {{ conditionData.travelType }}
     </li>
     <li class="flex flex-row gap-1">
-      <img src="{{ conditionData.money }}" alt="icon money" />500 - 1500 €
+      <img [src]="money" alt="icon money" />
+      {{ conditionData.priceRange }}
     </li>
     <li class="flex flex-row gap-1">
-      <img src="{{ conditionData.users }}" alt="icon user" />12 places
+      <img [src]="users" alt="icon users" />
+      {{ conditionData.places }}
     </li>
   </ul>
 </div>
