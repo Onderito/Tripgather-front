@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="landing-page">
+  <section class="hero flex flex-col md:flex-row justify-between items-center py-16">
+    <div class="hero-text md:w-1/2">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">La plateforme où les centres d'intérêt créent des amitiés.</h1>
+      <p class="text-lg md:text-xl">Quel que soit votre centre d'intérêt, de la randonnée à la lecture en passant par le réseautage et le partage de compétences, il y a des milliers de personnes qui le partagent sur TripGather. Des événements ont lieu tous les jours : inscrivez-vous pour en profiter.</p>
+    </div>
+    <div class="hero-image mt-8 md:mt-0 md:w-1/2">
+      <img src="/assets/imgs/beach.png" alt="Hero Image" class="w-full h-auto">
+    </div>
+  </section>
+
+  <section class="events py-16">
+    <h2 class="text-3xl font-bold mb-8">Récents Evénements sur TripGather</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <app-card *ngFor="let event of events" [event]="event" [categories]="categories"></app-card>
+    </div>
+  </section>
+
+  <section class="categories py-16">
+    <h2 class="text-3xl font-bold mb-8">Découvrir les catégories les plus populaires</h2>
+    <div class="categories-container grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+      <div class="category-item flex flex-col items-center  bg-gray-100 text-center py-2 px-4 rounded" *ngFor="let category of categories">
+        <img [src]="'/assets/imgs/' + category.logo" alt="{{ category.name }} logo" class="w-12 h-12 mb-2">
+        <p class="text-center text-sm">{{ category.name }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stories py-16">
+    <h2 class="text-3xl font-bold mb-8">Les amitiés se nouent sur TripGather</h2>
+    <p>Depuis 2024, les membres utilisent TripGather pour se faire de nouveaux amis, rencontrer des personnes qui leur ressemblent, s'adonner à leurs loisirs et entrer en contact avec les habitants autour de centres d'intérêt communs.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <app-card *ngFor="let story of stories" [story]="story"></app-card>
+    </div>
+  </section>
+</div>
