@@ -1,26 +1,125 @@
 <app-nav-bar></app-nav-bar>
-<form class="w-full px-24 pt-14" [formGroup]="form" (ngSubmit)="sendData()">
-  <h2 class="text-3xl font-bold font-mont" >Création de votre annonce</h2>
-  <div class="flex pt-12 bg-red">
-    <div class="w-6/12 left-part mr-11">
-      <p-floatLabel>
-        <input pInputText id="title" formControlName="title" class="w-full h-[48px] border-2 border-gray-400" style="border-width: 0.5px;"/>
-        <label class="text-base font-medium leading-none text-black " for="title">Titre</label> 
-      </p-floatLabel>    
+<form class="w-full px-24 pt-5 font-mont " [formGroup]="form" (ngSubmit)="sendData()">
+  <h2 class="text-3xl font-bold">Création de votre annonce</h2>
+  <div class="flex pt-5 pb-20 bg-red">
+    <div class="w-6/12 mr-11">
+      <div class="mb-16">
+        <p-floatLabel>
+          <input
+            pInputText
+            id="title"
+            formControlName="title"
+            class="w-2/4 h-[48px] border-2 border-gray-400 min-w-60"
+            style="border-width: 0.5px"
+          />
+          <label
+            class="text-base font-medium leading-none text-black"
+            for="title"
+            >Titre</label
+          >
+        </p-floatLabel>
+      </div>
+      <div class="flex flex-col w-4/12">
+        <div class="flex flex-col gap-12 min-w-52">
+        <p-floatLabel>
+          <p-calendar
+            [showIcon]="true" 
+            [showOnFocus]="false" 
+            [touchUI]="true"
+            [readonlyInput]="true"
+            id="start"
+            formControlName="start"
+            class="calendar-1"
+          ></p-calendar>
+          <label for="start" class="w-full text-base font-medium leading-none text-black">Départ</label>
+        </p-floatLabel>
+        <p-floatLabel>
+          <p-calendar
+            [showIcon]="true" 
+            [showOnFocus]="false" 
+            [touchUI]="true"
+            [readonlyInput]="true"
+            [minDate]="minDateBack"
+            id="back"
+            formControlName="back"
+            class="calendar-2"
+          ></p-calendar>
+          <label for="back" class="text-base font-medium leading-none text-black">Retour</label>
+          <span *ngIf="form.hasError('backBeforeStart')">
+            <p class="text-white">Commencez par choisir la date de départ</p>
+          </span>
+        </p-floatLabel>
+      </div>
+      <div class="flex flex-col gap-12 mt-12">
+          <p-floatLabel>
+            <p-dropdown 
+            class="gender"
+            [options]="gender" 
+            formControlName="gender"
+            />
+          </p-floatLabel>
+        <p-floatLabel>
+          <p-inputNumber
+            id="nbmenber"
+            formControlName="nbMenber"
+            class="h-[48px] w-4/4 min-w-60"
+          />
+          <label
+            class="ml-3 text-base font-medium leading-none text-black"
+            for="title"
+            >Participants</label
+          >
+        </p-floatLabel>
+        <p-floatLabel>
+          <input
+          pInputText
+          id="budget"
+          formControlName="budget"
+          class="w-full h-[48px] border-2 min-w-60 border-gray-400"
+          style="border-width: 0.5px;"
+        />
+        <label
+          class="text-base font-medium leading-none text-black"
+          for="title"
+          >Budget</label
+        >
+      </p-floatLabel>
+      </div>
+      </div>
     </div>
     <div class="w-1/4">
       <p-floatLabel>
-        <input pInputText id="title" formControlName="title" class="w-11/12 h-[48px] border-2 border-gray-400" style="border-width: 0.5px;"/>
-        <label class="text-base font-bold leading-none text-black" for="title">Titre</label>
-      </p-floatLabel>    
+        <input
+          pInputText
+          id="title"
+          formControlName="title"
+          class="w-9/12 h-[48px] border-2 border-gray-400"
+          style="border-width: 0.5px"
+        />
+        <label class="text-base font-bold leading-none text-black" for="title"
+          >Titre</label
+        >
+      </p-floatLabel>
     </div>
     <div class="w-1/4">
       <p-floatLabel>
-        <input pInputText id="title" formControlName="title" class="w-11/12 h-[48px] border-2 border-gray-400" style="border-width: 0.5px;"/>
-        <label class="text-base font-bold leading-none text-black" for="title">Titre</label>
-      </p-floatLabel>    
+        <input
+          pInputText
+          id="title"
+          formControlName="title"
+          class="w-9/12 h-[48px] border-2 border-gray-400"
+          style="border-width: 0.5px"
+        />
+        <label class="text-base font-bold leading-none text-black" for="title"
+          >Titre</label
+        >
+      </p-floatLabel>
     </div>
   </div>
-<button pButton type="submit" label="Submit" [disabled]="form.invalid"></button>
+  <button
+    pButton
+    type="submit"
+    label="Submit"
+    [disabled]="form.invalid"
+  ></button>
 </form>
-
