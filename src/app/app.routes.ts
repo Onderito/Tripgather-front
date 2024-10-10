@@ -8,5 +8,5 @@ export const routes: Routes = [
     {path : 'stepOne', component : SteponeComponent},
     {path : 'stepTwo', component : SteptwoComponent},
     {path : 'stepFinal', component : FinalStepComponent},
-    {path : '', redirectTo : 'stepTwo', pathMatch : 'full'},
+    {path : '', redirectTo : 'stepOne', pathMatch : 'full'},
 ];

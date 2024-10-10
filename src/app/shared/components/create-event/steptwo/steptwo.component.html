@@ -4,6 +4,13 @@
         Création de votre annonce
       </h2>
 
+      <div>
+          <editor
+          apiKey="r5j91v11wxom1d6ailtjpuy28fz67z47y11dh2p1yk5d122m"
+          formControlName="editorContent"
+            [init]="init"
+          />
+      </div>
       
     <div>
         <input type="text" pInput formControlName="email" placeholder="Email" />
@@ -13,3 +20,4 @@
     </div>
     <button type="submit">Submit</button>
 </form>
+

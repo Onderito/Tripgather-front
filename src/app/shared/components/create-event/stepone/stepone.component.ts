@@ -10,6 +10,7 @@ import { NavBarComponent } from '../../../../layout/nav-bar/nav-bar.component.js
 import { ButtonComponent } from '../../button/button.component.js';
 import { FormeventService } from '../../../../core/service/formevent.service.js';
 import { CountryService } from '../../../../core/service/country.service.js';
+import {City} from '../../../../core/interface/city'
 
 @Component({
   selector: 'app-stepone',
@@ -56,21 +57,26 @@ export class SteponeComponent {
   }
 
   // Méthode de recherche avec filtres qui accepte l'événement AutoCompleteCompleteEvent
-  searchCities(query: string): void {
+  async searchCities(query: string): Promise<void> {
     if (query.length < 2) {
       this.filteredCities = []; // Pas de suggestions si moins de 2 caractères
       return;
     }
-
-    const filteredCities = this.countryService.getCities().filter((city: any) =>
-      city.name.toLowerCase().includes(query.toLowerCase())
-    );
-
-    // Ajoute une propriété displayName pour inclure la ville et le code pays
-    this.filteredCities = filteredCities.map((city: { name: any; country: any; }) => ({
-      ...city,
-      displayName: `${city.name} (${city.country})` // Formate pour afficher la ville + code pays
-    }));
+  
+    try {
+      const cities = await this.countryService.getCities();  // Type sécurisé en tant que City[]
+      const filteredCities = cities.filter((city: City) =>
+        city.name.toLowerCase().includes(query.toLowerCase())
+      );
+  
+      // Ajoute une propriété displayName pour inclure la ville et le code pays
+      this.filteredCities = filteredCities.map((city: City) => ({
+        ...city,
+        displayName: `${city.name} (${city.country})` // Formate pour afficher la ville + code pays
+      }));
+    } catch (error) {
+      console.error("Erreur lors de la récupération des villes:", error);
+    }
   }
 
   onCityComplete(event: AutoCompleteCompleteEvent): void {
