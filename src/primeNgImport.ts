@@ -9,6 +9,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 
 
@@ -23,5 +24,6 @@ export const PRIMENG = [
   InputNumberModule,
   DropdownModule,
   CalendarModule,
-  FloatLabelModule
+  FloatLabelModule,
+  AutoCompleteModule
 ];

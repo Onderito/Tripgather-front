@@ -13,4 +13,6 @@ export class ButtonComponent {
   @Input() type: string = 'button'; // Type du bouton
   @Input() classes: string = ''; // Classes CSS supplémentaires
   @Input() variant: 'primary' | 'danger' | 'secondary' = 'primary'; // Choisir un variant de classe
+  @Input() disabled: boolean = false; // Par défaut, le bouton n'est pas désactivé
+
 }
