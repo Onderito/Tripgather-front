@@ -1,0 +1,20 @@
+<div class="m-20">
+  <p-card
+    [style]="{
+      width: '130px',
+      background: '#A5B4FC',
+      border: isGreenBorder ? '2px solid #7CD466' : '2px solid grey'
+    }"
+    (click)="toggleBorder()"
+  >
+    <ng-template pTemplate="header">
+      <div class="relative flex justify-center">
+        <img
+          src="{{ angular }}"
+          style="width: 60px; height: 60px; padding-top: 10px"
+        />
+      </div>
+    </ng-template>
+    <p class="font-semibold text-center text-black font-mont">Music</p>
+  </p-card>
+</div>

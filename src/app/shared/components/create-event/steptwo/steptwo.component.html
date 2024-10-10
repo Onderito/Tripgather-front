@@ -1,23 +1,52 @@
 <app-nav-bar></app-nav-bar>
-<form class="pl-20" [formGroup]="form" (ngSubmit)="sendData()">
-    <h2 class="text-3xl font-bold max-lg:pl-0 max-lg:flex max-lg:justify-center">
-        Création de votre annonce
-      </h2>
-
-      <div>
-          <editor
-          apiKey="r5j91v11wxom1d6ailtjpuy28fz67z47y11dh2p1yk5d122m"
-          formControlName="editorContent"
-            [init]="init"
-          />
+<h2 class="pl-20 text-3xl font-bold mt-9 max-sm:pl-0 max-sm:flex max-lg:justify-center">
+  Création de votre annonce
+</h2>
+<form class="mt-8" [formGroup]="form" (ngSubmit)="sendData()">
+    <div class="grid grid-cols-2 gap-4 mt-9">
+    <div class="container flex flex-col gap-16 pl-10"> <!-- Ajout de 'flex' -->
+  
+      <div class="w-12/12 max-lg:w-12/12">
+        <h3 style="margin-left: 3px; margin-bottom: 5px;" class="ml-1 text-xl font-bold" >Description</h3>
+        <div style="border: 0.5px solid rgb(156, 163, 175); border-radius: 5px; padding: 1px;">
+            <editor
+              apiKey="r5j91v11wxom1d6ailtjpuy28fz67z47y11dh2p1yk5d122m"
+              formControlName="editorContent"
+              [init]="init"
+            ></editor>
+        </div>
       </div>
-      
-    <div>
-        <input type="text" pInput formControlName="email" placeholder="Email" />
+  
+      <p-floatLabel>
+        <input
+          pInputText
+          id="title"
+          formControlName="url"
+          class="w-7/12 max-lg:w-9/12 h-[48px] border-2 p-2 border-gray-400 min-w-60"
+          style="border-width: 0.5px"
+        />
+        <label
+          class="text-base font-medium leading-none text-black"
+          for="title"
+          >Url de l'image</label
+        >
+      </p-floatLabel>
+      <div style="background: black; height: 100%; width: 100%;" >
+      </div>
     </div>
     <div>
-        <input type="password" formControlName="mdp" placeholder="Mot de passe" />
+        <p>COUCOU</p>
     </div>
-    <button type="submit">Submit</button>
-</form>
+    </div>
+    <div class="button-comp" >
+      <app-button  type="submit" 
+      variant="primary" 
+      text="Continuez" 
+      [classes]="'w-48 h-12 p-2'"
+      [disabled]="form.invalid"
+      >
+      </app-button>
+    </div>
+  </form>
+  
 

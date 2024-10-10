@@ -22,7 +22,7 @@ import {City} from '../../../../core/interface/city'
 export class SteponeComponent {
   form: FormGroup;
   minDateBack: Date | null = null;
-  gender: string[] = ['femme', 'homme'];
+  gender: string[] = ['Femme', 'Homme'];
   filteredCities: any[] = []; // Liste filtrée des villes
   test: string = '';
   private searchSubject = new Subject<string>(); // Ajout du Subject pour gérer la recherche
