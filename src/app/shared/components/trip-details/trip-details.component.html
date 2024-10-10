@@ -1,22 +1,22 @@
-<section class="container">
-  <img class="rounded-2xl" [src]="imgOfTrip" alt="image of trip" />
-  <div class="m-4 mt-5 border-b border-[#E8E8E8] flex items-center gap-2 pb-4">
+<section class="lg:max-w-2xl xl:max-w-4xl m-4 lg:m-0">
+  <img
+    class="rounded-2xl lg:max-w-2xl xl:max-w-4xl"
+    [src]="imgOfTrip"
+    alt="image of trip"
+  />
+  <div class="mt-5 border-b border-[#E8E8E8] flex items-center gap-2 pb-4">
     <img [src]="imgOfhost" alt="image of host" />
     <h1>Ulas Önder</h1>
   </div>
-  <div class="flex justify-between items-center m-4">
-    <h2>New York</h2>
+  <div class="flex justify-between items-center">
+    <h2 class="mt-4">New York</h2>
     <app-button
-      classes=" w-fit p-2 md:p-3 text-white font-medium text-md font-lexend"
+      classes=" w-fit p-2 md:p-3 text-white font-medium text-md font-lexend mt-4"
       type="submit"
       variant="primary"
       text="Participer"
     ></app-button>
   </div>
-  <!-- <app-host-profile></app-host-profile>
-  <app-secondary-card></app-secondary-card> -->
-  <span
-    class="border-b border-[#E8E8E8] flex items-center gap-2 pb-2 m-4"
-  ></span>
-  <!-- <app-participants-list-view></app-participants-list-view> -->
+
+  <span class="border-b border-[#E8E8E8] flex items-center gap-2 pb-4"></span>
 </section>
