@@ -38,17 +38,4 @@ export class SteptwoComponent implements OnInit {
       this.router.navigate(['/stepFinal']);
     }
   }
-
-  selectedFont: string = 'Arial';
-selectedFontSize: string = '16px';
-
-changeFont(event: Event) {
-  const target = event.target as HTMLSelectElement;
-  this.selectedFont = target.value;
-}
-
-changeFontSize(event: Event) {
-  const target = event.target as HTMLSelectElement;
-  this.selectedFontSize = target.value;
-}
 }

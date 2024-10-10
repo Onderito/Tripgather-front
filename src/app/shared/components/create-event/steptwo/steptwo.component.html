@@ -4,30 +4,6 @@
         Création de votre annonce
       </h2>
 
-      <div class="mb-4">
-        <label for="fontSelect" class="mr-2">Choisir une police :</label>
-        <select id="fontSelect" (change)="changeFont($event)">
-          <option value="Arial">Arial</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Courier New">Courier New</option>
-        </select>
-      </div>
-      
-      <div class="mb-4">
-        <label for="fontSizeSelect" class="mr-2">Taille de texte :</label>
-        <select id="fontSizeSelect" (change)="changeFontSize($event)">
-          <option value="12px">12px</option>
-          <option value="16px">16px</option>
-          <option value="20px">20px</option>
-        </select>
-      </div>
-      
-      <textarea
-        id="customizableTextarea"
-        [ngStyle]="{'font-family': selectedFont, 'font-size': selectedFontSize}"
-        class="w-full h-64 p-2 border"
-        placeholder="Personnalisez ce texte..."
-      ></textarea>
       
     <div>
         <input type="text" pInput formControlName="email" placeholder="Email" />
