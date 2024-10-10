@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormeventService } from '../../../core/service/formevent.service.js';
+import { FormeventService } from '../../../../core/service/formevent.service.js';
 
 @Component({
   selector: 'app-final-step',
