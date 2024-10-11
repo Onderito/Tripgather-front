@@ -1,23 +1,33 @@
 <app-nav-bar></app-nav-bar>
 <section class="container mx-auto -z-50">
-  <h2 class="text-3xl font-bold mt-9 ">
-    Création de votre annonce
-  </h2>
+  <h2 class="text-3xl font-bold mt-9">Création de votre annonce</h2>
   <form class="mt-8" [formGroup]="form" (ngSubmit)="sendData()">
-      <div class="grid grid-cols-2 gap-4 mt-9">
-      <div class="container flex flex-col gap-16"> <!-- Ajout de 'flex' -->
-    
+    <div class="grid grid-cols-2 gap-4 mt-9">
+      <div class="container flex flex-col gap-16">
+        <!-- Ajout de 'flex' -->
+
         <div class="w-12/12 max-lg:w-12/12">
-          <h3 style="margin-left: 3px; margin-bottom: 5px;" class="ml-1 text-xl font-bold" >Description</h3>
-          <div style="border: 0.5px solid rgb(156, 163, 175); border-radius: 5px; padding: 1px;">
-              <editor
-                apiKey="r5j91v11wxom1d6ailtjpuy28fz67z47y11dh2p1yk5d122m"
-                formControlName="editorContent"
-                [init]="init"
-              ></editor>
+          <h3
+            style="margin-left: 3px; margin-bottom: 5px"
+            class="ml-1 text-xl font-bold"
+          >
+            Description
+          </h3>
+          <div
+            style="
+              border: 0.5px solid rgb(156, 163, 175);
+              border-radius: 5px;
+              padding: 1px;
+            "
+          >
+            <editor
+              apiKey="r5j91v11wxom1d6ailtjpuy28fz67z47y11dh2p1yk5d122m"
+              formControlName="editorContent"
+              [init]="init"
+            ></editor>
           </div>
         </div>
-    
+
         <p-floatLabel>
           <input
             pInputText
@@ -32,25 +42,27 @@
             >Url de l'image</label
           >
         </p-floatLabel>
-        <div style="background: black; height: 100%; width: 100%;" >
-        </div>
+        <div style="background: black; height: 100%; width: 100%"></div>
       </div>
       <div>
-        <h3 class="text-xl font-bold" >Catégories </h3>
+        <h3 class="text-xl font-bold">Catégories</h3>
         <div class="mt-1">
-          <app-create-card-event [data]="data" ></app-create-card-event>
+          <app-create-card-event
+            (clikedCategory)="onCategorySelected($event)"
+            [data]="data"
+          ></app-create-card-event>
         </div>
       </div>
-      </div>
-      <div class="button-comp" >
-        <app-button  type="submit" 
-        variant="primary" 
-        text="Continuez" 
+    </div>
+    <div class="button-comp">
+      <app-button
+        type="submit"
+        variant="primary"
+        text="Continuez"
         [classes]="'w-48 h-12 p-2'"
         [disabled]="form.invalid"
-        >
-        </app-button>
-      </div>
-    </form>
+      >
+      </app-button>
+    </div>
+  </form>
 </section>
-

@@ -1,5 +1,5 @@
 <div class="flex flex-row flex-wrap gap-3">
-  <div *ngFor="let card of data; let i = index">
+  <div (click)="sendCategory(card)" *ngFor="let card of data; let i = index">
     <p-card
       [style]="{
         width: '150px',

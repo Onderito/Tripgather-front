@@ -21,6 +21,9 @@ import { CreateCardEventComponent } from "../../create-card-event/create-card-ev
 export class SteptwoComponent implements OnInit {
   form: FormGroup;
   receivedData: any;
+  selectedCategories: any[] = []; // Stocke les catégories sélectionnées
+  allDatta : any;
+
   @Output() sendScale : EventEmitter<number> = new EventEmitter()
   data: any[] = [
     { catogory: 'music', color: 'rgba(255, 0, 0, 0.2)' }, // red avec 50% d'opacité
@@ -48,10 +51,31 @@ export class SteptwoComponent implements OnInit {
     
   }
 
+    // Méthode pour recevoir les catégories sélectionnées
+    onCategorySelected(category: any) {
+      // Ajouter ou retirer la catégorie sélectionnée
+      if (!this.selectedCategories.includes(category)) {
+        this.selectedCategories.push(category);
+      } else {
+        this.selectedCategories = this.selectedCategories.filter(c => c !== category);
+      }
+      console.log(this.selectedCategories);
+    }
+
+    groupData() {
+      this.allDatta = {
+        ...this.form.value,
+        selectedCategories: this.selectedCategories  
+      };
+    }
+
   sendData() {
     if (this.form.valid) {
-      this.formEvent.setData(this.form.value);
-      this.sendScale.emit();
+      this.groupData()
+      console.log(this.allDatta, 'c moi');
+      
+      // this.formEvent.setData(this.allDatta)
+      // this.sendScale.emit();
     }
   }
   init = {

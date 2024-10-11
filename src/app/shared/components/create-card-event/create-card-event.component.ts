@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PRIMENG } from '../../../../primeNgImport.js';
 
 @Component({
@@ -12,7 +12,9 @@ export class CreateCardEventComponent {
   music: string = 'assets/imgs/music-circle.svg';
   angular: string = '/assets/icons/category/angular.svg';
   isGreenBorders: boolean[] = [];
+  isClicked : any[] = []
 
+  @Output() clikedCategory: EventEmitter<any> = new EventEmitter();
   @Input() data: any;
 
   ngOnInit() {
@@ -24,4 +26,9 @@ export class CreateCardEventComponent {
     // Basculer la valeur de bordure pour l'index correspondant
     this.isGreenBorders[index] = !this.isGreenBorders[index];
   }
+
+  sendCategory(ctgy : any) {
+    // Basculer la valeur de bordure pour l'index correspondant
+    this.clikedCategory.emit(ctgy) 
+   }
 }
