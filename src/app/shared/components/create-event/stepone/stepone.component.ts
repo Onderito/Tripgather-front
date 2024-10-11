@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteCompleteEvent } from 'primeng/autocomplete'; // Import de l'AutoCompleteCompleteEvent
@@ -26,6 +26,7 @@ export class SteponeComponent {
   filteredCities: any[] = []; // Liste filtrée des villes
   test: string = '';
   private searchSubject = new Subject<string>(); // Ajout du Subject pour gérer la recherche
+  @Output() sendScale : EventEmitter<number> = new EventEmitter()
 
   constructor(
     private formEvent: FormeventService,
@@ -102,7 +103,7 @@ export class SteponeComponent {
   sendData() {
     if (this.form.valid) {
       this.formEvent.setData(this.form.value);
-      this.router.navigate(['/stepTwo']);
+      this.sendScale.emit();
     }
   }
 }

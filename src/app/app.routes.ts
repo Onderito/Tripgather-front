@@ -3,6 +3,7 @@ import { SteponeComponent } from './shared/components/create-event/stepone/stepo
 import { SteptwoComponent } from './shared/components/create-event/steptwo/steptwo.component.js';
 import { FinalStepComponent } from './shared/components/create-event/final-step/final-step.component.js';
 import { CreateCardEventComponent } from './shared/components/create-card-event/create-card-event.component.js';
+import { CreateeventPageComponent } from './page/createevent-page/createevent-page.component.js';
 
 
 export const routes: Routes = [
@@ -10,5 +11,6 @@ export const routes: Routes = [
     {path : 'stepTwo', component : SteptwoComponent},
     {path : 'stepFinal', component : FinalStepComponent},
     {path : 'test', component : CreateCardEventComponent},
-    {path : '', redirectTo : 'test', pathMatch : 'full'},
+    {path : 'event', component : CreateeventPageComponent},
+    {path : '', redirectTo : 'event', pathMatch : 'full'},
 ];

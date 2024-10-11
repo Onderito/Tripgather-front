@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormeventService } from '../../../../core/service/formevent.service.js';
 
 @Component({
@@ -10,6 +10,7 @@ import { FormeventService } from '../../../../core/service/formevent.service.js'
 })
 export class FinalStepComponent {
   receivedData : any
+  @Input() scale : number = 0
 constructor(private formEvent : FormeventService) {}
 
   ngOnInit() {
