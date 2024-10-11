@@ -26,13 +26,13 @@ export class SteptwoComponent implements OnInit {
 
   @Output() sendScale : EventEmitter<number> = new EventEmitter()
   data: any[] = [
-    { catogory: 'music', color: 'rgba(255, 0, 0, 0.2)' }, // red avec 50% d'opacité
-    { catogory: 'art & culture', color: 'rgba(0, 0, 255, 0.2)' }, // blue avec 50% d'opacité
-    { catogory: 'social activities', color: 'rgba(0, 128, 0, 0.2)' }, // green avec 50% d'opacité
-    { catogory: 'hobbies & passion', color: 'rgba(255, 165, 0, 0.2)' }, // orange avec 50% d'opacité
-    { catogory: 'Sport', color: 'rgba(128, 0, 128, 0.2)' }, // purple avec 50% d'opacité
-    { catogory: 'Livre', color: 'rgba(255, 255, 0, 0.2)' }, // yellow avec 50% d'opacité
-    { catogory: 'Religion', color: 'rgba(255, 192, 203, 0.2)' } // pink avec 50% d'opacité
+    { catogory: 'music', color: 'rgba(255, 0, 0, 0.1)' }, // red avec 50% d'opacité
+    { catogory: 'art & culture', color: 'rgba(0, 0, 255, 0.1)' }, // blue avec 50% d'opacité
+    { catogory: 'social activities', color: 'rgba(0, 128, 0, 0.1)' }, // green avec 50% d'opacité
+    { catogory: 'hobbies & passion', color: 'rgba(255, 165, 0, 0.1)' }, // orange avec 50% d'opacité
+    { catogory: 'Sport', color: 'rgba(128, 0, 128, 0.1)' }, // purple avec 50% d'opacité
+    { catogory: 'Livre', color: 'rgba(255, 255, 0, 0.1)' }, // yellow avec 50% d'opacité
+    { catogory: 'Religion', color: 'rgba(255, 192, 203, 0.1)' } // pink avec 50% d'opacité
   ];
   
 
