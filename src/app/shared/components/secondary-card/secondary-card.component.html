@@ -1,9 +1,27 @@
-<section class="flex justify-center">
+<section class="flex justify-center m-4 lg:m-0">
   <div
-    class="flex flex-col gap-6 bg-white shadow-custom w-fit pl-4 pr-8 pt-4 pb-4 rounded-lg"
+    class="flex flex-col gap-3 bg-white shadow-custom w-full xl:w-80 rounded-lg p-2 lg:p-3 xl:p-4"
   >
     <app-condition-mobile-card></app-condition-mobile-card>
     <app-condition-desktop-card></app-condition-desktop-card>
-    <app-category-card [icons]="[]" [colors]="[]"></app-category-card>
+    <app-category-card
+      [icons]="[
+        { imgSrc: 'assets/imgs/ball.svg', altText: 'icon ball' },
+        { imgSrc: 'assets/imgs/music-circle.svg', altText: 'icon music' },
+        { imgSrc: 'assets/imgs/book.svg', altText: 'icon book' },
+        { imgSrc: 'assets/imgs/gamepad.svg', altText: 'icon gamepad' }
+      ]"
+      [colors]="[
+        '#74B4FF20',
+        '#A5B4FC20',
+        '#FFCD8120',
+        '#F8717120',
+        '#34D39920',
+        '#FB923C20',
+        '#A78BFA20',
+        '#60A5FA20'
+      ]"
+      >></app-category-card
+    >
   </div>
 </section>
