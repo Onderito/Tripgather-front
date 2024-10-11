@@ -73,9 +73,8 @@ export class SteptwoComponent implements OnInit {
     if (this.form.valid) {
       this.groupData()
       console.log(this.allDatta, 'c moi');
-      
-      // this.formEvent.setData(this.allDatta)
-      // this.sendScale.emit();
+       this.formEvent.setData(this.allDatta)
+      this.sendScale.emit();
     }
   }
   init = {

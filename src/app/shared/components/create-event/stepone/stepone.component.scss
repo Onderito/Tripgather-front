@@ -5,7 +5,7 @@
   :host ::ng-deep .p-calendar {
     background-color: #7CD466;
     border-radius: 10px;
-    width: 200px;
+    width: 100%;
   }
   :host ::ng-deep .calendar-1 .p-inputtext {
     border-right: none;
@@ -29,7 +29,7 @@
   
   :host ::ng-deep .gender .p-inputtext{
     border: white;
-    min-width: 190px;
+    min-width: 150px;
     padding-top: 12px;
     font-weight: 400;
 
@@ -60,14 +60,14 @@
     :host ::ng-deep .city .p-inputtext {
       width: 242px;
     }
-    .city {
-      margin-left: 40px;
-    }
+    // .city {
+    //   margin-left: 40px;
+    // }
   }
   @media (max-width: 641px) {
-    .city {
-      margin-left: 10px;
-    }
+    // .city {
+    //   margin-left: 10px;
+    // }
   }
   
   @media (max-width: 900px) {
