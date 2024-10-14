@@ -1,16 +1,10 @@
 <div>
   <ul class="flex flex-row gap-3">
-    <li class="p-2 rounded-full bg-[#D5D5D5]/20 border border-[#E8E8E8]">
-      <img [src]="conditionData.calendar" alt="icon calendar" />
-    </li>
-    <li class="p-2 rounded-full bg-[#D5D5D5]/20 border border-[#E8E8E8]">
-      <img [src]="conditionData.female" alt="icon female" />
-    </li>
-    <li class="p-2 rounded-full bg-[#D5D5D5]/20 border border-[#E8E8E8]">
-      <img [src]="conditionData.money" alt="icon money" />
-    </li>
-    <li class="p-2 rounded-full bg-[#D5D5D5]/20 border border-[#E8E8E8]">
-      <img [src]="conditionData.users" alt="icon users" />
+    <li
+      class="p-2 rounded-full bg-[#D5D5D5]/20 border border-[#E8E8E8]"
+      *ngFor="let icon of icons"
+    >
+      <img [src]="icon.imgSrc" alt="icon calendar" />
     </li>
   </ul>
 </div>

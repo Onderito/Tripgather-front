@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { ConditionCardDataService } from '../../../core/service/condition-card-data.service';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-condition-desktop-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './condition-desktop-card.component.html',
   styleUrl: './condition-desktop-card.component.scss',
 })
 export class ConditionDesktopCardComponent {
-  constructor(public conditionData: ConditionCardDataService) {}
+  @Input() icons: { imgSrc: string }[] = [];
+  constructor() {}
 }
