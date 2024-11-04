@@ -1,16 +1,8 @@
 <div>
   <ul class="flex gap-3">
-    <li class="bg-[#74B4FF]/20 p-2 rounded-full">
-      <img src="{{ ball }}" alt="icon ball" />
-    </li>
-    <li class="bg-[#A5B4FC]/20 p-2 rounded-full">
-      <img src="{{ music }}" alt="icon book" />
-    </li>
-    <li class="bg-[#FFCD81]/20 p-2 rounded-full">
-      <img src="{{ book }}" alt="icon gamepad" />
-    </li>
-    <li class="bg-[#F87171]/20 p-2 rounded-full">
-      <img src="{{ gamepad }}" alt="icon music" />
+    <li *ngFor="let categories of category" class="p-2 rounded-full relative hover-item" [style.background]="categories.color">
+      <img src="{{ categories.url }}" alt="icon {{ categories.category }}" />
+      <span class="hover-tooltip">{{ categories.category }}</span>
     </li>
   </ul>
 </div>

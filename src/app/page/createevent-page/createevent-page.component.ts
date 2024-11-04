@@ -4,11 +4,12 @@ import { SteptwoComponent } from "../../shared/components/create-event/steptwo/s
 import { FinalStepComponent } from "../../shared/components/create-event/final-step/final-step.component";
 import { CommonModule } from '@angular/common';
 import { FormeventService } from '../../core/service/formevent.service.js';
+import { NavBarComponent } from "../../layout/nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-createevent-page',
   standalone: true,
-  imports: [SteponeComponent, SteptwoComponent, FinalStepComponent,CommonModule],
+  imports: [SteponeComponent, SteptwoComponent, FinalStepComponent, CommonModule, NavBarComponent],
   templateUrl: './createevent-page.component.html',
   styleUrl: './createevent-page.component.scss'
 })
@@ -22,7 +23,7 @@ export class CreateeventPageComponent {
     });
   }
   receiveScale() {
-    this.scale += 1;
+    this.scale -= 1;
   }
   
 
