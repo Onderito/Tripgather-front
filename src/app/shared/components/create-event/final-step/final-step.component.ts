@@ -13,7 +13,7 @@ import { DetailEventComponent } from '../../detail-event/detail-event.component'
 export class FinalStepComponent {
   receivedData: any;
   fakeData: any = {
-    title: 'title for event data',
+    title: 'Australie, séjour en moto',
     start: "Fri Oct 11 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     back: "Sat Oct 12 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     budget: 3,
@@ -26,7 +26,8 @@ export class FinalStepComponent {
       lng: '-65.46704',
       name: 'Tumbaya',
     },
-    editorContent: '<p>editor content data</p>',
+    editorContent:
+      'Venez passer un bon moment avec moi et mes  amis en Australie. Au programme, balade en moto et plus !  ',
     gender: 'Femme',
     nbMember: 2,
     selectedCategories: [
@@ -51,7 +52,7 @@ export class FinalStepComponent {
         url: 'assets/imgs/gamepad.svg',
       },
     ],
-    url: 'assets/imgs/homeImg.png',
+    url: 'assets/imgs/travel-final-step.svg',
   };
   @Input() scale: number = 0;
 
