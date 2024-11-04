@@ -9,5 +9,6 @@ import { NotificationRequestComponent } from '../../shared/components/notificati
   styleUrl: './notification-page.component.scss',
 })
 export class NotificationPageComponent {
+  notification: string = 'assets/icons/notification.svg';
   ngOnInit() {}
 }

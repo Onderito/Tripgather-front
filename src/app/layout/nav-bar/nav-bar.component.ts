@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.scss',
 })
 export class NavBarComponent {
-  logoURL = '/assets/imgs/trip.svg';
+  logoURL = '/assets/icons/trip.svg';
   heart = '/assets/icons/heart.svg';
   home = '/assets/icons/home.svg';
   notif = '/assets/icons/notif.svg';

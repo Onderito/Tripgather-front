@@ -3,11 +3,18 @@ import { RouterOutlet } from '@angular/router';
 import { PRIMENG } from '../primeNgImport';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NotificationPageComponent } from './page/notification-page/notification-page.component';
+import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PRIMENG, FooterComponent, NotificationPageComponent],
+  imports: [
+    RouterOutlet,
+    PRIMENG,
+    FooterComponent,
+    NotificationPageComponent,
+    NavBarComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
