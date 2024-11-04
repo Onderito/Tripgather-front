@@ -10,8 +10,4 @@ import { Component, Input } from '@angular/core';
 })
 export class CategoryCardComponent {
   @Input() category : any[] = []
-  // ball: string = 'assets/imgs/ball.svg';
-  // book: string = 'assets/imgs/book.svg';
-  // gamepad: string = 'assets/imgs/gamepad.svg';
-  // music: string = 'assets/imgs/music-circle.svg';
 }

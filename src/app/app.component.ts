@@ -4,11 +4,19 @@ import { PRIMENG } from '../primeNgImport';
 import { FooterComponent } from './layout/footer/footer.component';
 import { LoginformComponent } from "./shared/components/loginform/loginform.component";
 import { HomePageComponent } from "./page/home-page/home-page.component";
+import { NotificationPageComponent } from './page/notification-page/notification-page.component';
+import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PRIMENG, FooterComponent, LoginformComponent, HomePageComponent],
+  imports: [
+    RouterOutlet,
+    PRIMENG,
+    FooterComponent,
+    NotificationPageComponent,
+    NavBarComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

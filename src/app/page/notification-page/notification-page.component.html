@@ -1,0 +1,19 @@
+<section class="flex flex-col justify-center items-center md:mt-20">
+  <div class="md:w-full md:max-w-5xl">
+    <div class="flex items-center space-x-2">
+      <h1 class="hidden md:block text-left">Mes notifications</h1>
+      <img
+        src="{{ notification }}"
+        alt="notification"
+        class="hidden md:block h-10 w-10"
+      />
+    </div>
+
+    <div
+      class="border border-[#ffffff] rounded-lg h-96 md:border md:border-[#DDDDDD] md:mt-10"
+    >
+      <app-notification-request></app-notification-request>
+      <app-notification-request></app-notification-request>
+    </div>
+  </div>
+</section>
