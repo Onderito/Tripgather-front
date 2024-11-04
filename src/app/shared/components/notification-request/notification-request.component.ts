@@ -5,8 +5,13 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './notification-request.component.html',
-  styleUrl: './notification-request.component.scss'
+  styleUrl: './notification-request.component.scss',
 })
 export class NotificationRequestComponent {
+  pseudo: string = '';
+  vacances: string = '';
 
+  ngOnInit(): void {
+    (this.pseudo = 'Ulas Önder'), (this.vacances = 'Australie, séjour en moto');
+  }
 }
