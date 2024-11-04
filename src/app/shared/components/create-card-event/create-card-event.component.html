@@ -1,0 +1,23 @@
+<div class="flex flex-row flex-wrap gap-3">
+  <div (click)="sendCategory(card)" *ngFor="let card of data; let i = index">
+    <p-card
+      [style]="{
+        width: '150px',
+        height : '140px',
+        background: card.color,
+        border: isGreenBorders[i] ? '2px solid black' : '2px solid grey'
+      }"
+      (click)="toggleBorder(i)"
+    >
+      <ng-template pTemplate="header">
+        <div class="relative flex justify-center">
+          <img
+            src="{{ angular }}"
+            style="width: 60px; height: 60px; padding-top: 10px"
+          />
+        </div>
+      </ng-template>
+      <p class="text-sm font-medium text-center text-black font-mont">{{ card.catogory }}</p>
+    </p-card>
+  </div>
+</div>

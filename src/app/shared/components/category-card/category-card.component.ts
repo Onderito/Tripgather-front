@@ -9,6 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './category-card.component.scss',
 })
 export class CategoryCardComponent {
-  @Input() icons: { imgSrc: string; altText: string }[] = [];
-  @Input() colors: string[] = [];
+  @Input() category : any[] = []
 }

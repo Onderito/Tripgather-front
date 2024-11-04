@@ -1,0 +1,91 @@
+:host ::ng-deep .p-inputtext {
+    height: 48px;
+    border: 0.5px solid black;
+  }
+  :host ::ng-deep .p-calendar {
+    background-color: #7CD466;
+    border-radius: 10px;
+    width: 100%;
+  }
+  :host ::ng-deep .calendar-1 .p-inputtext {
+    border-right: none;
+  }
+  
+  :host ::ng-deep .calendar-2 .p-inputtext {
+    border-right: none;
+  }
+  :host ::ng-deep .p-calendar .p-datepicker-trigger .pi {
+    color: #ff5722 !important;
+  }
+  
+
+:host ::ng-deep .p-inputnumber .p-inputnumber-button {
+    margin: 0 8px;
+  }
+  
+  :host ::ng-deep .p-inputtext {
+    padding: 8px; 
+  }
+  
+  :host ::ng-deep .gender .p-inputtext{
+    border: white;
+    min-width: 150px;
+    padding-top: 12px;
+    font-weight: 400;
+
+  }
+
+  :host ::ng-deep .p-dropdown {
+    border: 1px solid black;
+    margin-bottom: 55px;
+  }
+
+  ::ng-deep .p-dropdown-label {
+    color: rgb(0, 0, 0) !important;
+    font-weight: 500;
+    
+  }
+  :host ::ng-deep .city .p-inputtext {
+    width: 550px;
+  }
+
+
+  @media (max-width: 1400px) {
+    :host ::ng-deep .city .p-inputtext {
+      width: 350px;
+    }
+  }
+  
+  @media (max-width: 950px) {
+    :host ::ng-deep .city .p-inputtext {
+      width: 242px;
+    }
+    // .city {
+    //   margin-left: 40px;
+    // }
+  }
+  @media (max-width: 641px) {
+    // .city {
+    //   margin-left: 10px;
+    // }
+  }
+  
+  @media (max-width: 900px) {
+    :host ::ng-deep form {
+      display: block;
+    }
+  
+    :host ::ng-deep .grid {
+      display: block;
+    }
+  }
+
+ .button-comp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 105px; 
+  color: rgb(255, 255, 255);
+  z-index: 1;
+ } 

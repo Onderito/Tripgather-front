@@ -1,0 +1,10 @@
+<app-nav-bar></app-nav-bar>
+<div *ngIf="scale === 3" >
+    <app-stepone (sendScale)="receiveScale()" ></app-stepone>
+</div>
+<div *ngIf="scale === 2" >
+    <app-steptwo (sendScale)="receiveScale()"  ></app-steptwo>
+</div>
+<div *ngIf="scale === 1" >
+    <app-final-step></app-final-step>
+</div>

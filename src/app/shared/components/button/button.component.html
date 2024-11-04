@@ -1,11 +1,14 @@
 <button
-  [type]="type"
-  [ngClass]="{
-    'bg-primary': variant === 'primary',
-    'bg-red': variant === 'danger',
-    'bg-transparent border-2 border-white': variant === 'secondary'
-  }"
-  class="font-bold rounded-lg {{ classes }}"
+[type]="type"
+[ngClass]="{
+  'bg-green-500 text-white opacity-60 cursor-not-allowed': disabled, 
+  'bg-primary text-white': !disabled,
+  'bg-primary': variant === 'primary' && !disabled,
+  'bg-red': variant === 'danger' && !disabled,
+  'bg-primary border-2 border-white': variant === 'secondary' && !disabled
+}"
+[disabled]="disabled"
+class="font-bold rounded-lg {{ classes }}"
 >
-  {{ text }}
+{{ text }}
 </button>

@@ -1,0 +1,18 @@
+<!-- <div>
+    <p>{{receivedData.title}}</p>
+</div> -->
+<section class="resume-container" >
+    <div class="header">
+        <img src={{fakeData.url}} alt={{fakeData.url}}>
+    </div>
+    <div class="content">
+        <h2>{{fakeData.title}}</h2>
+        <p [innerHTML]="fakeData.editorContent"></p>
+        <div class="icon-container">
+            <app-category-card [category]="fakeData.selectedCategories" ></app-category-card>
+        </div>
+        <div>
+            <app-detail-event [detail]="fakeData"></app-detail-event>
+        </div>
+    </div>
+</section>

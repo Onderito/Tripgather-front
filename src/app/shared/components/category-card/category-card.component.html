@@ -1,11 +1,8 @@
 <div>
   <ul class="flex gap-3">
-    <li
-      *ngFor="let icon of icons; let i = index"
-      [ngClass]="{ 'bg-[#74B4FF]/20 p-2 rounded-full': true }"
-      [style.background-color]="colors[i]"
-    >
-      <img [src]="icon.imgSrc" [alt]="icon.altText" />
+    <li *ngFor="let categories of category" class="p-2 rounded-full relative hover-item" [style.background]="categories.color">
+      <img src="{{ categories.url }}" alt="icon {{ categories.category }}" />
+      <span class="hover-tooltip">{{ categories.category }}</span>
     </li>
   </ul>
 </div>
