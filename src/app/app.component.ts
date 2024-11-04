@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PRIMENG } from '../primeNgImport';
 import { FooterComponent } from './layout/footer/footer.component';
-import { SelectedPageComponent } from './page/selected-page/selected-page.component';
+import { NotificationPageComponent } from './page/notification-page/notification-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PRIMENG, FooterComponent, SelectedPageComponent],
+  imports: [RouterOutlet, PRIMENG, FooterComponent, NotificationPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
