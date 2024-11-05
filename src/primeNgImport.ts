@@ -12,6 +12,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CardModule } from 'primeng/card';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import {SliderModule} from 'primeng/slider';
 
 export const PRIMENG = [
   ButtonModule,
@@ -27,5 +28,6 @@ export const PRIMENG = [
   FloatLabelModule,
   AutoCompleteModule,
   CardModule,
-  InputSwitchModule
+  InputSwitchModule,
+  SliderModule
 ];
