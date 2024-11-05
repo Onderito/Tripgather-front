@@ -1,0 +1,29 @@
+<section class="w-80 mx-auto min-h-screen flex justify-center items-center">
+  <div class="flex flex-col gap-4 shadow-custom p-3 rounded-md">
+    <div>
+      <img
+        class="rounded-xl"
+        src="{{ fakeData.url }}"
+        alt="{{ fakeData.url }}"
+      />
+    </div>
+    <div class="flex flex-col gap-4 mb-2">
+      <h2 class="text-xl font-semibold">{{ fakeData.title }}</h2>
+      <p class="font-extralight font-lexend text-center text-xs md:text-sm lg:text-md text-[#A3A0A0]" [innerHtml]="fakeData.editorContent"></p>
+    </div>
+    <div class="flex flex-col items-center gap-4">
+      <app-detail-event class="mb-2" [detail]="fakeData"></app-detail-event>
+    </div>
+    <div class="flex flex-col items-center gap-4">
+      <app-category-card
+        [category]="fakeData.selectedCategories"
+      ></app-category-card>
+      <app-button
+        [text]="'Je réserve'"
+        [type]="'button'"
+        [variant]="'secondary'"
+        [classes]="'w-80 h-12 p-2'"
+      ></app-button>
+    </div>
+  </div>
+</section>
