@@ -6,13 +6,12 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
   @Input() text: string = 'Button'; // Texte du bouton
   @Input() type: string = 'button'; // Type du bouton
-  @Input() classes: string = ''; // Classes CSS supplémentaires
-  @Input() variant: 'primary' | 'danger' | 'secondary' = 'primary'; // Choisir un variant de classe
-  @Input() disabled: boolean = false; // Par défaut, le bouton n'est pas désactivé
-
+  @Input() disabled: boolean = false; // Désactiver le bouton
+  @Input() variant: 'primary' | 'danger' | 'outline' = 'primary'; // Variante du bouton
+  @Input() sizeClasses: string = ''; // Classes de taille personnalisées
 }
