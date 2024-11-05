@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
+import { DetailEventComponent } from '../detail-event/detail-event.component';
 import { CategoryCardComponent } from '../category-card/category-card.component';
-import { ConditionMobileCardComponent } from '../condition-mobile-card/condition-mobile-card.component';
-import { ConditionDesktopCardComponent } from '../condition-desktop-card/condition-desktop-card.component';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'app-secondary-card',
+  selector: 'app-main-card',
   standalone: true,
-  imports: [
-    CategoryCardComponent,
-    ConditionMobileCardComponent,
-    ConditionDesktopCardComponent,
-  ],
-  templateUrl: './secondary-card.component.html',
-  styleUrl: './secondary-card.component.scss',
+  imports: [DetailEventComponent,CategoryCardComponent,ButtonComponent],
+  templateUrl: './main-card.component.html',
+  styleUrl: './main-card.component.scss'
 })
-export class SecondaryCardComponent {
+export class MainCardComponent {
   fakeData: any = {
-    title: 'title for event data',
+    title: 'Australie, séjour en moto',
     start: "Fri Oct 11 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     back: "Sat Oct 12 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     budget: 3,
@@ -29,7 +25,7 @@ export class SecondaryCardComponent {
       lng: '-65.46704',
       name: 'Tumbaya',
     },
-    editorContent: '<p>editor content data</p>',
+    editorContent: '<p>Venez passer un bon moment avec moi et mes amis en Australie. Au programme, balade en moto et plus !</p>',
     gender: 'Femme',
     nbMember: 2,
     selectedCategories: [
