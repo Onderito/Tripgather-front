@@ -3,11 +3,15 @@
 >
   <img src="{{ garbage }}" alt="garbage icon " />
   <p class="text-center">
-    Vouslez-vous vraiment supprimer <br />
+    Voulez-vous vraiment supprimer <br />
     votre compte ?
   </p>
-  <div class="flex">
-    <app-button [text]="'Annuler'" [variant]="'outline'"></app-button>
+  <div class="flex gap-10 my-4">
+    <app-button
+      [sizeClasses]="'font-medium '"
+      [text]="'Annuler'"
+      [variant]="'outline'"
+    ></app-button>
     <app-button [text]="'Confirmer'" [variant]="'danger'"></app-button>
   </div>
 </div>
