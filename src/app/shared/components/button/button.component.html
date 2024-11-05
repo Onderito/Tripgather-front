@@ -1,14 +1,14 @@
 <button
-[type]="type"
-[ngClass]="{
-  'bg-green-500 text-white opacity-60 cursor-not-allowed': disabled, 
-  'bg-primary text-white': !disabled,
-  'bg-primary': variant === 'primary' && !disabled,
-  'bg-red': variant === 'danger' && !disabled,
-  'bg-primary border-2 border-white': variant === 'secondary' && !disabled
-}"
-[disabled]="disabled"
-class="font-bold rounded-lg {{ classes }}"
+  [type]="type"
+  [ngClass]="[
+    'font-bold py-2 px-4 rounded-lg transition-all duration-300',
+    variant === 'primary' ? 'bg-primary text-white' : '',
+    variant === 'danger' ? 'bg-red text-white' : '',
+    variant === 'outline' ? 'bg-white text-black border border-gray-300' : '',
+    disabled ? 'opacity-60 cursor-not-allowed' : '',
+    sizeClasses
+  ]"
+  [disabled]="disabled"
 >
-{{ text }}
+  {{ text }}
 </button>
