@@ -7,7 +7,6 @@ import { HomePageComponent } from './page/home-page/home-page.component';
 import { NotificationPageComponent } from './page/notification-page/notification-page.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { MainCardComponent } from './shared/components/main-card/main-card.component';
-import { ProfileSettingsComponent } from './shared/modal/profile-settings/profile-settings.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,6 @@ import { ProfileSettingsComponent } from './shared/modal/profile-settings/profil
     NotificationPageComponent,
     NavBarComponent,
     MainCardComponent,
-    ProfileSettingsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
