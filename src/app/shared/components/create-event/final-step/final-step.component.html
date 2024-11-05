@@ -2,16 +2,16 @@
     <p>{{receivedData.title}}</p>
 </div> -->
 <section
-  class="flex flex-col justify-center items-center mt-10 shadow-custom max-w-xs md:max-w-md m-auto rounded-lg pb-4 md:pb-6"
+  class="flex flex-col justify-center items-center mt-44 md:mt-14 shadow-custom max-w-xs md:max-w-lg m-auto rounded-lg pb-4 md:pb-6 relative"
 >
   <img
-    class="max-w-[22rem] md:max-w-lg pb-4"
+    class="max-w-[22rem] md:max-w-xl pb-4"
     src="{{ fakeData.url }}"
     alt="{{ fakeData.url }}"
   />
 
   <div class="flex flex-col justify-center items-center">
-    <h2 class="font-semibold md:text-lg lg:text-xl">{{ fakeData.title }}</h2>
+    <h2 class="font-semibold md:text-lg lg:text-2xl">{{ fakeData.title }}</h2>
     <p
       class="mt-2 font-extralight font-lexend text-center text-xs md:text-sm lg:text-md text-[#A3A0A0]"
       [innerHTML]="fakeData.editorContent"
@@ -24,3 +24,8 @@
     </div>
   </div>
 </section>
+<img
+  class="hidden md:block md:absolute bottom-0 right-0"
+  src="{{ blob }}"
+  alt="{{ blob }}"
+/>
