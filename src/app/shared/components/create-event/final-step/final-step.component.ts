@@ -2,18 +2,20 @@ import { Component, Input } from '@angular/core';
 import { FormeventService } from '../../../../core/service/formevent.service.js';
 import { CategoryCardComponent } from '../../category-card/category-card.component';
 import { DetailEventComponent } from '../../detail-event/detail-event.component';
+import { ButtonComponent } from '../../button/button.component';
 
 @Component({
   selector: 'app-final-step',
   standalone: true,
-  imports: [CategoryCardComponent, DetailEventComponent],
+  imports: [CategoryCardComponent, DetailEventComponent, ButtonComponent],
   templateUrl: './final-step.component.html',
   styleUrl: './final-step.component.scss',
 })
 export class FinalStepComponent {
   receivedData: any;
+  blob: string = 'assets/blob/blob.svg';
   fakeData: any = {
-    title: 'title for event data',
+    title: 'Australie, séjour en moto',
     start: "Fri Oct 11 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     back: "Sat Oct 12 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     budget: 3,
@@ -26,32 +28,33 @@ export class FinalStepComponent {
       lng: '-65.46704',
       name: 'Tumbaya',
     },
-    editorContent: '<p>editor content data</p>',
+    editorContent:
+      'Venez passer un bon moment avec moi et mes  amis en Australie. Au programme, balade en moto et plus !  ',
     gender: 'Femme',
     nbMember: 2,
     selectedCategories: [
       {
-        category: 'music',
+        category: 'Music',
         color: 'rgba(255, 0, 0, 0.1)',
         url: 'assets/imgs/music-circle.svg',
       },
       {
-        category: 'art & culture',
+        category: 'Art & culture',
         color: 'rgba(0, 0, 255, 0.1)',
         url: 'assets/imgs/book.svg',
       },
       {
-        category: 'social activities',
+        category: 'Social activities',
         color: 'rgba(0, 128, 0, 0.1)',
         url: 'assets/imgs/gamepad.svg',
       },
       {
-        category: 'social activities',
+        category: 'Social activities',
         color: 'rgba(0, 128, 0, 0.1)',
         url: 'assets/imgs/gamepad.svg',
       },
     ],
-    url: 'assets/imgs/homeImg.png',
+    url: 'assets/imgs/travel-final-step.svg',
   };
   @Input() scale: number = 0;
 

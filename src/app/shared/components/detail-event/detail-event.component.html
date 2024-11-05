@@ -1,22 +1,24 @@
 <div>
-    <ul class="flex gap-3">
-      <li class="bg-[#D5D5D5]/20 p-2 rounded-full relative hover-item">
-        <img src="{{ money }}" alt="icon monaie" />
-        <span class="hover-tooltip">Budget: {{ detail.budget}}</span>
-      </li>
-      <li class="bg-[#D5D5D5]/20 p-2 rounded-full relative hover-item">
-        <img src="{{ user }}" alt="icon utilisateur" />
-        <span class="hover-tooltip">Participants: {{ detail.nbMember }}</span>
-      </li>
-      <li class="bg-[#D5D5D5]/20 p-2 rounded-full relative hover-item">
-        <img src="{{ calendar }}" alt="icon calendrier" />
-        <span class="hover-tooltip">Durée: {{ detail.start | dateformat}} - {{ detail.back | dateformat}}</span>
-      </li>
-      <li class="bg-[#D5D5D5]/20 p-2 rounded-full relative hover-item">
-        <img src="{{ user }}" alt="icon utilisateur" />
-        <span class="hover-tooltip">Genre: {{ detail.gender }}</span>
-      </li>
-    </ul>
-  </div>
-  
-  
+  <ul class="flex gap-3 lg:gap-5">
+    <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
+      <img class="w-6 lg:w-7" src="{{ money }}" alt="icon argent" />
+      <span class="hover-tooltip">Budget: {{ detail.budget }}</span>
+    </li>
+    <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
+      <img class="w-6 lg:w-7" src="{{ user }}" alt="icon utilisateur" />
+      <span class="hover-tooltip">Participants: {{ detail.nbMember }}</span>
+    </li>
+    <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
+      <img class="w-6 lg:w-7" src="{{ calendar }}" alt="icon calendrier" />
+      <span class="hover-tooltip"
+        >Durée: {{ detail.start | dateformat }} -
+        {{ detail.back | dateformat }}</span
+      >
+    </li>
+    <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
+      <img class="w-6 lg:w-7" src="{{ users }}" alt="icon utilisateur" />
+      <span class="hover-tooltip">Genre: {{ detail.gender }}</span>
+    </li>
+  </ul>
+</div>
+
