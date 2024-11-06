@@ -2,7 +2,7 @@
 <section class="container mx-auto p-4 xl:p-0 -z-50">
   <h2 class="text-3xl font-bold mt-9">Création de votre annonce</h2>
   <form class="mt-8" [formGroup]="form" (ngSubmit)="sendData()">
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-14 mt-9 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-14 mt-9">
       <div class="container flex flex-col gap-16">
         <!-- Ajout de 'flex' -->
 
@@ -44,7 +44,7 @@
         </p-floatLabel>
       </div>
       <div>
-        <h3 class="text-xl font-medium" >Catégories </h3>
+        <h3 class="text-xl font-medium">Catégories</h3>
         <div class="mt-1">
           <app-create-card-event
             (clikedCategory)="onCategorySelected($event)"
@@ -56,10 +56,10 @@
     <div class="button-comp">
       <app-button
         type="submit"
-        variant="primary"
         text="Continuez"
-        [classes]="'w-48 h-12 p-2'"
+        [variant]="'primary'"
         [disabled]="form.invalid"
+        class="w-48 h-12 p-2"
       >
       </app-button>
     </div>
