@@ -101,6 +101,23 @@
           />
         </div>
       </div>
+      <div class="w-full">
+        <p-floatLabel>
+          <p-autoComplete
+            id="country"
+            formControlName="country"
+            [suggestions]="filteredCities"
+            (completeMethod)="onCityComplete($event)"
+            field="displayName"
+            class="city"
+          >
+          </p-autoComplete>
+  
+          <label style="font-weight: 500; color: black;" for="country"
+            >Ville</label
+          >
+        </p-floatLabel>
+      </div>
     </div>
 
     <div class="button-comp">
