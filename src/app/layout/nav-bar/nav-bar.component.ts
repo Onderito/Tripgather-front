@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +17,7 @@ export class NavBarComponent {
   publishNav = '/assets/icons/publishNav.svg';
   profile = '/assets/icons/profile.svg';
 
-  constructor() {
+  constructor(private Route: Router) {
     document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('burgerMenu')?.addEventListener('click', () => {
         const menuDropdown = document.getElementById('menuDropdown');
@@ -25,5 +26,9 @@ export class NavBarComponent {
         }
       });
     });
+  }
+
+  onChangeRoute(url: string) {
+    this.Route.navigate([url]);
   }
 }

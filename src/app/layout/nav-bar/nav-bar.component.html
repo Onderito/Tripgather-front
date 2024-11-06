@@ -9,24 +9,34 @@
     <div class="hidden lg:flex">
       <ul class="flex gap-8 text-lg list-none font-mont">
         <li
-          class="flex items-center gap-1 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          (click)="onChangeRoute('home')"
+          class="flex items-center gap-2 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
         >
           <img src="{{ home }}" alt="home icon" />Accueil
         </li>
         <li
-          class="flex items-center gap-1 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          (click)="onChangeRoute('createevent')"
+          class="flex items-center gap-2 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
         >
           <img src="{{ publish }}" alt="" />Publier votre annonce
         </li>
         <li
-          class="flex items-center gap-1 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          (click)="onChangeRoute('favorite')"
+          class="flex items-center gap-2 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
         >
           <img src="{{ heart }}" alt="" />Favoris
         </li>
         <li
-          class="flex items-center gap-1 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          (click)="onChangeRoute('notification')"
+          class="flex items-center gap-2 hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
         >
           <img src="{{ notif }}" alt="" />Notifications
+        </li>
+        <li
+          (click)="onChangeRoute('profile')"
+          class="flex items-center gap-2 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+        >
+          <img src="{{ profile }}" alt="" />Profil
         </li>
       </ul>
     </div>
@@ -76,6 +86,11 @@
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ notif }}" alt="" />Notifications
+      </li>
+      <li
+        class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ profile }}" alt="" />Profil
       </li>
     </ul>
   </div>

@@ -1,13 +1,42 @@
-<section >
+<section>
   <div class="p-7">
-    <form class="flex-row flex items-start mt-12 px-20 justify-around font-mont">
-      <input class="w-1/4" type="text" formControlName="city" placeholder="Rechercher par ville"/>
-      <input class="w-1/6" type="text" formControlName="state" placeholder="Pays"/>
-      <input class="w-1/6" type="text" formControlName="sexe" placeholder="Genre"/>
-      <input class="w-1/6" id="start" type="text" formControlName="start" placeholder="DD/MM/YYYY"/>
-      <input class="w-1/6" id="back" type="text" formControlName="back" placeholder="DD/MM/YYYY"/>
+    <form
+      class="flex-row flex items-start mt-12 px-20 justify-around font-mont"
+    >
+      <input
+        class="w-1/4"
+        type="text"
+        formControlName="city"
+        placeholder="Rechercher par ville"
+      />
+      <input
+        class="w-1/6"
+        type="text"
+        formControlName="state"
+        placeholder="Pays"
+      />
+      <input
+        class="w-1/6"
+        type="text"
+        formControlName="sexe"
+        placeholder="Genre"
+      />
+      <input
+        class="w-1/6"
+        id="start"
+        type="text"
+        formControlName="start"
+        placeholder="DD/MM/YYYY"
+      />
+      <input
+        class="w-1/6"
+        id="back"
+        type="text"
+        formControlName="back"
+        placeholder="DD/MM/YYYY"
+      />
     </form>
-    <div class="flex-row flex gap-10 justify-center items-center mt-10">
+    <div class="flex-row flex gap-10 justify-center items-center mt-24">
       <app-main-card *ngFor="let _ of instances"></app-main-card>
     </div>
   </div>

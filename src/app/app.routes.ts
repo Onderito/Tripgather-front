@@ -1,18 +1,15 @@
 import { Routes } from '@angular/router';
-import { SteponeComponent } from './shared/components/create-event/stepone/stepone.component.js';
-import { SteptwoComponent } from './shared/components/create-event/steptwo/steptwo.component.js';
-import { FinalStepComponent } from './shared/components/create-event/final-step/final-step.component.js';
-import { CreateCardEventComponent } from './shared/components/create-card-event/create-card-event.component.js';
 import { CreateeventPageComponent } from './page/createevent-page/createevent-page.component.js';
-import { SelectedPageComponent } from './page/selected-page/selected-page.component.js';
-
+import { MainPageComponent } from './page/main-page/main-page.component.js';
+import { FavoritePageComponent } from './page/favorite-page/favorite-page.component.js';
+import { NotificationPageComponent } from './page/notification-page/notification-page.component.js';
+import { RegisterPageComponent } from './page/register-page/register-page.component.js';
 
 export const routes: Routes = [
-    {path : 'stepOne', component : SteponeComponent},
-    {path : 'stepTwo', component : SteptwoComponent},
-    {path : 'stepFinal', component : FinalStepComponent},
-    {path : 'test', component : CreateCardEventComponent},
-    {path : 'event', component : CreateeventPageComponent},
-    {path : 'select', component : SelectedPageComponent},
-    {path : '', redirectTo : '', pathMatch : 'full'},
+  { path: 'home', component: MainPageComponent },
+  { path: 'createevent', component: CreateeventPageComponent },
+  { path: 'favorite', component: FavoritePageComponent },
+  { path: 'notification', component: NotificationPageComponent },
+  { path: 'profile', component: RegisterPageComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
