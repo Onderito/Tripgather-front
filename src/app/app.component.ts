@@ -6,6 +6,7 @@ import { NotificationPageComponent } from './page/notification-page/notification
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { MainCardComponent } from './shared/components/main-card/main-card.component';
 import { EventHeaderComponent } from './shared/components/event-header/event-header.component';
+import { MainPageComponent } from './page/main-page/main-page.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { EventHeaderComponent } from './shared/components/event-header/event-hea
     NotificationPageComponent,
     NavBarComponent,
     MainCardComponent,
-    EventHeaderComponent
+    EventHeaderComponent,
+    MainPageComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
