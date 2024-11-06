@@ -33,6 +33,7 @@
             [showOnFocus]="false"
             [touchUI]="true"
             [readonlyInput]="true"
+            [minDate]="minDate"
             id="start"
             formControlName="start"
             class="calendar-1"
@@ -49,7 +50,6 @@
             [showOnFocus]="false"
             [touchUI]="true"
             [readonlyInput]="true"
-            [minDate]="minDateBack"
             id="back"
             formControlName="back"
             class="calendar-2"
@@ -117,7 +117,8 @@
     </div>
   </div>
   <div class="button-comp" >
-    <app-button  type="submit" 
+    <app-button  
+    type="submit" 
     variant="primary" 
     text="Continuez" 
     [classes]="'w-48 h-12 p-2'"

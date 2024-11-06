@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
 import { PRIMENG } from '../../../../primeNgImport';
 import { FormsModule } from '@angular/forms';
 import { FormeventService } from '../../../core/service/formevent.service';
@@ -10,28 +10,32 @@ import { FormeventService } from '../../../core/service/formevent.service';
   templateUrl: './event-header.component.html',
   styleUrl: './event-header.component.scss'
 })
-export class EventHeaderComponent {
-  val: number = 33; // Initialise la progression
-  scale: number = 3; // Initialise l'étape actuelle
+export class EventHeaderComponent implements AfterViewInit {
+  val: number = 33; 
+  scale: number = 1; 
 
-  constructor(private formService: FormeventService) {}
+  constructor(private formService: FormeventService,private renderer: Renderer2, private el: ElementRef) {}
 
   ngOnInit(): void {
-    // Abonnement pour mettre à jour `scale` et `val` lorsque `scale$` change
     this.formService.scale$.subscribe((value: number) => {
       this.scale = value;
       this.changeValue();
     });
   }
 
-  // Méthode pour mettre à jour `val` en fonction de `scale`
   changeValue(): void {
-    if (this.scale === 3) {
+    if (this.scale === 1) {
       this.val = 33;
     } else if (this.scale === 2) {
       this.val = 66;
-    } else if (this.scale === 1) {
+    } else if (this.scale === 3) {
       this.val = 100;
+    }
+  }
+  ngAfterViewInit() {
+    const sliderRange = this.el.nativeElement.querySelector('.p-slider-range');
+    if (sliderRange) {
+     this.renderer.setStyle(sliderRange, 'background-color', '#7cd466');
     }
   }
 }

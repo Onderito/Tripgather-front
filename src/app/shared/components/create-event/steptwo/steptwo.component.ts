@@ -47,7 +47,13 @@ export class SteptwoComponent implements OnInit {
     this.formEvent.data$.subscribe(data => {
       this.receivedData = data;
       console.log(this.receivedData);
+      
     });
+
+    this.formEvent.scale$.subscribe((value: number) => {
+      value;
+      console.log( value, 'scale et value 2');
+  });
     
   }
 
@@ -72,9 +78,8 @@ export class SteptwoComponent implements OnInit {
   sendData() {
     if (this.form.valid) {
       this.groupData()
-      console.log(this.allDatta, 'c moi');
-       this.formEvent.setData(this.allDatta)
-      this.sendScale.emit();
+      this.formEvent.setData(this.allDatta)
+      this.formEvent.nextStep();
     }
   }
   init = {

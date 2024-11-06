@@ -21,6 +21,7 @@ import {City} from '../../../../core/interface/city'
 })
 export class SteponeComponent {
   form: FormGroup;
+  minDate: Date = new Date();
   minDateBack: Date | null = null;
   gender: string[] = ['Femme', 'Homme'];
   filteredCities: any[] = []; // Liste filtrée des villes
@@ -30,7 +31,6 @@ export class SteponeComponent {
 
   constructor(
     private formEvent: FormeventService,
-    private router: Router,
     private fb: FormBuilder,
     private countryService: CountryService
   ) {
@@ -103,7 +103,7 @@ export class SteponeComponent {
   sendData() {
     if (this.form.valid) {
       this.formEvent.setData(this.form.value);
-      this.sendScale.emit();
+      this.formEvent.nextStep()
     }
   }
 }
