@@ -6,9 +6,9 @@ import { ButtonComponent } from '../button/button.component';
 @Component({
   selector: 'app-main-card',
   standalone: true,
-  imports: [DetailEventComponent,CategoryCardComponent,ButtonComponent],
+  imports: [DetailEventComponent, CategoryCardComponent, ButtonComponent],
   templateUrl: './main-card.component.html',
-  styleUrl: './main-card.component.scss'
+  styleUrl: './main-card.component.scss',
 })
 export class MainCardComponent {
   fakeData: any = {
@@ -25,7 +25,8 @@ export class MainCardComponent {
       lng: '-65.46704',
       name: 'Tumbaya',
     },
-    editorContent: '<p>Venez passer un bon moment avec moi et mes amis en Australie. Au programme, balade en moto et plus !</p>',
+    editorContent:
+      '<p>Venez passer un bon moment avec moi et mes amis en Australie. Au programme, balade en moto et plus !</p>',
     gender: 'Femme',
     nbMember: 2,
     selectedCategories: [
