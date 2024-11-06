@@ -1,0 +1,22 @@
+<section class="flex flex-col justify-center items-center">
+  <div>
+    <div class="flex items-center space-x-2">
+      <h1 class="text-left px-24 py-10">Mes Favoris</h1>
+    </div>
+    <p-carousel
+      [value]="carouselValue"
+      [numVisible]="3"
+      [numScroll]="1"
+      orientation="horizontal"
+      [responsiveOptions]="responsiveOptions"
+      class="w-full"
+    >
+      <ng-template let-item pTemplate="item">
+        <div class="mr-4">
+          <!-- Ajout de marge pour espacement -->
+          <app-main-card></app-main-card>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</section>
