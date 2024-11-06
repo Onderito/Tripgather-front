@@ -10,6 +10,7 @@ import { MainCardComponent } from '../../shared/components/main-card/main-card.c
   styleUrl: './favorite-page.component.scss',
 })
 export class FavoritePageComponent {
+  heart: string = '/assets/icons/heart.svg';
   carouselValue = [
     new MainCardComponent(),
     new MainCardComponent(),
