@@ -1,10 +1,8 @@
-<section class="container mx-auto p-4 xl:p-0 -z-50">
-  <form
-    class="w-full pt-5 font-mont"
-    [formGroup]="form"
-    (ngSubmit)="sendData()"
-  >
-    <h2 class="text-3xl font-bold">Création de votre annonce</h2>
+<section
+  class="container mx-auto p-4 xl:p-0 -z-50 md:w-full md:max-w-3xl lg:max-w-7xl md:mt-20"
+>
+  <form class="w-full font-mont" [formGroup]="form" (ngSubmit)="sendData()">
+    <h1>Création de votre annonce</h1>
 
     <div class="grid grid-cols-2 gap-4 mt-9">
       <div class="w-full">
@@ -24,7 +22,7 @@
             >
           </p-floatLabel>
         </div>
-        
+
         <div class="flex flex-col w-full gap-12">
           <p-floatLabel>
             <p-calendar
@@ -43,7 +41,7 @@
               >Départ</label
             >
           </p-floatLabel>
-          
+
           <p-floatLabel>
             <p-calendar
               [showIcon]="true"
@@ -64,7 +62,7 @@
             </span>
           </p-floatLabel>
         </div>
-        
+
         <div class="flex flex-col gap-12 mt-12">
           <p-floatLabel>
             <p-inputNumber
@@ -78,7 +76,7 @@
               >Participants</label
             >
           </p-floatLabel>
-          
+
           <p-floatLabel>
             <p-inputNumber
               id="budget"
@@ -91,7 +89,7 @@
               >Budget</label
             >
           </p-floatLabel>
-          
+
           <p-dropdown
             placeholder="Genre"
             id="gender"
@@ -104,11 +102,11 @@
     </div>
 
     <div class="button-comp">
-      <app-button  
-        type="submit" 
-        variant="primary" 
-        text="Continuez" 
-        [class]="'w-48 h-12 p-2'"
+      <app-button
+        type="submit"
+        [variant]="'primary'"
+        text="Continuer"
+        [sizeClasses]="'w-48 h-12 p-2'"
         [disabled]="form.invalid"
       ></app-button>
     </div>
