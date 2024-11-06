@@ -89,3 +89,7 @@
   color: rgb(255, 255, 255);
   z-index: 1;
  } 
+
+ :host ::ng-deep .p-dropdown {
+  border: 0.5px solid black;
+}
