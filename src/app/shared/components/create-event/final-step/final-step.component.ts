@@ -3,11 +3,17 @@ import { FormeventService } from '../../../../core/service/formevent.service.js'
 import { CategoryCardComponent } from '../../category-card/category-card.component';
 import { DetailEventComponent } from '../../detail-event/detail-event.component';
 import { ButtonComponent } from '../../button/button.component';
+import { EventHeaderComponent } from '../../event-header/event-header.component';
 
 @Component({
   selector: 'app-final-step',
   standalone: true,
-  imports: [CategoryCardComponent, DetailEventComponent, ButtonComponent],
+  imports: [
+    CategoryCardComponent,
+    DetailEventComponent,
+    ButtonComponent,
+    EventHeaderComponent,
+  ],
   templateUrl: './final-step.component.html',
   styleUrl: './final-step.component.scss',
 })

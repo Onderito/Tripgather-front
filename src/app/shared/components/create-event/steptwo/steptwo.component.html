@@ -1,25 +1,15 @@
-<app-nav-bar></app-nav-bar>
-<section class="container mx-auto p-4 xl:p-0 -z-50">
-  <h2 class="text-3xl font-bold mt-9">Création de votre annonce</h2>
+<section
+  class="container mx-auto p-4 xl:p-0 -z-50 md:w-full md:max-w-3xl lg:max-w-7xl md:mt-20"
+>
+  <h2 class="text-3xl font-bold">Création de votre annonce</h2>
   <form class="mt-8" [formGroup]="form" (ngSubmit)="sendData()">
     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-14 mt-9">
       <div class="container flex flex-col gap-16">
         <!-- Ajout de 'flex' -->
 
         <div>
-          <h3
-            style="margin-left: 3px; margin-bottom: 5px"
-            class="ml-1 text-xl font-bold"
-          >
-            Description
-          </h3>
-          <div
-            style="
-              border: 0.5px solid rgb(156, 163, 175);
-              border-radius: 5px;
-              padding: 1px;
-            "
-          >
+          <h3 class="ml-3 text-xl font-bold mb-[5px]">Description</h3>
+          <div class="border-[0.5px] border-gray-400 rounded-lg p-1">
             <editor
               apiKey="r5j91v11wxom1d6ailtjpuy28fz67z47y11dh2p1yk5d122m"
               formControlName="editorContent"
@@ -56,12 +46,11 @@
     <div class="button-comp">
       <app-button
         type="submit"
-        text="Continuez"
         [variant]="'primary'"
+        text="Continuer"
+        [sizeClasses]="'w-48 h-12 p-2'"
         [disabled]="form.invalid"
-        class="w-48 h-12 p-2"
-      >
-      </app-button>
+      ></app-button>
     </div>
   </form>
 </section>
