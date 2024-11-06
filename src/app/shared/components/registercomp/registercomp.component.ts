@@ -1,55 +1,84 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/service/auth.service';
 import { ButtonComponent } from '../button/button.component';
-import { PRIMENG } from '../../../../primeNgImport';
-
+import { CommonModule } from '@angular/common';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-registercomp',
   standalone: true,
-  imports: [ReactiveFormsModule, ButtonComponent,PRIMENG,FormsModule],
+  imports:[ButtonComponent,CommonModule,ReactiveFormsModule,DropdownModule,ButtonModule,CalendarModule,RouterModule],
   templateUrl: './registercomp.component.html',
-  styleUrl: './registercomp.component.scss'
+  styleUrls: ['./registercomp.component.scss']
 })
 export class RegistercompComponent {
-  public registerForm! : FormGroup
+  public registerForm!: FormGroup;
   logoURL = '/assets/icons/trip.svg';
   country: any[] | undefined;
   selectedCountry: any | undefined;
   gender: any[] | undefined;
   selectedGender: any | undefined;
-  
-  constructor(private fb: FormBuilder) {}
-  
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+
   ngOnInit() {
     this.init();
   }
 
   init() {
     this.registerForm = this.fb.group({
-      gender: ['', [Validators.required]],
-      firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      email: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
+      bio: ['', []],
       country: ['', [Validators.required]],
-      birthdate: ['01/01/2000', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      imageUrl: ['', []],
+      lastName: ['', [Validators.required]],
+      birthdate: [new Date('2000-01-01'), [Validators.required]],
     });
+
     this.country = [
-      { name: 'France'},
-      { name: 'Espagne'},
-      { name: 'Angleterre'},
-      { name: 'Allemagne'},
-      { name: 'Portugual'}
-  ];
+      { name: 'France' },
+      { name: 'Espagne' },
+      { name: 'Angleterre' },
+      { name: 'Allemagne' },
+      { name: 'Portugal' }
+    ];
+
     this.gender = [
-      { name: 'Homme'},
-      { name: 'Femme'},
-  ];
+      { name: 'Homme' },
+      { name: 'Femme' }
+    ];
   }
-  
+
   onSubmit() {
-    console.log(this.registerForm.value);
-  }
-  }
+    if (this.registerForm.valid) {
+      const userData = { ...this.registerForm.value, gender: this.selectedGender === 'Homme' ? true : false };
+      
+      if (!userData.bio) {
+        userData.bio = null;
+      }
+      if (!userData.imageUrl) {
+        userData.imageUrl = null;
+      }
   
+      this.authService.register(userData).subscribe({
+        next: (response) => {
+          console.log('Registration successful', response);
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Registration failed', err);
+          alert('Registration failed, please try again.');
+        }
+      });
+    } else {
+      this.registerForm.markAllAsTouched();
+    }
+  }  
+}

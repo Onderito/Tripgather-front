@@ -1,13 +1,14 @@
-<form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="flex flex-col">
     <div class="flex-col flex">
       <div class="flex-col flex gap-5">
+        
+        <!-- Gender Dropdown -->
         <p-dropdown
           [options]="gender"
-          [(ngModel)]="selectedGender"
+          formControlName="gender"
           optionLabel="name"
           placeholder="Genre"
-          formControlName="gender"
           [style]="{
             'background-color': 'transparent',
             border: '1px solid white',
@@ -22,20 +23,35 @@
             color: 'white'
           }"
         />
+        <div *ngIf="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched" class="text-red-500">
+          Veuillez sélectionner un genre.
+        </div>
+        
+        <!-- First Name -->
         <input
           placeholder="Prénom"
           type="text"
           id="firstname"
           class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
-          formControlName="firstname"
+          formControlName="firstName"
         />
+        <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="text-red-500">
+          Le prénom est requis.
+        </div>
+        
+        <!-- Last Name -->
         <input
           placeholder="Nom"
           type="text"
           id="lastname"
           class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
-          formControlName="lastname"
+          formControlName="lastName"
         />
+        <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="text-red-500">
+          Le nom est requis.
+        </div>
+        
+        <!-- Email -->
         <input
           placeholder="Email"
           type="email"
@@ -43,6 +59,14 @@
           class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
           formControlName="email"
         />
+        <div *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched" class="text-red-500">
+          L'email est requis.
+        </div>
+        <div *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched" class="text-red-500">
+          Veuillez entrer un email valide.
+        </div>
+        
+        <!-- Password -->
         <input
           placeholder="Mot de passe"
           type="password"
@@ -50,12 +74,19 @@
           class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
           formControlName="password"
         />
+        <div *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched" class="text-red-500">
+          Le mot de passe est requis.
+        </div>
+        <div *ngIf="registerForm.get('password')?.hasError('pattern') && registerForm.get('password')?.touched" class="text-red-500">
+          Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.
+        </div>
+        
+        <!-- Country Dropdown -->
         <p-dropdown
           [options]="country"
-          [(ngModel)]="selectedCountry"
+          formControlName="country"
           optionLabel="name"
           placeholder="Pays"
-          formControlName="country"
           [style]="{
             'background-color': 'transparent',
             border: '1px solid white',
@@ -70,19 +101,30 @@
             color: 'white'
           }"
         />
-        <div class="max-w-72">
-          <p-calendar formControlName="birthdate" />
+        <div *ngIf="registerForm.get('country')?.invalid && registerForm.get('country')?.touched" class="text-red-500">
+          Le pays est requis.
         </div>
+        
+        <!-- Birthdate -->
+        <p-calendar formControlName="birthdate" [showTime]="false"></p-calendar>
+        <div *ngIf="registerForm.get('birthdate')?.invalid && registerForm.get('birthdate')?.touched" class="text-red-500">
+          La date de naissance est requise.
+        </div>
+
+        <div *ngIf="registerForm.invalid" class="text-red-500 mt-3">Veuillez remplir tous les champs correctement.</div>
+
+        <p class="mb-7 mt-2 text-white font-mont leading-4 text-xs">
+          J'ai déjà un compte, <a routerLink="/login" class="underline">je me connecte</a>
+        </p>        
+        
+        <app-button
+          [disabled]="registerForm.invalid"
+          classes="w-72 p-2 md:p-3 text-white font-medium text-base"
+          type="submit"
+          variant="primary"
+          text="S'inscrire"
+        ></app-button>
       </div>
-      <p class="mb-7 mt-2 text-white font-mont leading-4 text-xs">
-        j'ai déjà un compte,<span class="underline">je me connecte</span>
-      </p>
-      <app-button
-        [sizeClasses]="'w-full p-2 md:p-3 text-white font-medium text-base'"
-        type="submit"
-        [variant]="'primary'"
-        text="S'inscrire"
-      ></app-button>
     </div>
   </div>
 </form>
