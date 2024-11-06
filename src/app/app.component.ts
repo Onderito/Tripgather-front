@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PRIMENG } from '../primeNgImport';
 import { FooterComponent } from './layout/footer/footer.component';
-import { LoginformComponent } from './shared/components/loginform/loginform.component';
-import { HomePageComponent } from './page/home-page/home-page.component';
 import { NotificationPageComponent } from './page/notification-page/notification-page.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
 import { MainCardComponent } from './shared/components/main-card/main-card.component';
+import { EventHeaderComponent } from './shared/components/event-header/event-header.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +17,7 @@ import { MainCardComponent } from './shared/components/main-card/main-card.compo
     NotificationPageComponent,
     NavBarComponent,
     MainCardComponent,
+    EventHeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

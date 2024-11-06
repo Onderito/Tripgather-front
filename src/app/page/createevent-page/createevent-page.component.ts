@@ -14,17 +14,13 @@ import { NavBarComponent } from "../../layout/nav-bar/nav-bar.component";
   styleUrl: './createevent-page.component.scss'
 })
 export class CreateeventPageComponent {
-  scale: number = 1; // Initialisation par défaut
+
+  scale = 1;
 
   constructor(private formService: FormeventService) {
-    // Abonnement à l'observable du service pour réagir aux changements de `scale`
     this.formService.scale$.subscribe((value: number) => {
       this.scale = value;
     });
   }
-  receiveScale() {
-    this.scale -= 1;
-  }
-  
 
 }
