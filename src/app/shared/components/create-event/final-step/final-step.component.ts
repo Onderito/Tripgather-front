@@ -21,7 +21,7 @@ export class FinalStepComponent {
   receivedData: any;
   blob: string = 'assets/blob/blob.svg';
   fakeData: any = {
-    title: 'Australie, séjour en moto',
+    title: 'Australie',
     start: "Fri Oct 11 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     back: "Sat Oct 12 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
     budget: 3,

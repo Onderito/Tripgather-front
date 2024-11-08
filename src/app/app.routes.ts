@@ -4,6 +4,7 @@ import { MainPageComponent } from './page/main-page/main-page.component.js';
 import { FavoritePageComponent } from './page/favorite-page/favorite-page.component.js';
 import { NotificationPageComponent } from './page/notification-page/notification-page.component.js';
 import { RegisterPageComponent } from './page/register-page/register-page.component.js';
+import { SelectedPageComponent } from './page/selected-page/selected-page.component.js';
 
 export const routes: Routes = [
   { path: 'home', component: MainPageComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'favorite', component: FavoritePageComponent },
   { path: 'notification', component: NotificationPageComponent },
   { path: 'profile', component: RegisterPageComponent },
+  { path: 'selected', component: SelectedPageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -5,18 +5,22 @@
     alt="image of trip"
   />
   <div
-    class="mt-5 xl:mt-8 border-b border-[#E8E8E8] flex items-center gap-2 xl:gap-4 pb-4"
+    class="mt-5 xl:mt-8 border-b border-[#E8E8E8] flex items-center justify-between gap-2 xl:gap-4 pb-4"
   >
-    <img class="xl:w-16" [src]="imgOfhost" alt="image of host" />
-    <h1 class="xl:text-xl xl:relative">Ulas Önder</h1>
-  </div>
-  <div class="flex justify-between items-center">
-    <h2 class="mt-4 xl:text-4xl xl:absolute xl:top-[15%]">New York, balade</h2>
+    <div class="flex items-center gap-4">
+      <img class="xl:w-16" [src]="imgOfhost" alt="image of host" />
+      <h1 class="text-lg xl:text-xl xl:relative">Ulas Önder</h1>
+    </div>
     <app-button
-      classes="bg-black w-fit xl:w-40 p-2 md:p-3 xl:p-3 text-white font-medium text-md xl:text-lg font-lexend mt-4 xl:absolute xl:bottom-56 xl:left-[57%]"
+      [sizeClasses]="
+        'bg-black w-fit xl:w-40 p-2 md:p-3 xl:p-3 text-white font-medium text-md xl:text-lg font-lexend    '
+      "
       type="submit"
       text="Participer"
     ></app-button>
+  </div>
+  <div class="flex justify-between items-center">
+    <h2 class="mt-4 xl:text-4xl xl:absolute xl:top-[14%]">Australie</h2>
   </div>
 
   <span

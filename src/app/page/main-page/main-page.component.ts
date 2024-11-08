@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MainCardComponent } from '../../shared/components/main-card/main-card.component';
@@ -17,7 +18,7 @@ export class MainPageComponent {
   instances = Array(3);
   search: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private Router: Router) {
     // Initialisez le formulaire dans le constructeur
     this.search = this.fb.group({
       city: [''],
@@ -30,5 +31,9 @@ export class MainPageComponent {
 
   toggleDropdown() {
     this.isDropdownVisible = !this.isDropdownVisible;
+  }
+
+  SelectedEvent() {
+    this.Router.navigate(['selected']);
   }
 }
