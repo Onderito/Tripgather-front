@@ -17,11 +17,9 @@
           formControlName="password"
         />
       </div>
-      <p
-        class="mb-7 mt-2 text-white font-mont leading-4 text-xs cursor-pointer"
-      >
-        Je n'ai pas de compte,<span class="underline">je créer mon compte</span>
-      </p>
+      <p class="mb-7 mt-2 text-white font-mont leading-4 text-xs">
+        Pas encore de compte ? <a routerLink="/register" class="underline">Je m'inscris</a>
+      </p>      
       <app-button
         [sizeClasses]="'w-full p-3 md:p-3 text-white'"
         type="submit"
