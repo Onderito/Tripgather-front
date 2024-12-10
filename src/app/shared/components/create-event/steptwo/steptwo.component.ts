@@ -103,6 +103,6 @@ export class SteptwoComponent implements OnInit {
     toolbar:
       'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat', // Retirer les outils d'insertion
     plugins: 'lists link image table code', // Ne pas inclure le plugin 'insert' ou 'media'
-    height: 400,
+    height: 440,
   };
 }
