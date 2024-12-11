@@ -57,19 +57,19 @@
   padding-left: 10px !important; /* Assurez-vous que le texte est aligné à gauche */
   font-family: "Montserrat", sans-serif !important;
   font-weight: 400 !important;
-  color: black !important; /* Couleur du texte pour correspondre à la liste blanche */
+  color: white !important; /* Couleur du texte pour correspondre à la liste blanche */
   box-shadow: none !important; /* Supprimer toute ombre */
 }
 
 :host ::ng-deep .p-dropdown-item.p-highlight {
   background-color: #e0e0e0 !important; /* Couleur de surbrillance pour l'élément sélectionné */
-  color: black !important; /* Assurez-vous que le texte est lisible */
+  color: white !important; /* Assurez-vous que le texte est lisible */
 }
 
 :host ::ng-deep .p-dropdown-panel {
   background-color: white !important; /* Fond blanc pour la liste déroulante */
   border: 1px solid white !important;
-  color: black !important;
+  color: white !important;
 }
 
 :host ::ng-deep .p-calendar {
@@ -109,7 +109,7 @@
   align-items: center !important;
   padding: 10px 0 !important; /* Espacement vertical */
   background-color: transparent !important;
-  color: black !important;
+  color: white !important;
   font-family: "Montserrat", sans-serif !important;
   font-weight: 600 !important;
 }
@@ -136,7 +136,7 @@
 :host ::ng-deep .p-datepicker-today,
 :host ::ng-deep .p-highlight {
   background-color: #e0e0e0 !important; /* Fond pour le jour sélectionné et aujourd'hui */
-  color: black !important;
+  color: white !important;
 }
 
 :host ::ng-deep .p-datepicker-prev,
