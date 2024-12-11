@@ -11,6 +11,9 @@ import { PRIMENG } from '../../../primeNgImport';
 })
 export class ProfilePageComponent {
   imgOfhost: string = '/assets/imgs/Ulas.png';
+  setting : string = '/assets/icons/settings.svg';
+  edit: string = '/assets/icons/edit.svg';
+  blob: string = '/assets/blob/profile-blob.svg';
 
   fakeData = {
       firstName: "John",

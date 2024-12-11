@@ -7,7 +7,7 @@ import { FormeventService } from '../../../../core/service/formevent.service.js'
 import { NavBarComponent } from '../../../../layout/nav-bar/nav-bar.component';
 import { EditorComponent } from '@tinymce/tinymce-angular';
 import { PRIMENG } from '../../../../../primeNgImport.js';
-import { ButtonComponent } from '../../button/button.component.js';
+import { ButtonComponent } from '../../utils/button/button.component.js';
 import { CreateCardEventComponent } from '../../create-card-event/create-card-event.component';
 import { EventHeaderComponent } from '../../event-header/event-header.component';
 

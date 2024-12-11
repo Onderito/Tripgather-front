@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FormeventService } from '../../../../core/service/formevent.service.js';
 import { CategoryCardComponent } from '../../category-card/category-card.component';
 import { DetailEventComponent } from '../../detail-event/detail-event.component';
-import { ButtonComponent } from '../../button/button.component';
+import { ButtonComponent } from '../../utils/button/button.component.js';
 import { EventHeaderComponent } from '../../event-header/event-header.component';
 
 @Component({

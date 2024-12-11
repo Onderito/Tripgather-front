@@ -12,12 +12,10 @@ import { CommonModule } from '@angular/common';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { PRIMENG } from '../../../../../primeNgImport.js';
-import { NavBarComponent } from '../../../../layout/nav-bar/nav-bar.component.js';
-import { ButtonComponent } from '../../button/button.component.js';
+import { ButtonComponent } from '../../utils/button/button.component.js';
 import { FormeventService } from '../../../../core/service/formevent.service.js';
 import { CountryService } from '../../../../core/service/country.service.js';
 import { City } from '../../../../core/interface/city';
-import { EventHeaderComponent } from '../../event-header/event-header.component';
 
 @Component({
   selector: 'app-stepone',
@@ -28,9 +26,7 @@ import { EventHeaderComponent } from '../../event-header/event-header.component'
     ReactiveFormsModule,
     CommonModule,
     PRIMENG,
-    NavBarComponent,
     ButtonComponent,
-    EventHeaderComponent,
   ],
 })
 export class SteponeComponent {
