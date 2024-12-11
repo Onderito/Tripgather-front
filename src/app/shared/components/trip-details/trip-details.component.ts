@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from '../utils/button/button.component';
 import { HostProfileComponent } from '../host-profile/host-profile.component';
 import { ParticipantsListViewComponent } from '../participants-list-view/participants-list-view.component';
 import { SecondaryCardComponent } from '../secondary-card/secondary-card.component';

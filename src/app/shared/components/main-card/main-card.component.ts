@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DetailEventComponent } from '../detail-event/detail-event.component';
 import { CategoryCardComponent } from '../category-card/category-card.component';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from '../utils/button/button.component';
 
 @Component({
   selector: 'app-main-card',
