@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MainCardComponent } from '../../shared/components/main-card/main-card.component';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '../../shared/components/button/button.component';
+import { ButtonComponent } from '../../shared/components/utils/button/button.component';
 
 @Component({
   selector: 'app-main-page',
