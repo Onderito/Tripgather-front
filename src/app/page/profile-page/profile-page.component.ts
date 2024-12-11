@@ -21,7 +21,7 @@ export class ProfilePageComponent {
       email: "john.doe@example.com",
       password: "securePassword123",
       imageUrl: "/assets/imgs/Ulas.png",
-      gender: true, // true pour homme, false pour femme
+      gender: false, // true pour homme, false pour femme
       bio: "Développeur passionné par les nouvelles technologies et le design.Développeur passionné par les nouvelles technologies et le design.",
       country: "France",
       birthDate: "23"
