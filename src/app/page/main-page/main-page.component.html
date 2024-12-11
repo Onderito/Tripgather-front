@@ -37,7 +37,11 @@
       />
     </form>
     <div class="flex-row flex gap-10 justify-center items-center mt-24">
-      <app-main-card *ngFor="let _ of instances"></app-main-card>
+      <app-main-card
+        class="cursor-pointer"
+        (click)="onChangeRoute('selected')"
+        *ngFor="let _ of instances"
+      ></app-main-card>
     </div>
   </div>
 </section>
