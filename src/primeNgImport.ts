@@ -13,6 +13,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CardModule } from 'primeng/card';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import {SliderModule} from 'primeng/slider';
+import { FieldsetModule } from 'primeng/fieldset';
+import { AvatarModule } from 'primeng/avatar';
 
 export const PRIMENG = [
   ButtonModule,
@@ -29,5 +31,7 @@ export const PRIMENG = [
   AutoCompleteModule,
   CardModule,
   InputSwitchModule,
-  SliderModule
+  SliderModule,
+  FieldsetModule,
+  AvatarModule
 ];

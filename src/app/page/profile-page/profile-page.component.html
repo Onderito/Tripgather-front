@@ -1,0 +1,32 @@
+<section
+  class="container mx-auto p-4 xl:p-0 -z-50 md:w-full md:max-w-2xl lg:max-w-5xl md:mt-5"
+>
+  <h2 class="text-3xl font-normal font-mont">Profil</h2>
+  <div class="rounded-lg shadow-custom p-4">
+    <div class="flex gap-20">
+      <div class="flex flex-col">
+        <img
+          class="w-[150px] h-150px]"
+          src="{{ fakeData.imageUrl }}"
+          alt="piture profile"
+        />
+        <div class="flex justify-center flex-col items-center gap-3 mt-4 font-mont" >
+          <h4 class="font-medium text-xl" >{{ fakeData.firstName }}</h4>
+          <div class="flex gap-4 text-[#828282] text-md font-extralight">
+            <p>{{ fakeData.country }}</p>
+            <p>{{ fakeData.birthDate }} ans</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col mt-4">
+        <div class="flex justify-between">
+          <h5 class="font-medium text-xl">Biographie<span></span></h5>
+          <p>image</p>
+        </div>
+        <div class="flex font-extralight text-[#828282] mt-6">
+          {{ fakeData.bio }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,7 +4,6 @@ import { SteptwoComponent } from '../../shared/components/create-event/steptwo/s
 import { FinalStepComponent } from '../../shared/components/create-event/final-step/final-step.component';
 import { CommonModule } from '@angular/common';
 import { FormeventService } from '../../core/service/formevent.service.js';
-import { NavBarComponent } from '../../layout/nav-bar/nav-bar.component';
 import { EventHeaderComponent } from '../../shared/components/event-header/event-header.component';
 
 @Component({
@@ -15,7 +14,6 @@ import { EventHeaderComponent } from '../../shared/components/event-header/event
     SteptwoComponent,
     FinalStepComponent,
     CommonModule,
-    NavBarComponent,
     EventHeaderComponent,
   ],
   templateUrl: './createevent-page.component.html',
