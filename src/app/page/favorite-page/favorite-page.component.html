@@ -2,11 +2,13 @@
   class="container mx-auto flex flex-col justify-center items-center md:mt-20"
 >
   <div class="md:w-full">
-    <div class="flex gap-2 items-center space-x-2">
+    <div class="hidden md:flex gap-2 items-center space-x-2">
       <h1 class="text-left">Mes Favoris</h1>
       <img class="w-8 h-8" src="{{ heart }}" alt="" />
     </div>
+    <app-empty-favorite></app-empty-favorite>
     <p-carousel
+      *ngIf="noData"
       [value]="carouselValue"
       [numVisible]="3"
       [numScroll]="1"
@@ -15,7 +17,7 @@
       class="w-full"
     >
       <ng-template let-item pTemplate="item">
-        <div class="md:mt-10">
+        <div class="md:mt-10 md:border md:border-[#DDDDDD]">
           <app-main-card></app-main-card>
         </div>
       </ng-template>

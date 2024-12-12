@@ -4,11 +4,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MainCardComponent } from '../../shared/components/main-card/main-card.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../shared/components/utils/button/button.component';
+import { EmptyTripComponent } from '../../shared/components/empty-data/empty-trip/empty-trip.component';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [MainCardComponent, CommonModule, ButtonComponent],
+  imports: [
+    MainCardComponent,
+    CommonModule,
+    ButtonComponent,
+    EmptyTripComponent,
+  ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
@@ -17,6 +23,7 @@ export class MainPageComponent {
   isDropdownVisible = false;
   instances = Array(3);
   search: FormGroup;
+  noData: boolean = false;
 
   constructor(private fb: FormBuilder, private Route: Router) {
     // Initialisez le formulaire dans le constructeur
@@ -36,8 +43,4 @@ export class MainPageComponent {
   toggleDropdown() {
     this.isDropdownVisible = !this.isDropdownVisible;
   }
-
-  // SelectedEvent() {
-  //   this.Router.navigate(['selected']);
-  // }
 }
