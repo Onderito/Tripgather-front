@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './empty-notification.component.scss',
 })
 export class EmptyNotificationComponent {
-  bell: string = 'assets/icons/bell.svg';
+  bell: string = 'assets/icons/empty-notification.svg';
 }

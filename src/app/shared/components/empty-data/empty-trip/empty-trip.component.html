@@ -1,31 +1,36 @@
 <div
-  className="flex flex-col items-center justify-center min-h-[600px] w-full px-4 bg-gradient-to-b from-white to-gray-50"
+  class="flex flex-col items-center justify-center min-h-[600px] w-full px-4 bg-gradient-to-b from-white to-gray-50"
 >
-  <div className="relative max-w-lg w-full text-center">
-    <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-      <div className="relative">
+  <div class="relative max-w-lg w-full text-center">
+    <div class="absolute -top-6 lg:-top-32 left-1/2 -translate-x-1/2">
+      <div class="relative">
         <div
-          className="w-24 h-24 bg-[#4CAF50]/10 rounded-full flex items-center justify-center"
+          class="w-24 h-24 lg:w-48 lg:h-48 bg-[#4CAF50]/10 rounded-full flex items-center justify-center"
         >
           <div
-            className="w-16 h-16 bg-[#4CAF50]/20 rounded-full flex items-center justify-center"
+            class="w-16 h-16 lg:w-32 lg:h-32 bg-[#4CAF50]/20 rounded-full flex items-center justify-center"
           >
-            <img src="" className="w-10 h-10 text-[#4CAF50] animate-pulse" />
+            <img
+              src="{{ compass }}"
+              class="w-10 h-10 lg:w-20 lg:h-20 text-[#4CAF50] animate-pulse"
+            />
           </div>
-        </div>
-        <div className="absolute -right-8 -bottom-2">
-          <img src="" alt="" /> className="w-6 h-6 text-[#4CAF50]/60
-          animate-bounce" />
         </div>
       </div>
     </div>
 
-    <div className="mt-20 space-y-6">
-      <h2 className="text-3xl font-semibold text-gray-800">
-        Aucun voyage à l'horizon
+    <div class="mt-20 space-y-6">
+      <h2 class="text-3xl font-semibold text-gray-800">
+        Aucun voyage à
+        <span class="relative"
+          >l'horizon
+          <img
+            src="{{ locate }}"
+            class="w-6 h-6 lg:w-10 lg:h-10 text-[#4CAF50]/60 animate-bounce absolute -top-2 right-4 lg:-top-5 lg:right-2"
+        /></span>
       </h2>
 
-      <p className="text-gray-600 text-lg max-w-md mx-auto">
+      <p class="text-gray-600 text-lg max-w-md mx-auto">
         Il semble qu'il n'y ait pas encore d'aventures partagées correspondant à
         votre recherche.
       </p>
