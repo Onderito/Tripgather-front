@@ -1,191 +1,158 @@
 <form
   [formGroup]="registerForm"
   (ngSubmit)="onSubmit()"
-  class="flex justify-center items-center"
+  class="flex items-center justify-center"
 >
   <div class="flex flex-col items-center max-w-xs">
-    <div class="flex-col flex">
-      <div class="flex-col flex gap-5">
-        <!-- Gender Dropdown -->
-        <p-dropdown
-          [options]="gender"
-          formControlName="gender"
-          optionLabel="name"
-          placeholder="Genre"
-          [style]="{
-            'background-color': 'transparent',
-            border: '1px solid white',
-            color: 'white',
-            'border-radius': '0.25rem',
-            height: '36px',
-            width: '288px'
-          }"
-          [panelStyle]="{
-            'background-color': 'transparent',
-            border: '1px solid white',
-            color: 'white'
-          }"
-        />
-        <div
-          *ngIf="
-            registerForm.get('gender')?.invalid &&
-            registerForm.get('gender')?.touched
-          "
-          class="text-red-500"
-        >
-          Veuillez sélectionner un genre.
-        </div>
+    <div class="flex flex-col gap-7">
 
-        <!-- First Name -->
-        <input
-          placeholder="Prénom"
-          type="text"
-          id="firstname"
-          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
-          formControlName="firstName"
-        />
-        <div
-          *ngIf="
-            registerForm.get('firstName')?.invalid &&
-            registerForm.get('firstName')?.touched
-          "
-          class="text-red-500"
-        >
-          Le prénom est requis.
-        </div>
-
-        <!-- Last Name -->
-        <input
-          placeholder="Nom"
-          type="text"
-          id="lastname"
-          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
-          formControlName="lastName"
-        />
-        <div
-          *ngIf="
-            registerForm.get('lastName')?.invalid &&
-            registerForm.get('lastName')?.touched
-          "
-          class="text-red-500"
-        >
-          Le nom est requis.
-        </div>
-
-        <!-- Email -->
-        <input
-          placeholder="Email"
-          type="email"
-          id="email"
-          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
-          formControlName="email"
-        />
-        <div
-          *ngIf="
-            registerForm.get('email')?.hasError('required') &&
-            registerForm.get('email')?.touched
-          "
-          class="text-red-500"
-        >
-          L'email est requis.
-        </div>
-        <div
-          *ngIf="
-            registerForm.get('email')?.hasError('email') &&
-            registerForm.get('email')?.touched
-          "
-          class="text-red-500"
-        >
-          Veuillez entrer un email valide.
-        </div>
-
-        <!-- Password -->
-        <input
-          placeholder="Mot de passe"
-          type="password"
-          id="password"
-          class="bg-transparent max-w-72 backdrop-blur-lg p-2 pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
-          formControlName="password"
-        />
-        <div
-          *ngIf="
-            registerForm.get('password')?.hasError('required') &&
-            registerForm.get('password')?.touched
-          "
-          class="text-red-500"
-        >
-          Le mot de passe est requis.
-        </div>
-        <div
-          *ngIf="
-            registerForm.get('password')?.hasError('pattern') &&
-            registerForm.get('password')?.touched
-          "
-          class="text-red-500"
-        >
-          Le mot de passe doit contenir au moins une majuscule, une minuscule,
-          un chiffre et un caractère spécial.
-        </div>
-
-        <!-- Country Dropdown -->
-        <p-dropdown
-          [options]="country"
-          formControlName="country"
-          optionLabel="name"
-          placeholder="Pays"
-          [style]="{
-            'background-color': 'transparent',
-            border: '1px solid white',
-            color: 'white',
-            'border-radius': '0.25rem',
-            height: '36px',
-            width: '288px',
-          }"
-          [panelStyle]="{
-            'background-color': 'transparent',
-            border: '1px solid white',
-            color: 'white'
-          }"
-        />
-        <div
-          *ngIf="
-            registerForm.get('country')?.invalid &&
-            registerForm.get('country')?.touched
-          "
-          class="text-red-500"
-        >
-          Le pays est requis.
-        </div>
-
-        <!-- Birthdate -->
-        <p-calendar formControlName="birthdate" [showTime]="false"></p-calendar>
-        <div
-          *ngIf="
-            registerForm.get('birthdate')?.invalid &&
-            registerForm.get('birthdate')?.touched
-          "
-          class="text-red-500"
-        >
-          La date de naissance est requise.
-        </div>
-
-        <div *ngIf="registerForm.invalid" class="text-red-500 mt-3">
-          Veuillez remplir tous les champs correctement.
-        </div>
-
-        <p class="mb-7 mt-2 text-white font-mont leading-4 text-xs">
-          J'ai déjà un compte,
-          <a routerLink="/login" class="underline">je me connecte</a>
-        </p>
-
-        <app-button
-          [disabled]="registerForm.invalid"
-          [sizeClasses]="'w-72 p-2 md:p-3 text-white font-medium text-base'"
-          type="submit"
-          variant="primary"
-          text="S'inscrire"
-        ></app-button>
+      <!-- Gender Dropdown -->
+      <p-dropdown
+        [options]="gender"
+        formControlName="gender"
+        optionLabel="name"
+        placeholder="Genre"
+        [style]="{
+          'background-color': 'transparent',
+          border: '1px solid white',
+          color: 'black',
+          'border-radius': '0.25rem',
+          height: '36px',
+          width: '288px'
+        }"
+        [panelStyle]="{
+          'background-color': 'transparent',
+          border: '1px solid white',
+          color: 'black'
+        }"
+      ></p-dropdown>
+      <div
+        *ngIf="(isSubmitted || registerForm.get('gender')?.touched) && registerForm.get('gender')?.invalid"
+        class="text-red-500"
+      >
+        Veuillez sélectionner un genre.
       </div>
+
+      <!-- First Name -->
+      <input
+        placeholder="Prénom"
+        type="text"
+        class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
+        [ngClass]="{
+          'border-white': !(isSubmitted || registerForm.get('firstName')?.touched) || registerForm.get('firstName')?.valid,
+          'border-red-500': (isSubmitted || registerForm.get('firstName')?.touched) && registerForm.get('firstName')?.invalid
+        }"
+        formControlName="firstName"
+      />
+      <div
+        *ngIf="(isSubmitted || registerForm.get('firstName')?.touched) && registerForm.get('firstName')?.invalid"
+        class="text-red-500"
+      >
+        Le prénom est requis.
+      </div>
+
+      <!-- Last Name -->
+      <input
+        placeholder="Nom"
+        type="text"
+        class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
+        [ngClass]="{
+          'border-white': !(isSubmitted || registerForm.get('lastName')?.touched) || registerForm.get('lastName')?.valid,
+          'border-red-500': (isSubmitted || registerForm.get('lastName')?.touched) && registerForm.get('lastName')?.invalid
+        }"
+        formControlName="lastName"
+      />
+      <div
+        *ngIf="(isSubmitted || registerForm.get('lastName')?.touched) && registerForm.get('lastName')?.invalid"
+        class="text-red-500"
+      >
+        Le nom est requis.
+      </div>
+
+      <!-- Email -->
+      <input
+        placeholder="Email"
+        type="email"
+        class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
+        [ngClass]="{
+          'border-white': !(isSubmitted || registerForm.get('email')?.touched) || registerForm.get('email')?.valid,
+          'border-red-500': (isSubmitted || registerForm.get('email')?.touched) && registerForm.get('email')?.invalid
+        }"
+        formControlName="email"
+      />
+      <div
+        *ngIf="(isSubmitted || registerForm.get('email')?.touched) && registerForm.get('email')?.errors"
+        class="text-red-500"
+      >
+        <div *ngIf="registerForm.get('email')?.errors?.['required']">L'email est requis.</div>
+        <div *ngIf="registerForm.get('email')?.errors?.['email']">Veuillez entrer un email valide.</div>
+      </div>
+
+      <!-- Password -->
+      <input
+        placeholder="Mot de passe"
+        type="password"
+        class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
+        [ngClass]="{
+          'border-white': !(isSubmitted || registerForm.get('password')?.touched) || registerForm.get('password')?.valid,
+          'border-red-500': (isSubmitted || registerForm.get('password')?.touched) && registerForm.get('password')?.invalid
+        }"
+        formControlName="password"
+      />
+      <div
+        *ngIf="(isSubmitted || registerForm.get('password')?.touched) && registerForm.get('password')?.errors"
+        class="text-red-500"
+      >
+        <div *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est requis.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Le mot de passe doit contenir au moins 8 caractères.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['pattern']">
+          Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère spécial.
+        </div>
+      </div>
+
+      <!-- Country Dropdown -->
+      <p-dropdown
+        [options]="country"
+        formControlName="country"
+        optionLabel="name"
+        placeholder="Pays"
+        [style]="{
+          'background-color': 'transparent',
+          border: '1px solid white',
+          color: 'white',
+          'border-radius': '0.25rem',
+          height: '36px',
+          width: '288px'
+        }"
+        [panelStyle]="{
+          'background-color': 'transparent',
+          border: '1px solid white',
+          color: 'white'
+        }"
+      ></p-dropdown>
+      <div
+        *ngIf="(isSubmitted || registerForm.get('country')?.touched) && registerForm.get('country')?.invalid"
+        class="text-red-500"
+      >
+        Le pays est requis.
+      </div>
+
+      <!-- Birthdate -->
+      <p-calendar formControlName="birthdate" [showTime]="false" placeholder="Date de naissance"></p-calendar>
+      <div
+        *ngIf="(isSubmitted || registerForm.get('birthdate')?.touched) && registerForm.get('birthdate')?.invalid"
+        class="text-red-500"
+      >
+        La date de naissance est requise.
+      </div>
+
+      <app-button
+        [disabled]="registerForm.invalid"
+        [sizeClasses]="'w-72 p-2 md:p-3 text-white font-medium text-base mt-14'"
+        type="submit"
+        variant="primary"
+        text="S'inscrire"
+      ></app-button>
     </div>
   </div>
 </form>

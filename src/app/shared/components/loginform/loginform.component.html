@@ -1,24 +1,24 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="onSubmit()">
   <div class="flex flex-col">
-    <div class="flex-col flex">
-      <div class="flex-col flex gap-5">
+    <div class="flex flex-col">
+      <div class="flex flex-col gap-5">
         <input
           placeholder="Email"
           type="email"
           id="email"
-          class="bg-transparent max-w-72 backdrop-blur-2xl pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          class="pl-2 text-white placeholder-white bg-transparent border border-white rounded max-w-72 backdrop-blur-2xl md:p-3 font-mont focus:outline-none"
           formControlName="email"
         />
         <input
           placeholder="Mot de passe"
           type="password"
           id="password"
-          class="bg-transparent max-w-72 backdrop-blur-2xl pl-2 md:p-3 font-mont border focus:outline-none border-white rounded placeholder-white text-white"
+          class="pl-2 text-white placeholder-white bg-transparent border border-white rounded max-w-72 backdrop-blur-2xl md:p-4 font-mont focus:outline-none"
           formControlName="password"
         />
       </div>
-      <p class="mb-7 mt-2 text-white font-mont leading-4 text-xs">
-        Pas encore de compte ? <a routerLink="/register" class="underline">Je m'inscris</a>
+      <p class="mt-2 text-xs text-center pr-2 leading-4 text-white mb-7 font-mont">
+        Pas encore de compte ? <a routerLink="/auth/register" class="underline">Je m'inscris</a>
       </p>      
       <app-button
         [sizeClasses]="'w-full p-3 md:p-3 text-white'"

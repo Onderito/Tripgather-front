@@ -11,17 +11,18 @@ import { CalendarModule } from 'primeng/calendar';
 @Component({
   selector: 'app-registercomp',
   standalone: true,
-  imports:[ButtonComponent,CommonModule,ReactiveFormsModule,DropdownModule,ButtonModule,CalendarModule,RouterModule],
+  imports: [ButtonComponent, CommonModule, ReactiveFormsModule, DropdownModule, ButtonModule, CalendarModule, RouterModule],
   templateUrl: './registercomp.component.html',
-  styleUrls: ['./registercomp.component.scss']
+  styleUrls: ['./registercomp.component.scss'],
 })
 export class RegistercompComponent {
   public registerForm!: FormGroup;
+  public isSubmitted = false; // Propriété pour suivre si le formulaire a été soumis
   logoURL = '/assets/icons/trip.svg';
-  country: any[] | undefined;
-  selectedCountry: any | undefined;
-  gender: any[] | undefined;
-  selectedGender: any | undefined;
+  country: any[] = [];
+  selectedCountry: any;
+  gender: any[] = [];
+  selectedGender: any;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
@@ -32,14 +33,21 @@ export class RegistercompComponent {
   init() {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
-      bio: ['', []],
-      country: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'),
+          Validators.minLength(8),
+        ],
+      ],
       firstName: ['', [Validators.required]],
-      gender: ['', [Validators.required]],
-      imageUrl: ['', []],
       lastName: ['', [Validators.required]],
-      birthdate: [new Date('2000-01-01'), [Validators.required]],
+      gender: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      birthdate: [null, [Validators.required]],
+      bio: ['', []],
+      imageUrl: ['', []],
     });
 
     this.country = [
@@ -47,26 +55,27 @@ export class RegistercompComponent {
       { name: 'Espagne' },
       { name: 'Angleterre' },
       { name: 'Allemagne' },
-      { name: 'Portugal' }
+      { name: 'Portugal' },
     ];
 
     this.gender = [
       { name: 'Homme' },
-      { name: 'Femme' }
+      { name: 'Femme' },
     ];
   }
 
   onSubmit() {
+    this.isSubmitted = true;
     if (this.registerForm.valid) {
-      const userData = { ...this.registerForm.value, gender: this.selectedGender === 'Homme' ? true : false };
-      
+      const userData = { ...this.registerForm.value };
+
       if (!userData.bio) {
         userData.bio = null;
       }
       if (!userData.imageUrl) {
         userData.imageUrl = null;
       }
-  
+
       this.authService.register(userData).subscribe({
         next: (response) => {
           console.log('Registration successful', response);
@@ -75,10 +84,10 @@ export class RegistercompComponent {
         error: (err) => {
           console.error('Registration failed', err);
           alert('Registration failed, please try again.');
-        }
+        },
       });
     } else {
       this.registerForm.markAllAsTouched();
     }
-  }  
+  }
 }

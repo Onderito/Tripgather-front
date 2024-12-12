@@ -1,24 +1,34 @@
-// src/app/interceptors/jwt.interceptor.ts
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { JwtService } from '../service/jwt.service';  // Correct import for JwtService
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(private jwtService: JwtService) {}
+  private token: string = '';
+  private API_URL = 'http://localhost:8080/api';
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.jwtService.getToken();
+  constructor(private jwtService: JwtService) {
+    this.token = this.getToken(); 
+  }
 
-    if (token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+  getToken(): string {
+    return this.jwtService.getToken() || '';
+  }
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    if (req.headers.has('skip-interceptor')) {
+      return next.handle(req);
     }
-
-    return next.handle(request);
+    let apiReq = req.clone({ url: req.url });
+    if (!req.url.includes('assets')) {
+      apiReq = req.clone({ url: this.API_URL + `${req.url}` });
+    }
+    if (this.token !== undefined) {
+      const newRequest = apiReq.clone({
+        headers: req.headers.set('Authorization', 'Bearer ' + this.token),
+      });
+      return next.handle(newRequest);
+    } else {
+      return next.handle(apiReq);
+    }
   }
 }
