@@ -14,8 +14,8 @@
     <div
       class="border border-[#ffffff] rounded-lg h-96 md:border md:border-[#DDDDDD] md:mt-10"
     >
-      <app-notification-request></app-notification-request>
-      <app-notification-request></app-notification-request>
+      <app-notification-request *ngIf="noData"></app-notification-request>
+      <app-empty-notification></app-empty-notification>
     </div>
   </div>
 </section>

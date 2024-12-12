@@ -5,14 +5,15 @@ import { CreateeventPageComponent } from './page/createevent-page/createevent-pa
 import { MainPageComponent } from './page/main-page/main-page.component.js';
 import { FavoritePageComponent } from './page/favorite-page/favorite-page.component.js';
 import { NotificationPageComponent } from './page/notification-page/notification-page.component.js';
-import { MainLayoutComponent} from './routing/main-layout-component/main-layout-component.component';
-import { AuthLayoutComponent} from './routing/auth-layout-component/auth-layout-component.component';
+import { MainLayoutComponent } from './routing/main-layout-component/main-layout-component.component';
+import { AuthLayoutComponent } from './routing/auth-layout-component/auth-layout-component.component';
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
+import { SelectedPageComponent } from './page/selected-page/selected-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: MainLayoutComponent, 
+    component: MainLayoutComponent,
     children: [
       { path: 'home', component: MainPageComponent },
       { path: 'createevent', component: CreateeventPageComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
       { path: 'notification', component: NotificationPageComponent },
       { path: 'profilepage', component: ProfilePageComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'selected', component: SelectedPageComponent },
     ],
   },
   {
