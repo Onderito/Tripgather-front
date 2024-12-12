@@ -65,29 +65,31 @@ export class RegistercompComponent {
   }
 
   onSubmit() {
-    this.isSubmitted = true;
-    if (this.registerForm.valid) {
-      const userData = { ...this.registerForm.value };
+    console.log(this.registerForm.value);
+    
+    // this.isSubmitted = true;
+    // if (this.registerForm.valid) {
+    //   const userData = { ...this.registerForm.value };
 
-      if (!userData.bio) {
-        userData.bio = null;
-      }
-      if (!userData.imageUrl) {
-        userData.imageUrl = null;
-      }
+    //   if (!userData.bio) {
+    //     userData.bio = null;
+    //   }
+    //   if (!userData.imageUrl) {
+    //     userData.imageUrl = null;
+    //   }
 
-      this.authService.register(userData).subscribe({
-        next: (response) => {
-          console.log('Registration successful', response);
-          this.router.navigate(['/login']);
-        },
-        error: (err) => {
-          console.error('Registration failed', err);
-          alert('Registration failed, please try again.');
-        },
-      });
-    } else {
-      this.registerForm.markAllAsTouched();
-    }
+    //   this.authService.register(userData).subscribe({
+    //     next: (response) => {
+    //       console.log('Registration successful', response);
+    //       this.router.navigate(['/login']);
+    //     },
+    //     error: (err) => {
+    //       console.error('Registration failed', err);
+    //       alert('Registration failed, please try again.');
+    //     },
+    //   });
+    // } else {
+    //   this.registerForm.markAllAsTouched();
+    // }
   }
 }
