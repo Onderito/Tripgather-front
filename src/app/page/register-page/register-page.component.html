@@ -1,26 +1,26 @@
 <section>
-  <div class="bg-white w-full h-screen relative">
+  <div class="relative w-full h-screen bg-white">
     <div
-      class="background-overlay absolute inset-0 backdrop-blur-lg z-10"
+      class="absolute inset-0 z-10 background-overlay backdrop-blur-lg"
     ></div>
-    <div class="absolute z-20 flex flex-col justify-center items-center w-full">
+    <div class="absolute z-20 flex flex-col items-center justify-center w-full">
       <img
-        class="mt-32 w-52 md:w-72"
+        class="mt-10 w-52 md:w-72"
         src="{{ tripLogoWhite }}"
         alt="tripGather logo"
       />
       <h2
-        class="text-white mt-20 md:mt-28 font-mono font-semibold text-xl md:text-2xl"
+        class="mt-20 font-mono text-xl font-semibold text-white md:mt-28 md:text-2xl"
       >
         Register
       </h2>
       <app-registercomp class="mt-4"></app-registercomp>
     </div>
     <img
-      class="md:hidden w-full h-screen overflow-hidden relative z-0"
+      class="relative z-0 w-full h-screen overflow-hidden md:hidden"
       src="{{ imgMobile }}"
       alt="mobile-img"
     />
-    <img src="{{ imgTablette }}" class="hidden md:block w-full h-screen" />
+    <img src="{{ imgTablette }}" class="hidden w-full h-screen md:block" />
   </div>
 </section>

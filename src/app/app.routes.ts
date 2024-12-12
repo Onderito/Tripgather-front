@@ -23,7 +23,7 @@ export const routes: Routes = [
     ],
   },
   {
-    path: '',
+    path: 'auth',
     component: AuthLayoutComponent,
     children: [
       { path: 'profile', component: RegisterPageComponent },

@@ -81,4 +81,5 @@ export class RegistercompComponent {
       this.registerForm.markAllAsTouched();
     }
   }  
+  
 }
