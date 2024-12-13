@@ -100,7 +100,7 @@
         formControlName="password"
       />
       <div
-        *ngIf="(isSubmitted || registerForm.get('password')?.touched) && registerForm.get('password')?.errors"
+        *ngIf="(isSubmitted || registerForm.get('password')?.dirty) && registerForm.get('password')?.errors"
         class="text-red-500"
       >
         <div *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est requis.</div>
@@ -138,7 +138,7 @@
       </div>
 
       <!-- Birthdate -->
-      <p-calendar formControlName="birthdate" [showTime]="false" placeholder="Date de naissance"></p-calendar>
+      <p-calendar dateFormat="dd.mm.yy" formControlName="birthdate" [showTime]="false" placeholder="Date de naissance"></p-calendar>
       <div
         *ngIf="(isSubmitted || registerForm.get('birthdate')?.touched) && registerForm.get('birthdate')?.invalid"
         class="text-red-500"
@@ -147,7 +147,6 @@
       </div>
 
       <app-button
-        [disabled]="registerForm.invalid"
         [sizeClasses]="'w-72 p-2 md:p-3 text-white font-medium text-base mt-14'"
         type="submit"
         variant="primary"

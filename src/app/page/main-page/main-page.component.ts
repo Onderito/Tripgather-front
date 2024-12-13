@@ -5,6 +5,7 @@ import { MainCardComponent } from '../../shared/components/main-card/main-card.c
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../shared/components/utils/button/button.component';
 import { EmptyTripComponent } from '../../shared/components/empty-data/empty-trip/empty-trip.component';
+import { UserService } from '../../core/service/user.service';
 
 @Component({
   selector: 'app-main-page',
@@ -25,7 +26,7 @@ export class MainPageComponent {
   search: FormGroup;
   noData: boolean = false;
 
-  constructor(private fb: FormBuilder, private Route: Router) {
+  constructor(private fb: FormBuilder, private Route: Router,private userService : UserService) {
     // Initialisez le formulaire dans le constructeur
     this.search = this.fb.group({
       city: [''],
@@ -42,5 +43,16 @@ export class MainPageComponent {
 
   toggleDropdown() {
     this.isDropdownVisible = !this.isDropdownVisible;
+  }
+
+  ngOnInit() {
+    this.userService.getOneUser().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 }

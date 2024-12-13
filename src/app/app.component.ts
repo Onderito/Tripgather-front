@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from './core/interceptor/jwt.interceptor';
 import { PRIMENG } from '../primeNgImport';
 
 @Component({
@@ -9,9 +7,6 @@ import { PRIMENG } from '../primeNgImport';
   standalone: true,
   imports: [
     RouterOutlet,PRIMENG],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

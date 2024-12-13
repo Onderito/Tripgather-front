@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
+import { FormatedFormService } from '../../../core/service/utils/formated-form.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-registercomp',
@@ -17,14 +19,19 @@ import { CalendarModule } from 'primeng/calendar';
 })
 export class RegistercompComponent {
   public registerForm!: FormGroup;
-  public isSubmitted = false; // Propriété pour suivre si le formulaire a été soumis
+  public isSubmitted = false; 
   logoURL = '/assets/icons/trip.svg';
   country: any[] = [];
   selectedCountry: any;
   gender: any[] = [];
   selectedGender: any;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor(
+    private fb: FormBuilder, 
+    private authService: AuthService, 
+    private router: Router,
+    private formatedFormService : FormatedFormService
+    ) {}
 
   ngOnInit() {
     this.init();
@@ -65,29 +72,39 @@ export class RegistercompComponent {
   }
 
   onSubmit() {
-    this.isSubmitted = true;
-    if (this.registerForm.valid) {
-      const userData = { ...this.registerForm.value };
+    const dataToSend: User = {
+      ...this.registerForm.value,
+      birthdate: this.formatedFormService.formattedDate(this.registerForm.value.birthdate) || '',
+      country: this.formatedFormService.objToString(this.registerForm.value.country),
+      gender: this.formatedFormService.objToString(this.registerForm.value.gender),
+    };
+    
 
-      if (!userData.bio) {
-        userData.bio = null;
-      }
-      if (!userData.imageUrl) {
-        userData.imageUrl = null;
-      }
+    console.log(dataToSend);
+    // this.isSubmitted = true;
+    // if (this.registerForm.valid) {
+    //   const userData = { ...this.registerForm.value };
 
-      this.authService.register(userData).subscribe({
-        next: (response) => {
-          console.log('Registration successful', response);
-          this.router.navigate(['/login']);
-        },
-        error: (err) => {
-          console.error('Registration failed', err);
-          alert('Registration failed, please try again.');
-        },
-      });
-    } else {
-      this.registerForm.markAllAsTouched();
-    }
+    //   if (!userData.bio) {
+    //     userData.bio = null;
+    //   }
+    //   if (!userData.imageUrl) {
+    //     userData.imageUrl = null;
+    //   }
+
+    //   this.authService.register(userData).subscribe({
+    //     next: (response) => {
+    //       console.log('Registration successful', response);
+    //       this.router.navigate(['/login']);
+    //     },
+    //     error: (err) => {
+    //       console.error('Registration failed', err);
+    //       alert('Registration failed, please try again.');
+    //     },
+    //   });
+    // } else {
+    //   this.registerForm.markAllAsTouched();
+    // }
   }
+
 }
