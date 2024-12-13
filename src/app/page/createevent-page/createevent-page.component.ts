@@ -3,7 +3,7 @@ import { SteponeComponent } from '../../shared/components/create-event/stepone/s
 import { SteptwoComponent } from '../../shared/components/create-event/steptwo/steptwo.component';
 import { FinalStepComponent } from '../../shared/components/create-event/final-step/final-step.component';
 import { CommonModule } from '@angular/common';
-import { FormeventService } from '../../core/service/formevent.service.js';
+import { FormeventService } from '../../core/service/utils/formevent.service.js';
 import { EventHeaderComponent } from '../../shared/components/event-header/event-header.component';
 
 @Component({

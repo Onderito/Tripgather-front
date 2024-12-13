@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormeventService } from '../../../../core/service/formevent.service.js';
+import { FormeventService } from '../../../../core/service/utils/formevent.service.js';
 import { CategoryCardComponent } from '../../category-card/category-card.component';
 import { DetailEventComponent } from '../../detail-event/detail-event.component';
 import { ButtonComponent } from '../../utils/button/button.component.js';

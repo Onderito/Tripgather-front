@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormeventService } from '../../../../core/service/formevent.service.js';
+import { FormeventService } from '../../../../core/service/utils/formevent.service.js';
 import { NavBarComponent } from '../../../../layout/nav-bar/nav-bar.component';
 import { EditorComponent } from '@tinymce/tinymce-angular';
 import { PRIMENG } from '../../../../../primeNgImport.js';

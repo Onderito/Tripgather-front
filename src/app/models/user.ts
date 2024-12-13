@@ -4,9 +4,9 @@ export interface User {
     email: string;
     password: string;
     imageUrl?: string;
-    gender: boolean;
+    gender: Object;
     bio?: string;
-    country: string;
-    birthDate: string;
+    country: Object;
+    birthdate: Object;
   }
   

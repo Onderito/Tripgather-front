@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
 import { PRIMENG } from '../../../../primeNgImport';
 import { FormsModule } from '@angular/forms';
-import { FormeventService } from '../../../core/service/formevent.service';
+import { FormeventService } from '../../../core/service/utils/formevent.service';
 
 @Component({
   selector: 'app-event-header',
