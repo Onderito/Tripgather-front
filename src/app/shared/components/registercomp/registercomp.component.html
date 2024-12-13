@@ -5,7 +5,6 @@
 >
   <div class="flex flex-col items-center max-w-xs">
     <div class="flex flex-col gap-7">
-
       <!-- Gender Dropdown -->
       <p-dropdown
         [options]="gender"
@@ -27,7 +26,10 @@
         }"
       ></p-dropdown>
       <div
-        *ngIf="(isSubmitted || registerForm.get('gender')?.touched) && registerForm.get('gender')?.invalid"
+        *ngIf="
+          (isSubmitted || registerForm.get('gender')?.touched) &&
+          registerForm.get('gender')?.invalid
+        "
         class="text-red-500"
       >
         Veuillez sélectionner un genre.
@@ -39,13 +41,20 @@
         type="text"
         class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
         [ngClass]="{
-          'border-white': !(isSubmitted || registerForm.get('firstName')?.touched) || registerForm.get('firstName')?.valid,
-          'border-red-500': (isSubmitted || registerForm.get('firstName')?.touched) && registerForm.get('firstName')?.invalid
+          'border-white':
+            !(isSubmitted || registerForm.get('firstName')?.touched) ||
+            registerForm.get('firstName')?.valid,
+          'border-red-500':
+            (isSubmitted || registerForm.get('firstName')?.touched) &&
+            registerForm.get('firstName')?.invalid
         }"
         formControlName="firstName"
       />
       <div
-        *ngIf="(isSubmitted || registerForm.get('firstName')?.touched) && registerForm.get('firstName')?.invalid"
+        *ngIf="
+          (isSubmitted || registerForm.get('firstName')?.touched) &&
+          registerForm.get('firstName')?.invalid
+        "
         class="text-red-500"
       >
         Le prénom est requis.
@@ -57,13 +66,20 @@
         type="text"
         class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
         [ngClass]="{
-          'border-white': !(isSubmitted || registerForm.get('lastName')?.touched) || registerForm.get('lastName')?.valid,
-          'border-red-500': (isSubmitted || registerForm.get('lastName')?.touched) && registerForm.get('lastName')?.invalid
+          'border-white':
+            !(isSubmitted || registerForm.get('lastName')?.touched) ||
+            registerForm.get('lastName')?.valid,
+          'border-red-500':
+            (isSubmitted || registerForm.get('lastName')?.touched) &&
+            registerForm.get('lastName')?.invalid
         }"
         formControlName="lastName"
       />
       <div
-        *ngIf="(isSubmitted || registerForm.get('lastName')?.touched) && registerForm.get('lastName')?.invalid"
+        *ngIf="
+          (isSubmitted || registerForm.get('lastName')?.touched) &&
+          registerForm.get('lastName')?.invalid
+        "
         class="text-red-500"
       >
         Le nom est requis.
@@ -75,17 +91,28 @@
         type="email"
         class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
         [ngClass]="{
-          'border-white': !(isSubmitted || registerForm.get('email')?.touched) || registerForm.get('email')?.valid,
-          'border-red-500': (isSubmitted || registerForm.get('email')?.touched) && registerForm.get('email')?.invalid
+          'border-white':
+            !(isSubmitted || registerForm.get('email')?.touched) ||
+            registerForm.get('email')?.valid,
+          'border-red-500':
+            (isSubmitted || registerForm.get('email')?.touched) &&
+            registerForm.get('email')?.invalid
         }"
         formControlName="email"
       />
       <div
-        *ngIf="(isSubmitted || registerForm.get('email')?.touched) && registerForm.get('email')?.errors"
+        *ngIf="
+          (isSubmitted || registerForm.get('email')?.touched) &&
+          registerForm.get('email')?.errors
+        "
         class="text-red-500"
       >
-        <div *ngIf="registerForm.get('email')?.errors?.['required']">L'email est requis.</div>
-        <div *ngIf="registerForm.get('email')?.errors?.['email']">Veuillez entrer un email valide.</div>
+        <div *ngIf="registerForm.get('email')?.errors?.['required']">
+          L'email est requis.
+        </div>
+        <div *ngIf="registerForm.get('email')?.errors?.['email']">
+          Veuillez entrer un email valide.
+        </div>
       </div>
 
       <!-- Password -->
@@ -94,19 +121,31 @@
         type="password"
         class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
         [ngClass]="{
-          'border-white': !(isSubmitted || registerForm.get('password')?.touched) || registerForm.get('password')?.valid,
-          'border-red-500': (isSubmitted || registerForm.get('password')?.touched) && registerForm.get('password')?.invalid
+          'border-white':
+            !(isSubmitted || registerForm.get('password')?.touched) ||
+            registerForm.get('password')?.valid,
+          'border-red-500':
+            (isSubmitted || registerForm.get('password')?.touched) &&
+            registerForm.get('password')?.invalid
         }"
         formControlName="password"
       />
       <div
-        *ngIf="(isSubmitted || registerForm.get('password')?.dirty) && registerForm.get('password')?.errors"
+        *ngIf="
+          (isSubmitted || registerForm.get('password')?.touched) &&
+          registerForm.get('password')?.errors
+        "
         class="text-red-500"
       >
-        <div *ngIf="registerForm.get('password')?.errors?.['required']">Le mot de passe est requis.</div>
-        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Le mot de passe doit contenir au moins 8 caractères.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['required']">
+          Le mot de passe est requis.
+        </div>
+        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">
+          Le mot de passe doit contenir au moins 8 caractères.
+        </div>
         <div *ngIf="registerForm.get('password')?.errors?.['pattern']">
-          Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et un caractère spécial.
+          Le mot de passe doit contenir une majuscule, une minuscule, un chiffre
+          et un caractère spécial.
         </div>
       </div>
 
@@ -131,16 +170,27 @@
         }"
       ></p-dropdown>
       <div
-        *ngIf="(isSubmitted || registerForm.get('country')?.touched) && registerForm.get('country')?.invalid"
+        *ngIf="
+          (isSubmitted || registerForm.get('country')?.touched) &&
+          registerForm.get('country')?.invalid
+        "
         class="text-red-500"
       >
         Le pays est requis.
       </div>
 
       <!-- Birthdate -->
-      <p-calendar dateFormat="dd.mm.yy" formControlName="birthdate" [showTime]="false" placeholder="Date de naissance"></p-calendar>
+      <p-calendar
+        dateFormat="dd.mm.yy"
+        formControlName="birthdate"
+        [showTime]="false"
+        placeholder="Date de naissance"
+      ></p-calendar>
       <div
-        *ngIf="(isSubmitted || registerForm.get('birthdate')?.touched) && registerForm.get('birthdate')?.invalid"
+        *ngIf="
+          (isSubmitted || registerForm.get('birthdate')?.touched) &&
+          registerForm.get('birthdate')?.invalid
+        "
         class="text-red-500"
       >
         La date de naissance est requise.
