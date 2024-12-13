@@ -12,10 +12,11 @@
     </div>
 
     <div
-      class="border border-[#ffffff] rounded-lg h-96 md:border md:border-[#DDDDDD] md:mt-10"
+      *ngIf="noData"
+      class="border border-[#ffffff] rounded-lg h-96 md:border md:border-[#DDDDDD]"
     >
-      <app-notification-request *ngIf="noData"></app-notification-request>
-      <app-empty-notification></app-empty-notification>
+      <app-notification-request></app-notification-request>
     </div>
+    <app-empty-notification></app-empty-notification>
   </div>
 </section>

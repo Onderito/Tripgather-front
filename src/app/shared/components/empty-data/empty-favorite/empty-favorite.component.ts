@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './empty-favorite.component.scss',
 })
 export class EmptyFavoriteComponent {
-  favoris: string = 'assets/icons/love-circled.svg';
+  favoris: string = 'assets/icons/empty-heart.svg';
 }
