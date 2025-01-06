@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
   styleUrl: './login-page.component.scss',
 })
 export class LoginPageComponent {
-  constructor(private route: Router) {}
+  constructor(private router: Router) {}
   imgMobile = '/assets/imgs/homeImgMobile.png';
   tripLogoWhite = 'assets/icons/tripWhite.svg';
   imgTablette = '/assets/imgs/homeImgTablette.png';
   home = '/assets/icons/white-home.svg';
 
   onChangeRoute(url: string) {
-    this.route.navigate([url]);
+    this.router.navigate([url]);
   }
 }
