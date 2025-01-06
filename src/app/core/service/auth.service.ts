@@ -6,39 +6,42 @@ import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor(
-    private http: HttpClient,
-    private jwtService: JwtService
-  ) {}
+  constructor(private http: HttpClient, private jwtService: JwtService) {}
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<{ token: string }>('/auth/login', { email, password }).pipe(
-      tap((response: any) => {
-        if (response && response.token) {
-          this.jwtService.storeToken(response.token);
-        }
-      }),
-      catchError((error) => {
-        console.error('Login error', error);
-        return throwError(() => new Error('Login failed, please try again.'));
-      })
-    );
+    return this.http
+      .post<{ token: string }>('/auth/login', { email, password })
+      .pipe(
+        tap((response: any) => {
+          if (response && response.token) {
+            this.jwtService.storeToken(response.token);
+          }
+        }),
+        catchError((error) => {
+          console.error('Login error', error);
+          return throwError(() => new Error('Login failed, please try again.'));
+        })
+      );
   }
 
   register(userData: any): Observable<any> {
     return this.http.post<any>('/auth/register', userData).pipe(
       catchError((error) => {
         console.error('Registration error', error);
-        return throwError(() => new Error('Registration failed, please try again.'));
+        return throwError(
+          () => new Error('Registration failed, please try again.')
+        );
       })
     );
   }
 
   isAuthenticated(): boolean {
-    return this.jwtService.getToken() !== null && !this.jwtService.isTokenExpired();
+    return (
+      this.jwtService.getToken() !== null && !this.jwtService.isTokenExpired()
+    );
   }
 
   logout(): void {

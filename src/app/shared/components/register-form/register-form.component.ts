@@ -97,6 +97,9 @@ export class RegisterFormComponent {
         this.registerForm.value.gender
       ),
     };
+    if (this.registerForm.valid) {
+      this.router.navigate(['/auth/login']);
+    }
 
     console.log(dataToSend);
     // this.isSubmitted = true;
