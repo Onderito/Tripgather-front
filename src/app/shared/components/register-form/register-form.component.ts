@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/service/auth.service';
 import { ButtonComponent } from '../utils/button/button.component';
@@ -11,15 +16,23 @@ import { FormatedFormService } from '../../../core/service/utils/formated-form.s
 import { User } from '../../../models/user';
 
 @Component({
-  selector: 'app-registercomp',
+  selector: 'app-register-form',
   standalone: true,
-  imports: [ButtonComponent, CommonModule, ReactiveFormsModule, DropdownModule, ButtonModule, CalendarModule, RouterModule],
-  templateUrl: './registercomp.component.html',
-  styleUrls: ['./registercomp.component.scss'],
+  imports: [
+    ButtonComponent,
+    CommonModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    ButtonModule,
+    CalendarModule,
+    RouterModule,
+  ],
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.scss'],
 })
-export class RegistercompComponent {
+export class RegisterFormComponent {
   public registerForm!: FormGroup;
-  public isSubmitted = false; 
+  public isSubmitted = false;
   logoURL = '/assets/icons/trip.svg';
   country: any[] = [];
   selectedCountry: any;
@@ -27,11 +40,11 @@ export class RegistercompComponent {
   selectedGender: any;
 
   constructor(
-    private fb: FormBuilder, 
-    private authService: AuthService, 
+    private fb: FormBuilder,
+    private authService: AuthService,
     private router: Router,
-    private formatedFormService : FormatedFormService
-    ) {}
+    private formatedFormService: FormatedFormService
+  ) {}
 
   ngOnInit() {
     this.init();
@@ -44,7 +57,9 @@ export class RegistercompComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'),
+          Validators.pattern(
+            '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
+          ),
           Validators.minLength(8),
         ],
       ],
@@ -65,20 +80,23 @@ export class RegistercompComponent {
       { name: 'Portugal' },
     ];
 
-    this.gender = [
-      { name: 'Homme' },
-      { name: 'Femme' },
-    ];
+    this.gender = [{ name: 'Homme' }, { name: 'Femme' }];
   }
 
   onSubmit() {
     const dataToSend: User = {
       ...this.registerForm.value,
-      birthdate: this.formatedFormService.formattedDate(this.registerForm.value.birthdate) || '',
-      country: this.formatedFormService.objToString(this.registerForm.value.country),
-      gender: this.formatedFormService.objToString(this.registerForm.value.gender),
+      birthdate:
+        this.formatedFormService.formattedDate(
+          this.registerForm.value.birthdate
+        ) || '',
+      country: this.formatedFormService.objToString(
+        this.registerForm.value.country
+      ),
+      gender: this.formatedFormService.objToString(
+        this.registerForm.value.gender
+      ),
     };
-    
 
     console.log(dataToSend);
     // this.isSubmitted = true;
@@ -106,5 +124,4 @@ export class RegistercompComponent {
     //   this.registerForm.markAllAsTouched();
     // }
   }
-
 }

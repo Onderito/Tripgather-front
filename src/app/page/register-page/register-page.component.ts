@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RegistercompComponent } from '../../shared/components/registercomp/registercomp.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { RegisterFormComponent } from '../../shared/components/register-form/register-form.component';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [RegistercompComponent,ReactiveFormsModule],
+  imports: [RegisterFormComponent, ReactiveFormsModule],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss',
 })

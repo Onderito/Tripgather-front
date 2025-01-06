@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HomePageComponent } from '../home-page/home-page.component';
 import { LoginformComponent } from '../../shared/components/loginform/loginform.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,7 +11,13 @@ import { LoginformComponent } from '../../shared/components/loginform/loginform.
   styleUrl: './login-page.component.scss',
 })
 export class LoginPageComponent {
+  constructor(private route: Router) {}
   imgMobile = '/assets/imgs/homeImgMobile.png';
   tripLogoWhite = 'assets/icons/tripWhite.svg';
   imgTablette = '/assets/imgs/homeImgTablette.png';
+  home = '/assets/icons/white-home.svg';
+
+  onChangeRoute(url: string) {
+    this.route.navigate([url]);
+  }
 }
