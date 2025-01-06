@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegistercompComponent } from './registercomp.component';
+import { RegistercompComponent } from './register-form.component';
 
 describe('RegistercompComponent', () => {
   let component: RegistercompComponent;
@@ -8,9 +8,8 @@ describe('RegistercompComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegistercompComponent]
-    })
-    .compileComponents();
+      imports: [RegistercompComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RegistercompComponent);
     component = fixture.componentInstance;

@@ -5,6 +5,12 @@
     ></div>
     <div class="absolute z-20 flex flex-col justify-center items-center w-full">
       <img
+        (click)="onChangeRoute('')"
+        class="absolute top-5 left-5 w-10 h-10 cursor-pointer hover:scale-110 duration-300"
+        src="{{ home }}"
+        alt="home icon"
+      />
+      <img
         class="mt-32 w-52 md:w-72"
         src="{{ tripLogoWhite }}"
         alt="tripGather logo"
