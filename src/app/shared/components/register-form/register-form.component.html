@@ -30,7 +30,7 @@
           (isSubmitted || registerForm.get('gender')?.touched) &&
           registerForm.get('gender')?.invalid
         "
-        class="text-red-500"
+        class="text-white"
       >
         Veuillez sélectionner un genre.
       </div>
@@ -55,7 +55,7 @@
           (isSubmitted || registerForm.get('firstName')?.touched) &&
           registerForm.get('firstName')?.invalid
         "
-        class="text-red-500"
+        class="text-white"
       >
         Le prénom est requis.
       </div>
@@ -80,7 +80,7 @@
           (isSubmitted || registerForm.get('lastName')?.touched) &&
           registerForm.get('lastName')?.invalid
         "
-        class="text-red-500"
+        class="text-white"
       >
         Le nom est requis.
       </div>
@@ -105,7 +105,7 @@
           (isSubmitted || registerForm.get('email')?.touched) &&
           registerForm.get('email')?.errors
         "
-        class="text-red-500"
+        class="text-white"
       >
         <div *ngIf="registerForm.get('email')?.errors?.['required']">
           L'email est requis.
@@ -135,7 +135,7 @@
           (isSubmitted || registerForm.get('password')?.dirty) &&
           registerForm.get('password')?.errors
         "
-        class="text-red-500"
+        class="text-white"
       >
         <div *ngIf="registerForm.get('password')?.errors?.['required']">
           Le mot de passe est requis.
@@ -174,7 +174,7 @@
           (isSubmitted || registerForm.get('country')?.touched) &&
           registerForm.get('country')?.invalid
         "
-        class="text-red-500"
+        class="text-white"
       >
         Le pays est requis.
       </div>
@@ -191,7 +191,7 @@
           (isSubmitted || registerForm.get('birthdate')?.touched) &&
           registerForm.get('birthdate')?.invalid
         "
-        class="text-red-500"
+        class="text-white"
       >
         La date de naissance est requise.
       </div>
