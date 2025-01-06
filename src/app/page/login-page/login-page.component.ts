@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { HomePageComponent } from '../home-page/home-page.component';
-import { LoginformComponent } from '../../shared/components/loginform/loginform.component';
+import { LoginFormComponent } from '../../shared/components/login-form/login-form.component';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [LoginformComponent],
+  imports: [LoginFormComponent],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })

@@ -11,20 +11,20 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/service/auth.service';
 
 @Component({
-  selector: 'app-loginform',
+  selector: 'app-login-form',
   standalone: true,
-  imports: [ButtonComponent, ReactiveFormsModule,RouterModule],
-  templateUrl: './loginform.component.html',
-  styleUrl: './loginform.component.scss',
+  imports: [ButtonComponent, ReactiveFormsModule, RouterModule],
+  templateUrl: './login-form.component.html',
+  styleUrl: './login-form.component.scss',
 })
-export class LoginformComponent {
+export class LoginFormComponent {
   public loginForm!: FormGroup;
   logoURL = '/assets/icons/trip.svg';
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router 
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class LoginformComponent {
         },
         error: (err: any) => {
           console.error('Login failed', err);
-        }
+        },
       });
     } else {
       this.loginForm.markAllAsTouched();
