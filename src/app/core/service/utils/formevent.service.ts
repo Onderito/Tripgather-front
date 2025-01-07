@@ -13,6 +13,7 @@ export class FormeventService {
   
   private scaleSubject = new BehaviorSubject<number>(1); 
   public scale$ = this.scaleSubject.asObservable(); 
+  private finalStep = 3;
 
   nextStep() {
     let currentScale = this.scaleSubject.getValue();
@@ -23,6 +24,9 @@ export class FormeventService {
     return this.scaleSubject.getValue();
   }
 
+  isFinalStep(): boolean {
+    return this.scaleSubject.getValue() === this.finalStep;
+  }
 
   setData(newData: any) {
     const currentData = this.dataSubject.getValue();
@@ -31,5 +35,6 @@ export class FormeventService {
 
   clearData() {
     this.dataSubject.next(null);
+    this.scaleSubject.next(1);
   }
 }

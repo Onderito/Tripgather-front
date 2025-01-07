@@ -8,7 +8,7 @@ import {
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/service/auth.service';
 import { ButtonComponent } from '../utils/button/button.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
@@ -18,15 +18,8 @@ import { User } from '../../../models/user';
 @Component({
   selector: 'app-register-form',
   standalone: true,
-  imports: [
-    ButtonComponent,
-    CommonModule,
-    ReactiveFormsModule,
-    DropdownModule,
-    ButtonModule,
-    CalendarModule,
-    RouterModule,
-  ],
+  imports: [ButtonComponent, CommonModule, ReactiveFormsModule, DropdownModule, ButtonModule, CalendarModule, RouterModule],
+  providers: [DatePipe],
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss'],
 })
@@ -43,8 +36,9 @@ export class RegisterFormComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private formatedFormService: FormatedFormService
-  ) {}
+    private formatedFormService : FormatedFormService,
+    private datePipe: DatePipe
+    ) {}
 
   ngOnInit() {
     this.init();
@@ -84,47 +78,43 @@ export class RegisterFormComponent {
   }
 
   onSubmit() {
+    const formattedBirthdate = this.datePipe.transform(this.registerForm.value.birthdate, 'yyyy-MM-dd') || '';
+    
+    const gender = this.registerForm.value.gender?.name;
+    
+    const genderToSend = gender === 'Homme' ? 'HOMME' : 'FEMME';
+    
     const dataToSend: User = {
       ...this.registerForm.value,
-      birthdate:
-        this.formatedFormService.formattedDate(
-          this.registerForm.value.birthdate
-        ) || '',
-      country: this.formatedFormService.objToString(
-        this.registerForm.value.country
-      ),
-      gender: this.formatedFormService.objToString(
-        this.registerForm.value.gender
-      ),
+      birthdate: formattedBirthdate,
+      country: this.formatedFormService.objToString(this.registerForm.value.country),
+      gender: genderToSend,
     };
+
+    this.isSubmitted = true;
     if (this.registerForm.valid) {
-      this.router.navigate(['/auth/login']);
+      const userData = { ...this.registerForm.value };
+  
+      if (!userData.bio) {
+        userData.bio = null;
+      }
+      if (!userData.imageUrl) {
+        userData.imageUrl = null;
+      }
+  
+      this.authService.register(dataToSend).subscribe({
+        next: (response) => {
+          console.log('Registration successful');
+          this.router.navigate(['/auth/login']);
+        },
+        error: (err) => {
+          console.error('Registration failed', err);
+          alert('Registration failed, please try again.');
+        },
+      });
+    } else {
+      this.registerForm.markAllAsTouched();
     }
+  }  
 
-    console.log(dataToSend);
-    // this.isSubmitted = true;
-    // if (this.registerForm.valid) {
-    //   const userData = { ...this.registerForm.value };
-
-    //   if (!userData.bio) {
-    //     userData.bio = null;
-    //   }
-    //   if (!userData.imageUrl) {
-    //     userData.imageUrl = null;
-    //   }
-
-    //   this.authService.register(userData).subscribe({
-    //     next: (response) => {
-    //       console.log('Registration successful', response);
-    //       this.router.navigate(['/login']);
-    //     },
-    //     error: (err) => {
-    //       console.error('Registration failed', err);
-    //       alert('Registration failed, please try again.');
-    //     },
-    //   });
-    // } else {
-    //   this.registerForm.markAllAsTouched();
-    // }
-  }
 }

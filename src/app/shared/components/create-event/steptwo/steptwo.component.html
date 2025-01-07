@@ -36,9 +36,10 @@
       <div>
         <h3 class="text-xl font-bold mb-4">Catégories</h3>
         <div class="mt-1">
+          <div *ngIf="isLoading">Chargement des catégories...</div>
           <app-create-card-event
             (clikedCategory)="onCategorySelected($event)"
-            [data]="data"
+            [data]="categories"
           ></app-create-card-event>
         </div>
       </div>

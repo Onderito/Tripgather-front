@@ -16,6 +16,7 @@ import { ButtonComponent } from '../../utils/button/button.component.js';
 import { FormeventService } from '../../../../core/service/utils/formevent.service.js';
 import { CountryService } from '../../../../core/service/country.service.js';
 import { City } from '../../../../core/interface/city';
+import { CreateEventService } from '../../../../core/service/create-event.service.js';
 
 @Component({
   selector: 'app-stepone',
@@ -33,7 +34,10 @@ export class SteponeComponent {
   form: FormGroup;
   minDate: Date = new Date();
   minDateBack: Date | null = null;
-  gender: string[] = ['Femme', 'Homme'];
+  gender = [
+    { label: 'Femme', value: 'Femme' },
+    { label: 'Homme', value: 'Homme' },
+  ];  
   filteredCities: any[] = []; // Liste filtrée des villes
   test: string = '';
   private searchSubject = new Subject<string>(); // Ajout du Subject pour gérer la recherche
@@ -42,7 +46,8 @@ export class SteponeComponent {
   constructor(
     private formEvent: FormeventService,
     private fb: FormBuilder,
-    private countryService: CountryService
+    private countryService: CountryService,
+    private createEventService: CreateEventService
   ) {
     this.form = this.fb.group(
       {
@@ -50,7 +55,7 @@ export class SteponeComponent {
         start: ['', Validators.required],
         back: ['', Validators.required],
         budget: ['', Validators.required],
-        nbMenber: ['', Validators.required],
+        nbMember: ['', Validators.required],
         gender: ['', Validators.required],
         country: ['', Validators.required],
       },
@@ -61,6 +66,7 @@ export class SteponeComponent {
   }
 
   ngOnInit() {
+    this.formEvent.clearData();
     // Ajout de la logique debounce pour limiter les appels de recherche
     this.searchSubject
       .pipe(
@@ -118,7 +124,7 @@ export class SteponeComponent {
   sendData() {
     if (this.form.valid) {
       this.formEvent.setData(this.form.value);
-      this.formEvent.nextStep();
+        this.formEvent.nextStep();
     }
-  }
+  }  
 }

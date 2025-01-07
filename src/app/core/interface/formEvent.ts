@@ -3,7 +3,7 @@ export interface StepOne {
     start: string; 
     back: string; 
     budget: number; 
-    nbMenber: number; 
+    nbMember: number; 
     gender: 'man' | 'woman'; 
 }
   
