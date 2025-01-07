@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { FormeventService } from '../../../../core/service/utils/formevent.service.js';
+import { CreateEventService } from '../../../../core/service/create-event.service.js';
 import { NavBarComponent } from '../../../../layout/nav-bar/nav-bar.component';
 import { EditorComponent } from '@tinymce/tinymce-angular';
 import { PRIMENG } from '../../../../../primeNgImport.js';
@@ -15,38 +14,36 @@ import { EventHeaderComponent } from '../../event-header/event-header.component'
   selector: 'app-steptwo',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
-    CommonModule,
     NavBarComponent,
     EditorComponent,
     PRIMENG,
     ButtonComponent,
     CreateCardEventComponent,
     EventHeaderComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './steptwo.component.html',
   styleUrls: ['./steptwo.component.scss'],
 })
-export class SteptwoComponent implements OnInit {
+export class SteptwoComponent implements OnInit, OnDestroy {
   form: FormGroup;
   receivedData: any;
-  selectedCategories: any[] = []; // Stocke les catégories sélectionnées
+  selectedCategories: string[] = [];
   allDatta: any;
-
-  @Output() sendScale: EventEmitter<number> = new EventEmitter();
-  data: any[] = [
-    { catogory: 'music', color: 'rgba(255, 0, 0, 0.1)' }, // red avec 50% d'opacité
-    { catogory: 'art & culture', color: 'rgba(0, 0, 255, 0.1)' }, // blue avec 50% d'opacité
-    { catogory: 'social activities', color: 'rgba(0, 128, 0, 0.1)' }, // green avec 50% d'opacité
-    { catogory: 'hobbies & passion', color: 'rgba(255, 165, 0, 0.1)' }, // orange avec 50% d'opacité
-    { catogory: 'Sport', color: 'rgba(128, 0, 128, 0.1)' }, // purple avec 50% d'opacité
-    { catogory: 'Livre', color: 'rgba(255, 255, 0, 0.1)' }, // yellow avec 50% d'opacité
-    { catogory: 'Religion', color: 'rgba(255, 192, 203, 0.1)' }, // pink avec 50% d'opacité
+  categories: any[] = [{ name: 'Music', color: 'rgba(255, 0, 0, 0.1)', img:'assets/imgs/music-circle.svg' }, // red avec 50% d'opacité
+    { name: 'Art & Culture', color: 'rgba(0, 0, 255, 0.1)', img:'assets/imgs/art-culture.svg' }, // blue avec 50% d'opacité
+    { name: 'Social Activities', color: 'rgba(0, 128, 0, 0.1)', img:'assets/imgs/social-activity.svg' }, // green avec 50% d'opacité
+    { name: 'Hobbies & Passion', color: 'rgba(255, 165, 0, 0.1)', img:'assets/imgs/hobbies.svg' }, // orange avec 50% d'opacité
+    { name: 'Sport', color: 'rgba(128, 0, 128, 0.1)', img:'assets/imgs/ball.svg' }, // purple avec 50% d'opacité
+    { name: 'Livre', color: 'rgba(255, 255, 0, 0.1)', img:'assets/imgs/book.svg' }, // yellow avec 50% d'opacité
+    { name: 'Religion', color: 'rgba(255, 192, 203, 0.1)', img:'assets/imgs/spirituality.svg' }, // pink avec 50% d'opacité
   ];
+  isLoading: boolean = true;
+  private subscriptions: Subscription = new Subscription();
 
   constructor(
     private formEvent: FormeventService,
-    private router: Router,
+    private createEventService: CreateEventService,
     private fb: FormBuilder
   ) {
     this.form = this.fb.group({
@@ -56,20 +53,29 @@ export class SteptwoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formEvent.data$.subscribe((data) => {
-      this.receivedData = data;
-      console.log(this.receivedData);
-    });
+    // Fetch categories from the API
+    this.subscriptions.add(
+      this.createEventService.getCategories().subscribe(
+        (categories) => {
+          this.categories = categories;
+          this.isLoading = false;
+        },
+        (error) => {
+          console.error('Error fetching categories:', error);
+          this.isLoading = false;
+        }
+      )
+    );    
 
-    this.formEvent.scale$.subscribe((value: number) => {
-      value;
-      console.log(value, 'scale et value 2');
-    });
+    // Subscribe to formEvent data stream and handle data
+    this.subscriptions.add(
+      this.formEvent.data$.subscribe((data) => {
+        this.receivedData = data;
+      })
+    );
   }
 
-  // Méthode pour recevoir les catégories sélectionnées
-  onCategorySelected(category: any) {
-    // Ajouter ou retirer la catégorie sélectionnée
+  onCategorySelected(category: string) {
     if (!this.selectedCategories.includes(category)) {
       this.selectedCategories.push(category);
     } else {
@@ -77,7 +83,6 @@ export class SteptwoComponent implements OnInit {
         (c) => c !== category
       );
     }
-    console.log(this.selectedCategories);
   }
 
   groupData() {
@@ -91,18 +96,24 @@ export class SteptwoComponent implements OnInit {
     if (this.form.valid) {
       this.groupData();
       this.formEvent.setData(this.allDatta);
-      this.formEvent.nextStep();
+        this.formEvent.nextStep();
     }
   }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
+
+  // TinyMCE configuration
   init = {
     selector: 'textarea',
     skin: 'borderless',
     branding: false,
     statusbar: false,
-    menubar: 'file edit view format tools table help', // Supprimer 'insert' du menubar
+    menubar: 'file edit view format tools table help',
     toolbar:
-      'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat', // Retirer les outils d'insertion
-    plugins: 'lists link image table code', // Ne pas inclure le plugin 'insert' ou 'media'
+      'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+    plugins: 'lists link image table code',
     height: 440,
   };
 }

@@ -3,27 +3,28 @@
 >
   <img
     class="max-w-[22rem] md:max-w-xl pb-4"
-    src="{{ fakeData.url }}"
-    alt="{{ fakeData.url }}"
+    src="{{ receivedData.url }}"
+    alt="{{ receivedData.url }}"
   />
 
   <div class="flex flex-col justify-center items-center">
-    <h2 class="font-semibold md:text-lg lg:text-2xl">{{ fakeData.title }}</h2>
+    <h2 class="font-semibold md:text-lg lg:text-2xl">{{ receivedData.title }}</h2>
     <p
       class="mt-2 font-extralight font-lexend text-center text-xs md:text-sm lg:text-md text-[#A3A0A0]"
-      [innerHTML]="fakeData.editorContent"
+      [innerHTML]="receivedData.editorContent"
     ></p>
     <div class="mt-8 flex flex-col gap-2 md:gap-4">
-      <app-detail-event [detail]="fakeData"></app-detail-event>
+      <app-detail-event [detail]="receivedData"></app-detail-event>
       <app-category-card
-        [category]="fakeData.selectedCategories"
+        [category]="receivedData.selectedCategories"
       ></app-category-card>
     </div>
   </div>
 </section>
 <app-button
   [text]="'Je confirme'"
-  [type]="'button'"
+  type="submit"
+  (click)="sendData()"
   [variant]="'primary'"
   [sizeClasses]="
     'w-80 p-3 mt-20 lg:mt-32 block m-auto lg:w-96 lg:p-3.5 lg:text-xl'
