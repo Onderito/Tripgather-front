@@ -43,7 +43,11 @@
 
     <!-- Bouton Menu Burger -->
     <div class="lg:hidden">
-      <button id="burgerMenu" class="text-gray-800 focus:outline-none">
+      <button
+        id="burgerMenu"
+        (click)="toggleMenu()"
+        class="text-gray-800 focus:outline-none"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-8 h-8"
@@ -63,31 +67,41 @@
   </div>
 
   <!-- Menu déroulant Burger (caché par défaut) -->
-  <div id="menuDropdown" class="hidden lg:hidden">
+  <div
+    [ngClass]="{ hidden: !isMenuOpen }"
+    class="lg:hidden"
+    id="menuDropdown"
+    class="hidden lg:hidden"
+  >
     <ul
       class="list-none font-mont text-lg bg-white shadow-custom border-opacity-80 border-[#CCCCCC] rounded-md p-2"
     >
       <li
+        (click)="onChangeRoute('home')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ home }}" alt="home icon" />Accueil
       </li>
       <li
+        (click)="onChangeRoute('createevent')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ publish }}" alt="" />Publier votre annonce
       </li>
       <li
+        (click)="onChangeRoute('favorite')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ heart }}" alt="" />Favoris
       </li>
       <li
+        (click)="onChangeRoute('notification')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ notif }}" alt="" />Notifications
       </li>
       <li
+        (click)="onChangeRoute('auth/login')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ profile }}" alt="" />Profil

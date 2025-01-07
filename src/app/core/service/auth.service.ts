@@ -28,7 +28,9 @@ export class AuthService {
   }
 
   register(userData: any): Observable<any> {
+    console.log(userData, 'donées envoyés');
     return this.http.post<any>('/auth/register', userData).pipe(
+      tap((response) => console.log('Réponse du register:', response)), // Et celui-ci
       catchError((error) => {
         console.error('Registration error', error);
         return throwError(
