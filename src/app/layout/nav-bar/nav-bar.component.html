@@ -33,10 +33,18 @@
           <img src="{{ notif }}" alt="" />Notifications
         </li>
         <li
+          *ngIf="!userLogged"
           (click)="onChangeRoute('auth/login')"
           class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
           <img src="{{ profile }}" alt="" />Connexion
+        </li>
+        <li
+          *ngIf="userLogged"
+          (click)="onChangeRoute('/auth/profilepage')"
+          class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+        >
+          <img src="{{ profile }}" alt="" />Profile
         </li>
       </ul>
     </div>

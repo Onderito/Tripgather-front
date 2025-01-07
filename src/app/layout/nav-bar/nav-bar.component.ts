@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../core/service/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -18,10 +19,16 @@ export class NavBarComponent {
   publishNav = '/assets/icons/publishNav.svg';
   profile = '/assets/icons/profile.svg';
   isMenuOpen = false; // Suivi de l'état du menu
+  userLogged: boolean = false;
 
-  constructor(private Route: Router) {}
+  constructor(private Route: Router, private authService: AuthService) {}
 
   ngOnInit() {
+    this.authService.isAuthenticated.subscribe((isLogged) => {
+      this.userLogged = isLogged;
+      console.log(this.userLogged);
+    });
+    console.log(this.userLogged);
     const burgerMenu = document.getElementById('burgerMenu');
     const menuDropdown = document.getElementById('menuDropdown');
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { JwtService } from './jwt.service';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -9,6 +9,9 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  private authSubject = new BehaviorSubject<boolean>(false);
+  public isAuthenticated = this.authSubject.asObservable();
+
   constructor(private http: HttpClient, private jwtService: JwtService) {}
 
   login(email: string, password: string): Observable<any> {
@@ -18,6 +21,8 @@ export class AuthService {
         tap((response: any) => {
           if (response && response.token) {
             this.jwtService.storeToken(response.token);
+            this.authSubject.next(true);
+            console.log(this.isAuthenticated, 'ouais c moi jsuis co');
           }
         }),
         catchError((error) => {
@@ -37,12 +42,6 @@ export class AuthService {
           () => new Error('Registration failed, please try again.')
         );
       })
-    );
-  }
-
-  isAuthenticated(): boolean {
-    return (
-      this.jwtService.getToken() !== null && !this.jwtService.isTokenExpired()
     );
   }
 
