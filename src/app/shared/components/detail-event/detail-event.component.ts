@@ -15,8 +15,4 @@ export class DetailEventComponent {
   user: string = 'assets/imgs/users.svg';
   calendar: string = 'assets/imgs/calendar-check.svg';
   gender: string = 'assets/imgs/gender.png';
-
-  // book: string = 'assets/imgs/book.svg';
-  // gamepad: string = 'assets/imgs/gamepad.svg';
-  // music: string = 'assets/imgs/music-circle.svg';
 }
