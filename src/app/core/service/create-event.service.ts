@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { EventDTO } from '../../models/event';
 import { CategoryDTO } from '../../models/category';
 import { environment } from '../../../environments/environment';
@@ -33,7 +33,11 @@ export class CreateEventService {
 
   // API call to get all events (GET request)
   getAllEvents(): Observable<EventDTO[]> {
-    return this.http.get<EventDTO[]>(this.apiUrl);
+    return this.http.get<EventDTO[]>('/events').pipe(
+      tap((res) =>{
+        console.log(res);
+      })
+    )
   }
 
   // API call to get a single event by ID (GET request)

@@ -1,25 +1,26 @@
-<section class="max-w-xs md:max-w-sm mx-auto flex justify-center">
-  <div class="flex flex-col gap-4 shadow-custom p-3 rounded-md">
-    <div class="relative">
+<section class="flex flex-wrap gap-6 justify-center">
+  <div *ngFor="let data of cardData" class="flex flex-col gap-4 shadow-custom p-3 rounded-md w-full sm:w-1/2 md:w-1/3 lg:w-[28%]">
+    <div (click)="test(data, 'selected')" >
+    <div >
       <img
         class="rounded-xl"
-        src="{{ fakeData.url }}"
-        alt="{{ fakeData.url }}"
+        src="{{ data.imgUrl[0] }}"
+        alt="test"
       />
     </div>
     <div class="flex flex-col gap-4 mb-2">
-      <h2 class="text-xl text-center font-semibold">{{ fakeData.title }}</h2>
+      <h2 class="text-xl text-center font-semibold">{{ data.title }}</h2>
       <p
         class="font-extralight font-lexend text-center text-xs md:text-sm lg:text-md text-[#A3A0A0]"
-        [innerHtml]="fakeData.editorContent"
+        [innerHtml]="data.description"
       ></p>
     </div>
     <div class="flex flex-col items-center gap-4">
-      <app-detail-event class="mb-2" [detail]="fakeData"></app-detail-event>
+      <app-detail-event class="mb-2" [detail]="data"></app-detail-event>
     </div>
     <div class="flex flex-col items-center gap-4">
       <app-category-card
-        [category]="fakeData.selectedCategories"
+        [category]="data.categories"
       ></app-category-card>
       <app-button
         [text]="'Je réserve'"
@@ -28,5 +29,6 @@
         [sizeClasses]="'w-80 mt-2 my-4 mt-2 '"
       ></app-button>
     </div>
+  </div>
   </div>
 </section>
