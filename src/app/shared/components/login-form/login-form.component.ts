@@ -43,6 +43,7 @@ export class LoginFormComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe({
         next: () => {
+          alert('Connexion réussie');
           this.router.navigate(['/']);
         },
         error: (err: any) => {
