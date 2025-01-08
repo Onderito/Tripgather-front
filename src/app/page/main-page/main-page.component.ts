@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../shared/components/utils/button/button.component';
 import { EmptyTripComponent } from '../../shared/components/empty-data/empty-trip/empty-trip.component';
 import { UserService } from '../../core/service/user.service';
+import { CreateEventService } from '../../core/service/create-event.service';
 
 @Component({
   selector: 'app-main-page',
@@ -22,12 +23,14 @@ import { UserService } from '../../core/service/user.service';
 export class MainPageComponent {
   public eventData: any[] = [];
   isDropdownVisible = false;
-  instances = Array(3);
+  instances : any[] = [];
   search: FormGroup;
   noData: boolean = false;
 
-  constructor(private fb: FormBuilder, private Route: Router,private userService : UserService) {
-    // Initialisez le formulaire dans le constructeur
+  constructor(private fb: FormBuilder,
+     private Route: Router,
+     private eventService : CreateEventService
+    ) {
     this.search = this.fb.group({
       city: [''],
       state: [''],
@@ -37,22 +40,20 @@ export class MainPageComponent {
     });
   }
 
-  onChangeRoute(url: string) {
-    this.Route.navigate([url]);
-  }
+  // onChangeRoute(event : any) {
+  //   // this.Route.navigate([url]);
+  //   console.log(event, 'instance event');
+  // }
 
   toggleDropdown() {
     this.isDropdownVisible = !this.isDropdownVisible;
   }
 
   ngOnInit() {
-    this.userService.getOneUser().subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-      error: (err) => {
-        console.error(err);
-      },
+    this.eventService.getAllEvents().subscribe((data) => {
+      this.instances = data;
+      this.noData = true
     });
+    
   }
 }

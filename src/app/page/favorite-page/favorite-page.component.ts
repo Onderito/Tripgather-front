@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
+import { CarouselModule } from 'primeng/carousel';
 import { MainCardComponent } from '../../shared/components/main-card/main-card.component';
 import { EmptyFavoriteComponent } from '../../shared/components/empty-data/empty-favorite/empty-favorite.component';
 import { CommonModule } from '@angular/common';
@@ -19,12 +19,7 @@ import { CommonModule } from '@angular/common';
 export class FavoritePageComponent {
   heart: string = '/assets/icons/heart.svg';
   noData: boolean = false;
-  carouselValue = [
-    new MainCardComponent(),
-    new MainCardComponent(),
-    new MainCardComponent(),
-    new MainCardComponent(),
-  ];
+  carouselValue = [];
   responsiveOptions = [
     {
       breakpoint: '1024px',

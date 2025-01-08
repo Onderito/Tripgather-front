@@ -1,7 +1,8 @@
-<section class="lg:max-w-2xl xl:max-w-4xl m-4 lg:m-0">
+<section 
+class="lg:max-w-2xl xl:max-w-4xl m-4 lg:m-0">
   <img
     class="rounded-2xl lg:max-w-2xl xl:max-w-4xl xl:relative"
-    [src]="imgOfTrip"
+    [src]="userDetail.imgUrl[0]"
     alt="image of trip"
   />
   <div
@@ -20,7 +21,7 @@
     ></app-button>
   </div>
   <div class="flex justify-between items-center">
-    <h2 class="mt-4 xl:text-4xl xl:absolute xl:top-[14%]">Australie</h2>
+    <h2 class="mt-4 xl:text-4xl xl:absolute xl:top-[14%]">{{userDetail.localisation}}</h2>
   </div>
 
   <span
