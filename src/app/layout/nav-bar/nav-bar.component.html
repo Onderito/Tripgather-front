@@ -21,12 +21,14 @@
           <img src="{{ publish }}" alt="" />Publier votre annonce
         </li>
         <li
+          *ngIf="userLogged"
           (click)="onChangeRoute('favorite')"
           class="flex items-center gap-2 cursor-pointer hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
           <img src="{{ heart }}" alt="" />Favoris
         </li>
         <li
+          *ngIf="userLogged"
           (click)="onChangeRoute('notification')"
           class="flex items-center gap-2 cursor-pointer hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
@@ -97,12 +99,14 @@
         <img src="{{ publish }}" alt="" />Publier votre annonce
       </li>
       <li
+        *ngIf="userLogged"
         (click)="onChangeRoute('favorite')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ heart }}" alt="" />Favoris
       </li>
       <li
+        *ngIf="userLogged"
         (click)="onChangeRoute('notification')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
@@ -127,7 +131,11 @@
       <li (click)="onChangeRoute('home')" class="mt-5">
         <img src="{{ home }}" alt="home icon" />
       </li>
-      <li (click)="onChangeRoute('notification')" class="mt-5">
+      <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('notification')"
+        class="mt-5"
+      >
         <img src="{{ notif }}" alt="" />
       </li>
       <li
@@ -136,10 +144,10 @@
       >
         <img src="{{ publishNav }}" alt="" />
       </li>
-      <li (click)="onChangeRoute('auth/login')" class="mt-5">
+      <li *ngIf="!userLogged" (click)="onChangeRoute('auth/login')" class="mt-5">
         <img src="{{ profile }}" alt="" />
       </li>
-      <li (click)="onChangeRoute('favorite')" class="mt-5">
+      <li *ngIf="userLogged" (click)="onChangeRoute('favorite')" class="mt-5">
         <img src="{{ heart }}" alt="" />
       </li>
     </ul>
