@@ -1,5 +1,5 @@
 <section class="container mx-auto">
-  <div *ngIf="!noData" class="p-7">
+  <div class="p-7">
     <form
       class="flex flex-col md:flex-row items-start mt-12 px-4 md:px-20 justify-around font-mont"
     >
@@ -90,13 +90,10 @@
       </div>
     </form>
   </div>
-    <div class="mt-24">
-      <app-main-card
-        class="cursor-pointer"
-        [cardData]="instances"
-      ></app-main-card>
-    </div>
+  <div class="mt-24">
+    <app-main-card [cardData]="instances"></app-main-card>
+  </div>
   <div class="flex justify-center items-center mt-24">
-    <app-empty-trip *ngIf="!noData" ></app-empty-trip>
+    <app-empty-trip *ngIf="!noData"></app-empty-trip>
   </div>
 </section>
