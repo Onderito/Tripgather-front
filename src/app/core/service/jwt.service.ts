@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JwtService {
-
   getDecodedToken(): any {
     const token = this.getToken();
-    return token ? jwt_decode(token) : null;
   }
 
   getToken(): string | null {
@@ -30,7 +27,3 @@ export class JwtService {
     localStorage.removeItem('token');
   }
 }
-function jwt_decode(token: string): any {
-  throw new Error('Function not implemented.');
-}
-
