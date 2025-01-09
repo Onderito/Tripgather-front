@@ -21,7 +21,7 @@ export class NavBarComponent {
   isMenuOpen = false; // Suivi de l'état du menu
   userLogged: boolean = false;
 
-  constructor(private Route: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.isAuthenticated.subscribe((isLogged) => {
@@ -39,8 +39,18 @@ export class NavBarComponent {
     });
   }
 
+  redirection(route: string) {
+    if (this.userLogged) {
+      // Si l'utilisateur est authentifié, redirige vers la route spécifiée
+      this.router.navigate([`/${route}`]);
+    } else {
+      // Si l'utilisateur n'est pas authentifié, redirige vers la page de login
+      this.router.navigate(['/auth/login']);
+    }
+  }
+
   onChangeRoute(url: string) {
-    this.Route.navigate([url]);
+    this.router.navigate([url]);
     this.closeMenu(); // Ferme la navbar après la navigation
   }
 
