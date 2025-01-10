@@ -1,22 +1,16 @@
 import { Component } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { MainCardComponent } from '../../shared/components/main-card/main-card.component';
-import { EmptyFavoriteComponent } from '../../shared/components/empty-data/empty-favorite/empty-favorite.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-favorite-page',
   standalone: true,
-  imports: [
-    CarouselModule,
-    MainCardComponent,
-    EmptyFavoriteComponent,
-    CommonModule,
-  ],
-  templateUrl: './favorite-page.component.html',
-  styleUrl: './favorite-page.component.scss',
+  imports: [CarouselModule, MainCardComponent, CommonModule],
+  templateUrl: './mytrip-page.component.html',
+  styleUrl: './mytrip-page.component.scss',
 })
-export class FavoritePageComponent {
+export class MytripPageComponent {
   heart: string = '/assets/icons/heart.svg';
   noData: boolean = false;
   carouselValue = [];

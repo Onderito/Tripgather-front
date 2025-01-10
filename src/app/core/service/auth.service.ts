@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { JwtService } from './jwt.service';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,11 @@ export class AuthService {
   private authSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated = this.authSubject.asObservable();
 
-  constructor(private http: HttpClient, private jwtService: JwtService) {}
+  constructor(
+    private http: HttpClient,
+    private jwtService: JwtService,
+    private router: Router
+  ) {}
 
   login(email: string, password: string): Observable<any> {
     return this.http
@@ -47,7 +52,7 @@ export class AuthService {
 
   logout(): void {
     this.jwtService.removeToken();
-    localStorage.clear();
-    window.location.href = '/';
+    this.authSubject.next(false);
+    this.router.navigate(['/']);
   }
 }
