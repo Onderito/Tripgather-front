@@ -8,7 +8,7 @@ import { MainLayoutComponent } from './routing/main-layout-component/main-layout
 import { AuthLayoutComponent } from './routing/auth-layout-component/auth-layout-component.component';
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
 import { SelectedPageComponent } from './page/selected-page/selected-page.component';
-import { TripPageComponent } from './page/mytrip-page/mytrip-page.component';
+import { MytripPageComponent } from './page/mytrip-page/mytrip-page.component';
 
 export const routes: Routes = [
   {
@@ -17,7 +17,7 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: MainPageComponent },
       { path: 'createevent', component: CreateeventPageComponent },
-      { path: 'trip', component: TripPageComponent },
+      { path: 'trip', component: MytripPageComponent },
       { path: 'notification', component: NotificationPageComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'selected', component: SelectedPageComponent },

@@ -2,11 +2,17 @@ import { Component } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { MainCardComponent } from '../../shared/components/main-card/main-card.component';
 import { CommonModule } from '@angular/common';
+import { EmptyMytripComponent } from '../../shared/components/empty-data/empty-mytrip/empty-mytrip.component';
 
 @Component({
   selector: 'app-favorite-page',
   standalone: true,
-  imports: [CarouselModule, MainCardComponent, CommonModule],
+  imports: [
+    CarouselModule,
+    MainCardComponent,
+    CommonModule,
+    EmptyMytripComponent,
+  ],
   templateUrl: './mytrip-page.component.html',
   styleUrl: './mytrip-page.component.scss',
 })
