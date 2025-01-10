@@ -47,5 +47,7 @@ export class AuthService {
 
   logout(): void {
     this.jwtService.removeToken();
+    localStorage.clear();
+    window.location.href = '/';
   }
 }

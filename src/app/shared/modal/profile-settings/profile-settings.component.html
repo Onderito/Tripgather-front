@@ -1,18 +1,21 @@
 <div class="max-w-xs rounded-lg">
   <ul class="flex flex-col gap-4">
-    <li class="flex items-center gap-1">
+    <li class="flex items-center gap-1 cursor-pointer">
       <img class="w-6" src="{{ changePassword }}" alt="change password icon" />
       Changer mon mot de passe
     </li>
-    <li class="flex items-center gap-1">
+    <li class="flex items-center gap-1 cursor-pointer">
       <img class="w-6" src="{{ changeEmail }}" alt="change email icon" />
       Changer mon email
     </li>
-    <li class="flex items-center gap-1">
+    <li class="flex items-center gap-1 cursor-pointer">
       <img class="w-6" src="{{ deleteAccount }}" alt="delete account icon" />
       Supprimer mon compte
     </li>
-    <li class="flex items-center gap-1">
+    <li
+      (click)="onClickLogout()"
+      class="flex items-center gap-1 cursor-pointer"
+    >
       <img class="w-6" src="{{ disconnect }}" alt="disconnect icon" /> Se
       déconnecter
     </li>

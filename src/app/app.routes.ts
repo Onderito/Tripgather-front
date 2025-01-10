@@ -19,9 +19,9 @@ export const routes: Routes = [
       { path: 'createevent', component: CreateeventPageComponent },
       { path: 'favorite', component: FavoritePageComponent },
       { path: 'notification', component: NotificationPageComponent },
-      { path: 'profilepage', component: ProfilePageComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'selected', component: SelectedPageComponent },
+      { path: 'profilepage', component: ProfilePageComponent },
     ],
   },
   {
