@@ -118,6 +118,13 @@
       >
         <img src="{{ profile }}" alt="" />Connexion
       </li>
+      <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('/auth/profilepage')"
+        class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ profile }}" alt="" />Profile
+      </li>
     </ul>
   </div>
 </nav>
@@ -131,11 +138,7 @@
       <li (click)="onChangeRoute('home')" class="mt-5">
         <img src="{{ home }}" alt="home icon" />
       </li>
-      <li
-        *ngIf="userLogged"
-        (click)="onChangeRoute('notification')"
-        class="mt-5"
-      >
+      <li (click)="redirection('notification')" class="mt-5">
         <img src="{{ notif }}" alt="" />
       </li>
       <li
@@ -144,10 +147,21 @@
       >
         <img src="{{ publishNav }}" alt="" />
       </li>
-      <li *ngIf="!userLogged" (click)="onChangeRoute('auth/login')" class="mt-5">
+      <li
+        *ngIf="!userLogged"
+        (click)="onChangeRoute('auth/login')"
+        class="mt-5"
+      >
         <img src="{{ profile }}" alt="" />
       </li>
-      <li *ngIf="userLogged" (click)="onChangeRoute('favorite')" class="mt-5">
+      <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('/auth/profilepage')"
+        class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ profile }}" alt="" />
+      </li>
+      <li (click)="redirection('favorite')" class="mt-5">
         <img src="{{ heart }}" alt="" />
       </li>
     </ul>
