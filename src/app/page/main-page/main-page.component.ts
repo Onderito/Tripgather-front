@@ -9,6 +9,7 @@ import { CreateEventService } from '../../core/service/create-event.service';
 import { catchError, combineLatest, debounceTime, Observable, of, startWith, switchMap } from 'rxjs';
 import { EventData } from '../../core/interface/formEvent';
 import { EventDataForm } from '../../models/eventData';
+import { PRIMENG } from '../../../primeNgImport';
 
 @Component({
   selector: 'app-main-page',
@@ -18,7 +19,8 @@ import { EventDataForm } from '../../models/eventData';
     CommonModule,
     ButtonComponent,
     EmptyTripComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PRIMENG
   ],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
@@ -29,6 +31,7 @@ export class MainPageComponent {
   event$: Observable<EventDataForm[]>; 
   errorMessage: string | null = null; 
   noData : boolean = true;
+  gender : any[] = [{name : "MIXTE"},{name : "HOMME"},{name : "FEMME"}]
 
   constructor(private fb: FormBuilder, private pipeeventService: PipeeventService) {
     this.search = this.fb.group({
@@ -45,7 +48,7 @@ export class MainPageComponent {
       switchMap((formValues) =>
         this.pipeeventService.getEventPipe({
           localisation: formValues.localisation || undefined,
-          gender: formValues.gender || undefined,
+          gender: formValues.gender && typeof formValues.gender === 'object' ? formValues.gender.name : formValues.gender || undefined,
           title: formValues.title || undefined,
           // toDate: formValues.toDate || undefined,
           // fromDate: formValues.fromDate || undefined,
