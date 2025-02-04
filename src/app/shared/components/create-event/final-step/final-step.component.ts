@@ -87,11 +87,10 @@ export class FinalStepComponent {
         maxParticipant: this.receivedData.nbMember || 0,
         price: this.receivedData.budget ? `${this.receivedData.budget} €` : 'Gratuit',
         description: this.receivedData.editorContent || '',
-        owner: 1,
         imgUrl: Array.isArray(this.receivedData.url) ? this.receivedData.url : [this.receivedData.url],
         categories: this.receivedData.selectedCategories?.map((cat: any) => ({ id: cat.id })) || [],
         gender: this.mapGender(this.receivedData.gender),
-        mixte: this.receivedData.gender === 'Mixte'
+        owner : {"id" : 8}
       };
   
       delete transformedData.start;
