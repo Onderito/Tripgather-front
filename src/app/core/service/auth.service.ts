@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { JwtService } from './jwt.service';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,11 @@ export class AuthService {
   private authSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated = this.authSubject.asObservable();
 
-  constructor(private http: HttpClient, private jwtService: JwtService) {}
+  constructor(
+    private http: HttpClient, 
+    private jwtService: JwtService,
+    private userService : UserService
+  ) {}
 
   login(email: string, password: string): Observable<any> {
     return this.http
@@ -22,7 +27,7 @@ export class AuthService {
           if (response && response.token) {
             this.jwtService.storeToken(response.token);
             this.authSubject.next(true);
-            console.log(this.isAuthenticated, 'ouais c moi jsuis co');
+            this.userService.upadateValue(response.user)
           }
         }),
         catchError((error) => {

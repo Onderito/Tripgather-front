@@ -2,13 +2,14 @@
   <div class="p-7">
     <form
       class="flex flex-col md:flex-row items-start mt-12 px-4 md:px-20 justify-around font-mont"
+      [formGroup]="search"
     >
       <!-- Dropdown pour mobile -->
       <div class="w-full md:hidden relative">
         <input
           class="w-full px-4 py-2 border rounded focus:outline-none"
           type="text"
-          formControlName="city"
+          formControlName="localisation"
           placeholder="Rechercher par ville"
         />
         <app-button
@@ -27,27 +28,35 @@
           <input
             class="w-full px-4 py-2 border rounded focus:outline-none"
             type="text"
-            formControlName="state"
+            formControlName="localisation"
             placeholder="Pays"
           />
+          <p-dropdown
+          class="w-1/4 px-2 py-2 border-[#CCCCCC] font-mont border rounded focus:outline-none text-black"
+          [options]="gender"
+            formControlName="gender"
+            optionLabel="name"
+            placeholder="Genre"
+          >
+          </p-dropdown>
           <input
             class="w-full px-4 py-2 border rounded focus:outline-none"
             type="text"
-            formControlName="sexe"
-            placeholder="Genre"
+            formControlName="title"
+            placeholder="Titre"
           />
           <input
             class="w-full px-4 py-2 border rounded focus:outline-none"
             id="start"
             type="text"
-            formControlName="start"
+            formControlName="fromDate"
             placeholder="DD/MM/YYYY"
           />
           <input
             class="w-full px-4 py-2 border rounded focus:outline-none"
             id="back"
             type="text"
-            formControlName="back"
+            formControlName="toDate"
             placeholder="DD/MM/YYYY"
           />
         </div>
@@ -56,44 +65,51 @@
       <!-- Inputs originaux pour tablette et plus -->
       <div class="hidden md:flex md:space-x-4">
         <input
-          class="w-1/4 px-4 py-2 border rounded focus:outline-none"
+          class="w-2/4 px-4 py-2 border rounded focus:outline-none"
           type="text"
-          formControlName="city"
+          formControlName="localisation"
           placeholder="Rechercher par ville"
         />
-        <input
-          class="w-1/6 px-4 py-2 border rounded focus:outline-none"
-          type="text"
-          formControlName="state"
-          placeholder="Pays"
-        />
-        <input
-          class="w-1/6 px-4 py-2 border rounded focus:outline-none"
-          type="text"
-          formControlName="sexe"
+        <p-dropdown
+        class="w-1/4 px-2 py-2 border-[#CCCCCC] font-mont border rounded focus:outline-none text-black"
+        [options]="gender"
+          formControlName="gender"
+          optionLabel="name"
           placeholder="Genre"
+        >
+        </p-dropdown>
+        <input
+          class="w-1/4 px-4 py-2 border rounded focus:outline-none"
+          type="text"
+          formControlName="title"
+          placeholder="Titre"
         />
         <input
-          class="w-1/6 px-4 py-2 border rounded focus:outline-none"
+          class="w-1/4 px-4 py-2 border rounded focus:outline-none"
           id="start"
           type="text"
-          formControlName="start"
+          formControlName="fromDate"
           placeholder="DD/MM/YYYY"
         />
         <input
-          class="w-1/6 px-4 py-2 border rounded focus:outline-none"
+          class="w-1/4 px-4 py-2 border rounded focus:outline-none"
           id="back"
           type="text"
-          formControlName="back"
+          formControlName="toDate"
           placeholder="DD/MM/YYYY"
         />
       </div>
     </form>
   </div>
   <div class="mt-24">
-    <app-main-card [cardData]="instances"></app-main-card>
-  </div>
-  <div class="flex justify-center items-center mt-24">
-    <app-empty-trip *ngIf="!noData"></app-empty-trip>
+    <app-main-card
+      *ngIf="event$ | async as events; else noDataTemplate"
+      [cardData]="events"
+    ></app-main-card>
+    <ng-template #noDataTemplate>
+      <div class="flex justify-center items-center mt-24">
+        <app-empty-trip *ngIf="noDataTemplate"></app-empty-trip>
+      </div>
+    </ng-template>
   </div>
 </section>
