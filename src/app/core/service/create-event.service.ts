@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
 import { EventDTO } from '../../models/event';
 import { CategoryDTO } from '../../models/category';
 import { environment } from '../../../environments/environment';
@@ -40,10 +40,28 @@ export class CreateEventService {
     )
   }
 
-  // API call to get a single event by ID (GET request)
-  getEventById(id: number): Observable<EventDTO> {
-    return this.http.get<EventDTO>(`${this.apiUrl}/${id}`);
+  getEventById(id : number) : Observable<any> {
+    return this.http.get<any>(`/events/user/${id}`).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la mise à jour de l\'utilisateur', error);
+        return of(null);
+      })
+    )
   }
+
+  postUserInEvent(userId: number, eventId: number): Observable<any> {
+    return this.http.post<any>(`/events/${eventId}`, { userId }).pipe(
+      catchError((error) => {
+        console.log("Erreur lors de la mise à jour", error);
+        return of(null);
+      })
+    );
+  }  
+
+  // API call to get a single event by ID (GET request)
+  // getEventById(id: number): Observable<EventDTO> {
+  //   return this.http.get<EventDTO>(`${this.apiUrl}/${id}`);
+  // }
 
   // API call for updating an event (PUT request)
   updateEvent(id: number, eventDTO: EventDTO): Observable<EventDTO> {
@@ -54,4 +72,5 @@ export class CreateEventService {
   deleteEvent(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
 }
