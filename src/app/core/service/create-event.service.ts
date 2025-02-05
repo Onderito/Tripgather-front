@@ -49,6 +49,15 @@ export class CreateEventService {
     )
   }
 
+  postUserInEvent(userId: number, eventId: number): Observable<any> {
+    return this.http.post<any>(`/events/${eventId}`, { userId }).pipe(
+      catchError((error) => {
+        console.log("Erreur lors de la mise à jour", error);
+        return of(null);
+      })
+    );
+  }  
+
   // API call to get a single event by ID (GET request)
   // getEventById(id: number): Observable<EventDTO> {
   //   return this.http.get<EventDTO>(`${this.apiUrl}/${id}`);
