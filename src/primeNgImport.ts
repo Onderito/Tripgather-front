@@ -15,6 +15,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import {SliderModule} from 'primeng/slider';
 import { FieldsetModule } from 'primeng/fieldset';
 import { AvatarModule } from 'primeng/avatar';
+import { DialogModule } from 'primeng/dialog';
+
 
 export const PRIMENG = [
   ButtonModule,
@@ -33,5 +35,6 @@ export const PRIMENG = [
   InputSwitchModule,
   SliderModule,
   FieldsetModule,
-  AvatarModule
+  AvatarModule,
+  DialogModule
 ];

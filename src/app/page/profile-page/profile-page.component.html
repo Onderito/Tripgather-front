@@ -3,33 +3,56 @@
 >
   <h2 class="text-3xl font-normal font-mont pb-4 pt-4">Profil</h2>
   <div class="rounded-lg shadow-custom p-4 relative overflow-hidden">
-    <img class="absolute top-0 right-[-11%] w-[30%] hidden lg:block" src={{blob}} alt="blob">
-    <div class="flex flex-col lg:flex gap-7 md:gap-20 md:flex-row md:justify-start ">
-      <div class="flex flex-col justify-center items-center ">
+    <img
+      class="absolute top-0 right-[-11%] w-[30%] hidden lg:block"
+      src="{{ blob }}"
+      alt="blob"
+    />
+    <div
+      class="flex flex-col lg:flex gap-7 md:gap-20 md:flex-row md:justify-start"
+    >
+      <div class="flex flex-col justify-center items-center">
         <img
-          class="w-[150px] h-150px]"
+          class="w-[150px] h-150px] rounded-full"
           src="{{ fakeData.imageUrl }}"
           alt="piture profile"
         />
-        <div class="flex justify-center flex-col items-center gap-3 mt-4 font-mont" >
-          <h4 class="font-medium text-xl" >{{ fakeData.firstName }}</h4>
+        <div
+          class="flex justify-center flex-col items-center gap-3 mt-4 font-mont"
+        >
+          <h4 class="font-medium text-xl">{{ userData.firstName }}</h4>
           <div class="flex gap-4 text-[#828282] text-md font-extralight">
-            <p>{{ fakeData.country }}</p>
-            <p>{{ fakeData.birthDate }} ans</p>
+            <p>{{ userData.country }}</p>
+            <p>{{ calculateAge(userData.birthDate) }} ans</p>
           </div>
         </div>
       </div>
       <div class="flex flex-col mt-2 md:mt-4 w-[100%] md:w-[60%]">
         <div class="flex justify-between items-center">
-          <div class="flex gap-2" >
+          <div class="flex gap-2">
             <h5 class="font-medium text-xl">Biographie</h5>
-            <img src={{edit}} alt="edit">
+            <img src="{{ edit }}" alt="edit" />
           </div>
-          
-          <img src={{setting}} alt="setting">
+
+          <p-button
+            class="ml-32 sm:ml-80 md:ml-40 xl:ml-96"
+            (click)="openModal()"
+            ><img src="{{ setting }}" alt="setting icon"
+          /></p-button>
+
+          <p-dialog
+            header="Paramètre"
+            [modal]="true"
+            [(visible)]="visible"
+            [style]="{ width: '300px' }"
+          >
+          <app-profile-settings></app-profile-settings>
+          </p-dialog>
         </div>
-        <div class="flex font-extralight text-[#828282] mt-5">
-          {{ fakeData.bio }}
+        <div
+          class="text-xs md:text-sm flex font-extralight text-[#828282] mt-5"
+        >
+          {{ userData.bio }}
         </div>
       </div>
     </div>
