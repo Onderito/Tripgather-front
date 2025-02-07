@@ -18,7 +18,7 @@ export class NavBarComponent {
   publish = '/assets/icons/publish.svg';
   publishNav = '/assets/icons/publishNav.svg';
   profile = '/assets/icons/profile.svg';
-  isMenuOpen = false; // Suivi de l'état du menu
+  isMenuOpen = false;
   userLogged: boolean = false;
 
   constructor(private router: Router, private authService: AuthService) {}
@@ -41,17 +41,15 @@ export class NavBarComponent {
 
   redirection(route: string) {
     if (this.userLogged) {
-      // Si l'utilisateur est authentifié, redirige vers la route spécifiée
       this.router.navigate([`/${route}`]);
     } else {
-      // Si l'utilisateur n'est pas authentifié, redirige vers la page de login
       this.router.navigate(['/auth/login']);
     }
   }
 
   onChangeRoute(url: string) {
     this.router.navigate([url]);
-    this.closeMenu(); // Ferme la navbar après la navigation
+    this.closeMenu();
   }
 
   toggleMenu() {

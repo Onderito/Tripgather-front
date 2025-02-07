@@ -5,6 +5,7 @@ import { JwtService } from './jwt.service';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private jwtService: JwtService,
-    private router: Router
+    private userService: UserService
   ) {}
 
   login(email: string, password: string): Observable<any> {
@@ -27,7 +28,7 @@ export class AuthService {
           if (response && response.token) {
             this.jwtService.storeToken(response.token);
             this.authSubject.next(true);
-            console.log(this.isAuthenticated, 'ouais c moi jsuis co');
+            this.userService.upadateValue(response.user);
           }
         }),
         catchError((error) => {
@@ -52,7 +53,7 @@ export class AuthService {
 
   logout(): void {
     this.jwtService.removeToken();
-    this.authSubject.next(false);
-    this.router.navigate(['/']);
+    // this.authSubject.next(false);
+    // this.router.navigate(['/']);
   }
 }

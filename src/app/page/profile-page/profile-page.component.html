@@ -13,17 +13,17 @@
     >
       <div class="flex flex-col justify-center items-center">
         <img
-          class="w-[150px] h-150px]"
+          class="w-[150px] h-150px] rounded-full"
           src="{{ fakeData.imageUrl }}"
           alt="piture profile"
         />
         <div
           class="flex justify-center flex-col items-center gap-3 mt-4 font-mont"
         >
-          <h4 class="font-medium text-xl">{{ fakeData.firstName }}</h4>
+          <h4 class="font-medium text-xl">{{ userData.firstName }}</h4>
           <div class="flex gap-4 text-[#828282] text-md font-extralight">
-            <p>{{ fakeData.country }}</p>
-            <p>{{ fakeData.birthDate }} ans</p>
+            <p>{{ userData.country }}</p>
+            <p>{{ calculateAge(userData.birthDate) }} ans</p>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <div
           class="text-xs md:text-sm flex font-extralight text-[#828282] mt-5"
         >
-          {{ fakeData.bio }}
+          {{ userData.bio }}
         </div>
       </div>
     </div>

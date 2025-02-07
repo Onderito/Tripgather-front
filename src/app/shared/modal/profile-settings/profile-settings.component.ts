@@ -10,6 +10,7 @@ import { AuthService } from '../../../core/service/auth.service';
 })
 export class ProfileSettingsComponent {
   constructor(private authService: AuthService) {}
+
   changePassword: string = '/assets/icons/password.svg';
   changeEmail: string = '/assets/icons/mail.svg';
   deleteAccount: string = '/assets/icons/trash.svg';

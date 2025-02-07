@@ -22,48 +22,6 @@ import { Router } from '@angular/router';
 export class FinalStepComponent {
   receivedData: any;
   blob: string = 'assets/blob/blob.svg';
-  // fakeData: any = {
-  //   title: 'Australie',
-  //   start: "Fri Oct 11 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
-  //   back: "Sat Oct 12 2024 00:00:00 GMT+0200 (heure d'été d'Europe centrale)",
-  //   budget: 3,
-  //   country: {
-  //     admin1: '10',
-  //     admin2: '38098',
-  //     country: 'AR',
-  //     displayName: 'Tumbaya (AR)',
-  //     lat: '-23.85814',
-  //     lng: '-65.46704',
-  //     name: 'Tumbaya',
-  //   },
-  //   editorContent:
-  //     'Venez passer un bon moment avec moi et mes  amis en Australie. Au programme, balade en moto et plus !  ',
-  //   gender: 'Femme',
-  //   nbMember: 2,
-  //   selectedCategories: [
-  //     {
-  //       category: 'Music',
-  //       color: 'rgba(255, 0, 0, 0.1)',
-  //       url: 'assets/imgs/music-circle.svg',
-  //     },
-  //     {
-  //       category: 'Art & culture',
-  //       color: 'rgba(0, 0, 255, 0.1)',
-  //       url: 'assets/imgs/book.svg',
-  //     },
-  //     {
-  //       category: 'Social activities',
-  //       color: 'rgba(0, 128, 0, 0.1)',
-  //       url: 'assets/imgs/gamepad.svg',
-  //     },
-  //     {
-  //       category: 'Social activities',
-  //       color: 'rgba(0, 128, 0, 0.1)',
-  //       url: 'assets/imgs/gamepad.svg',
-  //     },
-  //   ],
-  //   url: 'assets/imgs/travel-final-step.svg',
-  // };
   @Input() scale: number = 0;
 
   constructor(private formEvent: FormeventService,private createEventService: CreateEventService,private router: Router) {}
@@ -87,11 +45,10 @@ export class FinalStepComponent {
         maxParticipant: this.receivedData.nbMember || 0,
         price: this.receivedData.budget ? `${this.receivedData.budget} €` : 'Gratuit',
         description: this.receivedData.editorContent || '',
-        owner: 1,
         imgUrl: Array.isArray(this.receivedData.url) ? this.receivedData.url : [this.receivedData.url],
         categories: this.receivedData.selectedCategories?.map((cat: any) => ({ id: cat.id })) || [],
         gender: this.mapGender(this.receivedData.gender),
-        mixte: this.receivedData.gender === 'Mixte'
+        owner : {"id" : 8}
       };
   
       delete transformedData.start;
