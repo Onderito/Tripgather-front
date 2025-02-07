@@ -52,7 +52,7 @@ export class CreateEventService {
   postUserInEvent(userId: number, eventId: number): Observable<any> {
     return this.http.post<any>(`/events/${eventId}`, { userId }).pipe(
       catchError((error) => {
-        console.log("Erreur lors de la mise à jour", error);
+        console.log(error);
         return of(null);
       })
     );
