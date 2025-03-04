@@ -20,6 +20,12 @@ export class AuthService {
     private userService: UserService
   ) {}
 
+  // Méthode pour vérifier l'authentification
+  checkAuthentication(): boolean {
+    // Logique de vérification
+    return this.authSubject.value;
+  }
+
   login(email: string, password: string): Observable<any> {
     return this.http
       .post<{ token: string }>('/auth/login', { email, password })

@@ -9,6 +9,7 @@ import { AuthLayoutComponent } from './routing/auth-layout-component/auth-layout
 import { ProfilePageComponent } from './page/profile-page/profile-page.component';
 import { SelectedPageComponent } from './page/selected-page/selected-page.component';
 import { MytripPageComponent } from './page/mytrip-page/mytrip-page.component';
+import { AuthGuard } from './core/guard/auth.guards';
 
 export const routes: Routes = [
   {
@@ -21,7 +22,11 @@ export const routes: Routes = [
       { path: 'notification', component: NotificationPageComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'selected', component: SelectedPageComponent },
-      { path: 'profilepage', component: ProfilePageComponent },
+      {
+        path: 'profilepage',
+        component: ProfilePageComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
   {
