@@ -19,10 +19,9 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): boolean {
     if (!this.authService.checkAuthentication()) {
-      // Si l'utilisateur n'est pas authentifié, on le redirige vers la page de connexion
-      this.router.navigate(['/login']); // ou autre route selon votre besoin
+      this.router.navigate(['/login']);
       return false;
     }
-    return true; // Si l'utilisateur est authentifié, on permet l'accès à la route
+    return true;
   }
 }

@@ -17,9 +17,21 @@ export const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: 'home', component: MainPageComponent },
-      { path: 'createevent', component: CreateeventPageComponent },
-      { path: 'trip', component: MytripPageComponent },
-      { path: 'notification', component: NotificationPageComponent },
+      {
+        path: 'createevent',
+        component: CreateeventPageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'trip',
+        component: MytripPageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'notification',
+        component: NotificationPageComponent,
+        canActivate: [AuthGuard],
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'selected', component: SelectedPageComponent },
       {
