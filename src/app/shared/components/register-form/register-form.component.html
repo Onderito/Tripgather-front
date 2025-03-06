@@ -116,20 +116,25 @@
       </div>
 
       <!-- Password -->
-      <input
-        placeholder="Mot de passe"
-        type="password"
-        class="p-2 pl-2 text-white placeholder-white bg-transparent border rounded max-w-72 backdrop-blur-lg md:p-3 font-mont focus:outline-none"
-        [ngClass]="{
-          'border-white':
-            !(isSubmitted || registerForm.get('password')?.touched) ||
-            registerForm.get('password')?.valid,
-          'border-red-500':
-            (isSubmitted || registerForm.get('password')?.touched) &&
-            registerForm.get('password')?.invalid
-        }"
-        formControlName="password"
-      />
+      <div class="relative w-full max-w-72">
+        <input
+          placeholder="Mot de passe"
+          [type]="passwordVisible ? 'text' : 'password'"
+          class="p-2 pl-2 pr-8 text-white placeholder-white bg-transparent border rounded backdrop-blur-lg md:p-3 font-mont focus:outline-none w-full"
+          [ngClass]="{
+            'border-white': !(isSubmitted || registerForm.get('password')?.dirty) || registerForm.get('password')?.valid,
+            'border-red-500': (isSubmitted || registerForm.get('password')?.dirty) && registerForm.get('password')?.invalid
+          }"
+          formControlName="password"
+        />
+        <button
+          type="button"
+          (click)="togglePasswordVisibility()"
+          class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white"
+        >
+          <i [class]="passwordVisible ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+        </button>
+      </div>
       <div
         *ngIf="
           (isSubmitted || registerForm.get('password')?.dirty) &&
