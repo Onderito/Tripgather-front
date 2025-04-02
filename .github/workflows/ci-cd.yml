@@ -81,7 +81,7 @@ jobs:
       - name: 🐳 Build et run le conteneur sur le VPS
         run: |
           ssh -i ~/.ssh/id_ed25519_${{ secrets.PROJECT_NAME }} -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
-            cd /home/${{ secrets.VPS_USER }}/wild-blog-deploy &&
+            cd /home/${{ secrets.VPS_USER }}/${{ secrets.PROJECT_NAME }} &&
             docker stop ${{ secrets.PROJECT_NAME }} || true &&
             docker rm ${{ secrets.PROJECT_NAME }} || true &&
             docker build -t ${{ secrets.PROJECT_NAME }} . &&
