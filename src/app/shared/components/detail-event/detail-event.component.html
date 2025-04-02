@@ -2,22 +2,24 @@
   <ul class="flex gap-3 lg:gap-5">
     <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
       <img class="w-6 lg:w-7" src="{{ money }}" alt="icon argent" />
-      <span class="hover-tooltip">Budget: {{ detail.price }}</span>
+      <span class="hover-tooltip">Budget: {{ detail?.price }}</span>
     </li>
     <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
       <img class="w-6 lg:w-7" src="{{ user }}" alt="icon utilisateur" />
-      <span class="hover-tooltip">Participants: {{ detail.maxParticipant }}</span>
+      <span class="hover-tooltip"
+        >Participants: {{ detail?.maxParticipant }}</span
+      >
     </li>
     <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
       <img class="w-6 lg:w-7" src="{{ calendar }}" alt="icon calendrier" />
       <span class="hover-tooltip"
-        >Durée: {{ detail.fromDate | dateformat }} -
-        {{ detail.toDate | dateformat }}</span
+        >Durée: {{ detail?.fromDate | dateformat }} -
+        {{ detail?.toDate | dateformat }}</span
       >
     </li>
     <li class="bg-[#D5D5D5]/20 p-2 lg:p-3 rounded-full relative hover-item">
       <img src="{{ gender }}" class="w-6 lg:w-7" alt="icon utilisateur" />
-      <span class="hover-tooltip">Genre: {{ detail.gender }}</span>
+      <span class="hover-tooltip">Genre: {{ detail?.gender }}</span>
     </li>
   </ul>
 </div>

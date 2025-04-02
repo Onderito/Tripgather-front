@@ -2,8 +2,13 @@
   class="container mx-auto lg:flex lg:justify-center lg:mt-24 lg:gap-2 xl:gap-16"
 >
   <div class="xl:flex xl:flex-col">
-    <app-trip-details [EventId]="tripDetail.id" [userDetail]="tripDetail"></app-trip-details>
-    <app-host-profile [description]="tripDetail.description"></app-host-profile>
+    <app-trip-details
+      [EventId]="tripDetail?.id"
+      [userDetail]="tripDetail"
+    ></app-trip-details>
+    <app-host-profile
+      [description]="tripDetail?.description"
+    ></app-host-profile>
   </div>
   <div class="flex flex-col lg:gap-2 xl:gap-8">
     <app-secondary-card [tripDetail]="tripDetail"></app-secondary-card>

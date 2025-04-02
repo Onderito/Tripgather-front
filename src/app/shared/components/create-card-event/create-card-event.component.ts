@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PRIMENG } from '../../../../primeNgImport.js';
+import { PRIMENG } from '../../../../primeNgImport';
 
 interface CardState {
   isGreenBorder: boolean;
@@ -11,7 +11,7 @@ interface CardState {
   standalone: true,
   imports: [PRIMENG],
   templateUrl: './create-card-event.component.html',
-  styleUrls: ['./create-card-event.component.scss'] 
+  styleUrls: ['./create-card-event.component.scss'],
 })
 export class CreateCardEventComponent {
   music: string = 'assets/imgs/music-circle.svg';
@@ -22,15 +22,20 @@ export class CreateCardEventComponent {
   @Input() data: any;
 
   ngOnInit() {
-    // Initialize card states with default values
-    this.cardStates = this.data.map(() => ({
-      isGreenBorder: false,
-      isClicked: false,
-    }));
+    if (this.data && Array.isArray(this.data)) {
+      this.cardStates = this.data.map(() => ({
+        isGreenBorder: false,
+        isClicked: false,
+      }));
+    } else {
+      console.error('data is undefined or not an array', this.data);
+      this.cardStates = [];
+    }
   }
 
   toggleBorder(index: number) {
-    this.cardStates[index].isGreenBorder = !this.cardStates[index].isGreenBorder;
+    this.cardStates[index].isGreenBorder =
+      !this.cardStates[index].isGreenBorder;
   }
 
   sendCategory(ctgy: any, index: number) {

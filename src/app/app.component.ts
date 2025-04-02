@@ -5,19 +5,21 @@ import { PRIMENG } from '../primeNgImport';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,PRIMENG],
+  imports: [RouterOutlet, PRIMENG],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  title = 'tripgather-front';
+
   showNavBar: boolean = true;
 
   constructor(private router: Router) {
     this.router.events.subscribe(() => {
       const currentRoute = this.router.url;
-      this.showNavBar = !(currentRoute === '/login' || currentRoute === '/register');
+      this.showNavBar = !(
+        currentRoute === '/login' || currentRoute === '/register'
+      );
     });
   }
-
 }

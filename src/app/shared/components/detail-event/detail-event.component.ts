@@ -10,7 +10,7 @@ import { DateformatPipe } from '../../pipe/dateformat.pipe';
   styleUrl: './detail-event.component.scss',
 })
 export class DetailEventComponent {
-  @Input() detail: any;
+  @Input() detail: any = {};
   money: string = 'assets/imgs/money-bag.svg';
   user: string = 'assets/imgs/users.svg';
   calendar: string = 'assets/imgs/calendar-check.svg';

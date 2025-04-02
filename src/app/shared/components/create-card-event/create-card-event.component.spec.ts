@@ -8,12 +8,12 @@ describe('CreateCardEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CreateCardEventComponent]
-    })
-    .compileComponents();
+      imports: [CreateCardEventComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CreateCardEventComponent);
     component = fixture.componentInstance;
+    component.data = [{ name: 'Angular' }, { name: 'Music' }]; // Initialisation de data
     fixture.detectChanges();
   });
 

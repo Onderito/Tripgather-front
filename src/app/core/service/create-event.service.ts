@@ -5,14 +5,13 @@ import { EventDTO } from '../../models/event';
 import { CategoryDTO } from '../../models/category';
 import { environment } from '../../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class CreateEventService {
   private apiUrl = `${environment.apiUrl}/events`;
-  private apiUrl2 = `${environment.apiUrl2}/categories`;
-  private categoriesUrl = `${environment.apiUrl2}/categories`;
+  private apiUrl2 = `${environment.apiUrl}/categories`;
+  private categoriesUrl = `${environment.apiUrl}/categories`;
 
   constructor(private http: HttpClient) {}
 
@@ -34,19 +33,19 @@ export class CreateEventService {
   // API call to get all events (GET request)
   getAllEvents(): Observable<EventDTO[]> {
     return this.http.get<EventDTO[]>('/events').pipe(
-      tap((res) =>{
+      tap((res) => {
         console.log(res);
       })
-    )
+    );
   }
 
-  getEventById(id : number) : Observable<any> {
+  getEventById(id: number): Observable<any> {
     return this.http.get<any>(`/events/user/${id}`).pipe(
       catchError((error) => {
-        console.error('Erreur lors de la mise à jour de l\'utilisateur', error);
+        console.error("Erreur lors de la mise à jour de l'utilisateur", error);
         return of(null);
       })
-    )
+    );
   }
 
   postUserInEvent(userId: number, eventId: number): Observable<any> {
@@ -56,7 +55,7 @@ export class CreateEventService {
         return of(null);
       })
     );
-  }  
+  }
 
   // API call to get a single event by ID (GET request)
   // getEventById(id: number): Observable<EventDTO> {
@@ -72,5 +71,4 @@ export class CreateEventService {
   deleteEvent(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
 }

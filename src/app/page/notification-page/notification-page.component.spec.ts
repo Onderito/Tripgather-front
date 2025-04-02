@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NotificationPageComponent } from './notification-page.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('NotificationPageComponent', () => {
   let component: NotificationPageComponent;
@@ -8,9 +8,9 @@ describe('NotificationPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NotificationPageComponent]
-    })
-    .compileComponents();
+      imports: [NotificationPageComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NotificationPageComponent);
     component = fixture.componentInstance;
