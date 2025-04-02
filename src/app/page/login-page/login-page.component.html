@@ -1,0 +1,28 @@
+<section>
+  <div class="bg-white w-full h-screen relative">
+    <div
+      class="background-overlay absolute inset-0 backdrop-blur-lg z-10"
+    ></div>
+    <div class="absolute z-20 flex flex-col justify-center items-center w-full">
+      <img
+        (click)="onChangeRoute('')"
+        class="absolute top-5 left-5 w-10 h-10 cursor-pointer hover:scale-110 duration-300"
+        src="{{ home }}"
+        alt="home icon"
+      />
+      <img
+        class="mt-32 w-52 md:w-72"
+        src="{{ tripLogoWhite }}"
+        alt="tripGather logo"
+      />
+
+      <app-login-form class="mt-20"></app-login-form>
+    </div>
+    <img
+      class="md:hidden w-full h-screen overflow-hidden relative z-0"
+      src="{{ imgMobile }}"
+      alt="mobile-img"
+    />
+    <img src="{{ imgTablette }}" class="hidden md:block w-full h-screen" />
+  </div>
+</section>

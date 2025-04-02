@@ -1,0 +1,72 @@
+input{
+    border: 1px solid #CCCCCC;
+    height: 50px;
+    border-radius: 7px;
+    padding-left: 1rem;
+}
+
+input::placeholder{
+    font-size: 1rem;
+    color: black;
+
+}
+input:focus {
+    outline: none;
+}
+:host ::ng-deep .p-dropdown {
+    padding: 0 !important;
+    border: 1px solid white !important;
+    border-radius: 4px !important;
+    color: black !important;
+    height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+  }
+  
+  :host ::ng-deep .p-dropdown-label {
+    padding-left: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    height: 100% !important;
+    color: rgb(0, 0, 0) !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-weight: 400 !important;
+  }
+  
+//   :host ::ng-deep .p-dropdown-trigger {
+//     display: flex !important;
+//     align-items: center !important;
+//     justify-content: center !important;
+//     height: 36px !important;
+//     padding: 0 !important;
+//     background-color: transparent !important;
+//     // color: white !important;
+//     font-family: "Montserrat", sans-serif !important;
+//     // font-weight: 400 !important;
+//     // box-shadow: none !important;
+//   }
+//   :host ::ng-deep .p-dropdown-panel .p-dropdown-item {
+//     height: 36px !important; /* Fixer la hauteur de chaque élément à 36px */
+//     display: flex !important;
+//     align-items: center !important; /* Centre verticalement le texte */
+//     padding-left: 10px !important; /* Assurez-vous que le texte est aligné à gauche */
+//     font-family: "Montserrat", sans-serif !important;
+//     font-weight: 400 !important;
+//     color: black !important; /* Couleur du texte pour correspondre à la liste blanche */
+//     box-shadow: none !important; /* Supprimer toute ombre */
+//   }
+  
+  :host ::ng-deep .p-dropdown-item.p-highlight {
+    background-color: #e0e0e0 !important; /* Couleur de surbrillance pour l'élément sélectionné */
+    color: white !important; /* Assurez-vous que le texte est lisible */
+  }
+  
+  :host ::ng-deep .p-dropdown-panel {
+    background-color: white !important; /* Fond blanc pour la liste déroulante */
+    border: 1px solid white !important;
+    color: white !important;
+  }

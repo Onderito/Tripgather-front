@@ -1,0 +1,131 @@
+<section
+  class="container mx-auto p-4 xl:p-0 -z-50 md:w-full md:max-w-3xl lg:max-w-7xl md:mt-5"
+>
+  <form class="w-full font-mont" [formGroup]="form" (ngSubmit)="sendData()">
+    <h1>Création de votre annonce</h1>
+
+    <div class="grid grid-cols-2 gap-4 mt-9">
+      <div class="w-full">
+        <div class="mb-12 w-full">
+          <p-floatLabel>
+            <input
+              pInputText
+              id="title"
+              formControlName="title"
+              class="border-2 border-gray-400 w-full"
+              style="border-width: 0.5px"
+            />
+            <label
+              class="text-base font-medium leading-none text-black"
+              for="title"
+              >Titre</label
+            >
+          </p-floatLabel>
+        </div>
+
+        <div class="flex flex-col w-full gap-12">
+          <p-floatLabel>
+            <p-calendar
+              [showIcon]="true"
+              [showOnFocus]="false"
+              [touchUI]="true"
+              [readonlyInput]="true"
+              [minDate]="minDate"
+              id="start"
+              formControlName="start"
+              class="calendar-1"
+            ></p-calendar>
+            <label
+              for="start"
+              class="w-full text-base font-medium leading-none text-black"
+              >Départ</label
+            >
+          </p-floatLabel>
+
+          <p-floatLabel>
+            <p-calendar
+              [showIcon]="true"
+              [showOnFocus]="false"
+              [touchUI]="true"
+              [readonlyInput]="true"
+              id="back"
+              formControlName="back"
+              class="calendar-2"
+            ></p-calendar>
+            <label
+              for="back"
+              class="text-base font-medium leading-none text-black"
+              >Retour</label
+            >
+            <span *ngIf="form.hasError('backBeforeStart')">
+              <p class="text-black">Commencez par choisir la date de départ</p>
+            </span>
+          </p-floatLabel>
+        </div>
+
+        <div class="flex flex-col gap-12 mt-12">
+          <p-floatLabel>
+            <p-inputNumber
+              id="nbmember"
+              formControlName="nbMember"
+              class="h-[48px] w-full min-w-60"
+            />
+            <label
+              class="ml-3 text-base font-medium leading-none text-black"
+              for="title"
+              >Participants</label
+            >
+          </p-floatLabel>
+
+          <p-floatLabel>
+            <p-inputNumber
+              id="budget"
+              formControlName="budget"
+              class="h-[48px] w-full min-w-60"
+            />
+            <label
+              class="ml-3 text-base font-medium leading-none text-black"
+              for="budget"
+              >Budget</label
+            >
+          </p-floatLabel>
+
+          <p-dropdown
+            placeholder="Genre"
+            id="gender"
+            class="gender"
+            [options]="gender"
+            formControlName="gender"
+          />
+        </div>
+      </div>
+      <div class="w-full">
+        <p-floatLabel>
+          <p-autoComplete
+            id="country"
+            formControlName="country"
+            [suggestions]="filteredCities"
+            (completeMethod)="onCityComplete($event)"
+            field="displayName"
+            class="city"
+          >
+          </p-autoComplete>
+
+          <label style="font-weight: 500; color: black" for="country"
+            >Ville</label
+          >
+        </p-floatLabel>
+      </div>
+    </div>
+
+    <div class="button-comp">
+      <app-button
+        type="submit"
+        [variant]="'primary'"
+        text="Continuer"
+        [sizeClasses]="'w-48 h-12 p-2'"
+        [disabled]="form.invalid"
+      ></app-button>
+    </div>
+  </form>
+</section>

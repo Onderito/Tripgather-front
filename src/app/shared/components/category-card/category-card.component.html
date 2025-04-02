@@ -1,0 +1,16 @@
+<div>
+  <ul class="flex gap-3 lg:gap-5">
+    <li
+      *ngFor="let categories of category"
+      class="p-2 lg:p-3 rounded-full relative hover-item"
+      [style.background]="categories.color"
+    >
+      <img
+        class="w-6 lg:w-7"
+        src="{{ categories.img }}"
+        alt="icon {{ categories.category }}"
+      />
+      <span class="hover-tooltip">{{ categories.name }}</span>
+    </li>
+  </ul>
+</div>

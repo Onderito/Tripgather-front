@@ -1,0 +1,32 @@
+<form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div class="flex flex-col">
+    <div class="flex flex-col">
+      <div class="flex flex-col gap-5">
+        <input
+          placeholder="Email"
+          type="email"
+          id="email"
+          class="pl-2 text-white placeholder-white bg-transparent border border-white rounded max-w-72 backdrop-blur-2xl p-2 md:p-3 font-mont focus:outline-none"
+          formControlName="email"
+        />
+        <input
+          placeholder="Mot de passe"
+          type="password"
+          id="password"
+          class="pl-2 text-white placeholder-white bg-transparent border border-white rounded max-w-72 backdrop-blur-2xl p-2 md:p-3 font-mont focus:outline-none"
+          formControlName="password"
+        />
+      </div>
+      <p class="mt-3 text-xs pl-16 leading-4 text-white font-mont mb-7">
+        Pas encore de compte ?
+        <a routerLink="/auth/register" class="underline">Je m'inscris</a>
+      </p>
+      <app-button
+        [sizeClasses]="'w-full p-3 md:p-3 text-white'"
+        type="submit"
+        [variant]="'primary'"
+        text="Se connecter"
+      ></app-button>
+    </div>
+  </div>
+</form>

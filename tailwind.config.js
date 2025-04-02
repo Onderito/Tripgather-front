@@ -3,6 +3,18 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+      },
+      screens: {
+        "900px": "900px",
+      },
       fontFamily: {
         mont: ["Montserrat"],
         lexend: ["Lexend"],
@@ -19,7 +31,7 @@ module.exports = {
     },
     boxShadow: {
       custom:
-        "0 1px 3px 0 rgba(47, 43, 67, .1), inset 0 -1px 0 0 rgba(47, 43, 67, .1)",
+        "0 1px 4px 0 rgba(47, 43, 67, .2), inset 0 -1px 0 0 rgba(47, 43, 67, .1)",
     },
     backgroundImage: {
       blurImage: "url('/assets/imgs/homeImgBlur.png')",

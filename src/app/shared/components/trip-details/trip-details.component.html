@@ -1,0 +1,33 @@
+<section class="lg:max-w-2xl xl:max-w-4xl m-4 lg:m-0">
+  <img
+    class="rounded-2xl lg:max-w-2xl xl:max-w-4xl xl:relative"
+    [src]="userDetail?.imgUrl[0]"
+    alt="image of trip"
+    width="1000px"
+  />
+  <div
+    class="mt-5 xl:mt-8 border-b border-[#E8E8E8] flex items-center justify-between gap-2 xl:gap-4 pb-4"
+  >
+    <div class="flex items-center gap-4">
+      <img class="xl:w-16" [src]="imgOfhost" alt="image of host" />
+      <h1 class="text-lg xl:text-xl xl:relative">Ulas Önder</h1>
+    </div>
+    <app-button
+      [sizeClasses]="
+        'bg-black w-fit xl:w-40 p-2 md:p-3 xl:p-3 text-white font-medium text-md xl:text-lg font-lexend    '
+      "
+      (click)="redirection()"
+      type="submit"
+      text="{{ participe }}"
+    ></app-button>
+  </div>
+  <div class="flex justify-between items-center">
+    <h2 class="mt-4 xl:text-4xl xl:absolute xl:top-[14%]">
+      {{ userDetail?.localisation }}
+    </h2>
+  </div>
+
+  <span
+    class="border-b border-[#E8E8E8] flex items-center gap-2 pb-4 xl:hidden"
+  ></span>
+</section>

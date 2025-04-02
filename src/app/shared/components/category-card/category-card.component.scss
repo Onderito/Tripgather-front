@@ -1,0 +1,20 @@
+.hover-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 100%; /* Place l’infobulle au-dessus de l'icône */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-bottom: 8px; /* Espace entre l’icône et l’infobulle */
+    z-index: 10;
+  }
+  
+  /* Affiche l’infobulle lors du survol de l'élément */
+  .hover-item:hover .hover-tooltip {
+    display: block;
+  }

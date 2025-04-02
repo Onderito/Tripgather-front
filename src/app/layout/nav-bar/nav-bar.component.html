@@ -1,42 +1,66 @@
-<nav class="container hidden md:block mx-auto">
+<nav class="container z-50 hidden mx-auto md:block">
   <div
     class="flex justify-between items-center lg:border-b lg:border-opacity-80 lg:border-[#CCCCCC]"
   >
     <!-- Logo -->
-    <img src="{{ logoURL }}" alt="logo" class="h-36 w-36 object-contain" />
+    <img src="{{ logoURL }}" alt="logo" class="object-contain w-32 h-32" />
 
     <!-- Menu Principal -->
     <div class="hidden lg:flex">
-      <ul class="list-none flex font-mont gap-8 text-lg">
+      <ul class="flex gap-8 text-lg list-none font-mont">
         <li
-          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          (click)="onChangeRoute('home')"
+          class="flex items-center gap-2 cursor-pointer hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
           <img src="{{ home }}" alt="home icon" />Accueil
         </li>
         <li
-          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          (click)="onChangeRoute('createevent')"
+          class="flex items-center gap-2 cursor-pointer hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
           <img src="{{ publish }}" alt="" />Publier votre annonce
         </li>
         <li
-          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          *ngIf="userLogged"
+          (click)="onChangeRoute('trip')"
+          class="flex items-center gap-2 cursor-pointer hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
-          <img src="{{ heart }}" alt="" />Favoris
+          <img src="{{ heart }}" alt="" />Voyage
         </li>
         <li
-          class="flex items-center gap-1 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 cursor-pointer"
+          *ngIf="userLogged"
+          (click)="onChangeRoute('notification')"
+          class="flex items-center gap-2 cursor-pointer hover:bg-primary/20 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
         >
           <img src="{{ notif }}" alt="" />Notifications
+        </li>
+        <li
+          *ngIf="!userLogged"
+          (click)="onChangeRoute('auth/login')"
+          class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+        >
+          <img src="{{ profile }}" alt="" />Connexion
+        </li>
+        <li
+          *ngIf="userLogged"
+          (click)="onChangeRoute('/profilepage')"
+          class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+        >
+          <img src="{{ profile }}" alt="" />Profile
         </li>
       </ul>
     </div>
 
     <!-- Bouton Menu Burger -->
     <div class="lg:hidden">
-      <button id="burgerMenu" class="text-gray-800 focus:outline-none">
+      <button
+        id="burgerMenu"
+        (click)="toggleMenu()"
+        class="text-gray-800 focus:outline-none"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8"
+          class="w-8 h-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -53,29 +77,53 @@
   </div>
 
   <!-- Menu déroulant Burger (caché par défaut) -->
-  <div id="menuDropdown" class="hidden lg:hidden">
+  <div
+    [ngClass]="{ hidden: !isMenuOpen }"
+    class="lg:hidden"
+    id="menuDropdown"
+    class="hidden lg:hidden"
+  >
     <ul
       class="list-none font-mont text-lg bg-white shadow-custom border-opacity-80 border-[#CCCCCC] rounded-md p-2"
     >
       <li
-        class="flex items-center hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105 gap-1 py-2"
+        (click)="onChangeRoute('home')"
+        class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ home }}" alt="home icon" />Accueil
       </li>
       <li
+        (click)="onChangeRoute('createevent')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ publish }}" alt="" />Publier votre annonce
       </li>
       <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('favorite')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
-        <img src="{{ heart }}" alt="" />Favoris
+        <img src="{{ heart }}" alt="" />Voyage
       </li>
       <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('notification')"
         class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
       >
         <img src="{{ notif }}" alt="" />Notifications
+      </li>
+      <li
+        (click)="onChangeRoute('auth/login')"
+        class="flex items-center gap-1 py-2 hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ profile }}" alt="" />Connexion
+      </li>
+      <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('/auth/profilepage')"
+        class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ profile }}" alt="" />Profile
       </li>
     </ul>
   </div>
@@ -84,16 +132,38 @@
 <!-- Menu pour mobile -->
 <div class="md:hidden">
   <nav
-    class="fixed bottom-0 left-0 w-full bg-white border-t border-[#C9C9C9] rounded-full"
+    class="fixed bottom-0 left-0 w-full bg-white border-t z-50 border-[#C9C9C9] rounded-full"
   >
     <ul class="flex justify-around p-2">
-      <li class="mt-5"><img src="{{ home }}" alt="home icon" /></li>
-      <li class="mt-5"><img src="{{ notif }}" alt="" /></li>
-      <li class="transform -translate-y-8 p-4 bg-primary rounded-full">
+      <li (click)="onChangeRoute('home')" class="mt-5">
+        <img src="{{ home }}" alt="home icon" />
+      </li>
+      <li (click)="redirection('notification')" class="mt-5">
+        <img src="{{ notif }}" alt="" />
+      </li>
+      <li
+        (click)="onChangeRoute('auth/login')"
+        class="p-4 transform -translate-y-8 rounded-full bg-primary"
+      >
         <img src="{{ publishNav }}" alt="" />
       </li>
-      <li class="mt-5"><img src="{{ profile }}" alt="" /></li>
-      <li class="mt-5"><img src="{{ heart }}" alt="" /></li>
+      <li (click)="redirection('trip')" class="mt-5">
+        <img src="{{ heart }}" alt="" />
+      </li>
+      <li
+        *ngIf="!userLogged"
+        (click)="onChangeRoute('auth/login')"
+        class="mt-5"
+      >
+        <img src="{{ profile }}" alt="page login" />
+      </li>
+      <li
+        *ngIf="userLogged"
+        (click)="onChangeRoute('/auth/profilepage')"
+        class="flex items-center gap-2 py-2 cursor-pointer hover:bg-primary/40 hover:rounded-md hover:duration-150 hover:ease-in hover:transform hover:w-fit hover:p-2 hover:scale-105"
+      >
+        <img src="{{ profile }}" alt="page profile" />
+      </li>
     </ul>
   </nav>
 </div>
