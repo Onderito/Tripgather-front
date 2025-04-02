@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClient } from '@angular/common/http';
 import { FinalStepComponent } from './final-step.component';
 
 describe('FinalStepComponent', () => {
@@ -8,9 +8,9 @@ describe('FinalStepComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FinalStepComponent]
-    })
-    .compileComponents();
+      imports: [FinalStepComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FinalStepComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MainLayoutComponent } from './main-layout-component.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('MainLayoutComponentComponent', () => {
   let component: MainLayoutComponent;
@@ -8,9 +8,9 @@ describe('MainLayoutComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MainLayoutComponent]
-    })
-    .compileComponents();
+      imports: [MainLayoutComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MainLayoutComponent);
     component = fixture.componentInstance;

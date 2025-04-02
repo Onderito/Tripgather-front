@@ -11,24 +11,19 @@ import { AutoCompleteCompleteEvent } from 'primeng/autocomplete'; // Import de l
 import { CommonModule } from '@angular/common';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { PRIMENG } from '../../../../../primeNgImport.js';
-import { ButtonComponent } from '../../utils/button/button.component.js';
-import { FormeventService } from '../../../../core/service/utils/formevent.service.js';
-import { CountryService } from '../../../../core/service/country.service.js';
+import { PRIMENG } from '../../../../../primeNgImport';
+import { ButtonComponent } from '../../utils/button/button.component';
+import { FormeventService } from '../../../../core/service/utils/formevent.service';
+import { CountryService } from '../../../../core/service/country.service';
 import { City } from '../../../../core/interface/city';
-import { CreateEventService } from '../../../../core/service/create-event.service.js';
+import { CreateEventService } from '../../../../core/service/create-event.service';
 
 @Component({
   selector: 'app-stepone',
   standalone: true,
   templateUrl: './stepone.component.html',
   styleUrls: ['./stepone.component.scss'],
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    PRIMENG,
-    ButtonComponent,
-  ],
+  imports: [ReactiveFormsModule, CommonModule, PRIMENG, ButtonComponent],
 })
 export class SteponeComponent {
   form: FormGroup;
@@ -37,7 +32,7 @@ export class SteponeComponent {
   gender = [
     { label: 'Femme', value: 'Femme' },
     { label: 'Homme', value: 'Homme' },
-  ];  
+  ];
   filteredCities: any[] = []; // Liste filtrée des villes
   test: string = '';
   private searchSubject = new Subject<string>(); // Ajout du Subject pour gérer la recherche
@@ -124,7 +119,7 @@ export class SteponeComponent {
   sendData() {
     if (this.form.valid) {
       this.formEvent.setData(this.form.value);
-        this.formEvent.nextStep();
+      this.formEvent.nextStep();
     }
-  }  
+  }
 }

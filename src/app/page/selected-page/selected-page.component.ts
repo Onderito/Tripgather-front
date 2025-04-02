@@ -14,21 +14,20 @@ import { CommonModule } from '@angular/common';
     HostProfileComponent,
     SecondaryCardComponent,
     ParticipantsListViewComponent,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './selected-page.component.html',
   styleUrl: './selected-page.component.scss',
 })
 export class SelectedPageComponent {
+  tripDetail: any = {};
 
-  tripDetail : any;
-
-  constructor(private selctedService : SelectedService) {}
+  constructor(private selctedService: SelectedService) {}
 
   ngOnInit() {
     this.selctedService.currentEventData.subscribe((res) => {
-      this.tripDetail = res
+      this.tripDetail = res;
       console.log(res, 'selected service data');
-    })
+    });
   }
 }

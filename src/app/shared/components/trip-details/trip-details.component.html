@@ -1,7 +1,7 @@
 <section class="lg:max-w-2xl xl:max-w-4xl m-4 lg:m-0">
   <img
     class="rounded-2xl lg:max-w-2xl xl:max-w-4xl xl:relative"
-    [src]="userDetail.imgUrl[0]"
+    [src]="userDetail?.imgUrl[0]"
     alt="image of trip"
     width="1000px"
   />
@@ -18,12 +18,12 @@
       "
       (click)="redirection()"
       type="submit"
-      text={{participe}}
+      text="{{ participe }}"
     ></app-button>
   </div>
   <div class="flex justify-between items-center">
     <h2 class="mt-4 xl:text-4xl xl:absolute xl:top-[14%]">
-      {{ userDetail.localisation }}
+      {{ userDetail?.localisation }}
     </h2>
   </div>
 
